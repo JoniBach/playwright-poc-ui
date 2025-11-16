@@ -1,47 +1,61 @@
 <script>
 	import GovUKPage from '$lib/components/GovUKPage.svelte';
-	import { Button, Heading, Paragraph } from '$lib/components/govuk';
+	import { Heading, Paragraph, Button } from '$lib/components/govuk';
 </script>
 
-<GovUKPage title="Welcome to GOV.UK">
+<GovUKPage title="GOV.UK Design System Examples">
 	{#snippet children()}
 		<Paragraph
-			text="This is a SvelteKit application using the GOV.UK Design System with reusable Svelte components."
+			text="Explore working examples of GOV.UK Design System components and patterns built with SvelteKit."
 			lead={true}
 		/>
 
-		<Heading text="Features" level="l" tag="h2" />
-		<ul class="govuk-list govuk-list--bullet">
-			<li>15+ reusable GOV.UK Design System components</li>
-			<li>Multi-page journey system following GDS patterns</li>
-			<li>Full TypeScript support with type-safe props</li>
-			<li>Dynamic component rendering from JSON configuration</li>
-			<li>Form validation and state management</li>
-			<li>Svelte 5 with modern runes syntax</li>
-		</ul>
-
 		<Heading text="Examples" level="l" tag="h2" />
-		<Paragraph
-			text="Explore the component library and see how to use them in your application."
-		/>
 
-		<div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-			<Button text="View all components" href="/components" startButton={true} />
-			<Button text="Dynamic rendering" href="/dynamic" variant="secondary" />
-			<Button text="Multi-page journey" href="/journey" variant="secondary" />
+		<div class="govuk-!-margin-bottom-8">
+			<Heading text="Apply for a passport" level="m" tag="h3" />
+			<p class="govuk-body">
+				A complete multi-page journey demonstrating form validation, state management, and the "Check your answers" pattern.
+			</p>
+			<Button text="Start now" href="/journey" startButton={true} />
 		</div>
 
-		<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible" />
+		<div class="govuk-!-margin-bottom-8">
+			<Heading text="Component showcase" level="m" tag="h3" />
+			<p class="govuk-body">
+				View all 15+ GOV.UK Design System components including buttons, forms, tables, and more.
+			</p>
+			<Button text="View components" href="/components" startButton={true} />
+		</div>
 
-		<Heading text="Quick Start" level="m" tag="h3" />
-		<Paragraph text="Import and use components in your Svelte pages:" />
+		<div class="govuk-!-margin-bottom-8">
+			<Heading text="Dynamic rendering" level="m" tag="h3" />
+			<p class="govuk-body">
+				See how pages can be built dynamically from JSON configuration.
+			</p>
+			<Button text="View example" href="/dynamic" startButton={true} />
+		</div>
 
-		<pre
-			style="background: #f3f2f1; padding: 1rem; overflow-x: auto; border-left: 4px solid #1d70b8;"
-		><code>{`import { Button, Heading, Paragraph } from '$lib/components/govuk';
+		<div class="govuk-!-margin-bottom-8">
+			<Heading text="Developer information" level="m" tag="h3" />
+			<p class="govuk-body">
+				Technical details, features, and quick start guide for developers.
+			</p>
+			<Button text="View documentation" href="/info" startButton={true} />
+		</div>
 
-<Heading text="Page Title" level="xl" tag="h1" />
-<Paragraph text="Your content here" />
-<Button text="Click me" onclick={() => alert('Hello!')} />`}</code></pre>
+		<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+
+		<Heading text="About this project" level="m" tag="h2" />
+		<p class="govuk-body">
+			This is a demonstration of the GOV.UK Design System implemented in SvelteKit with:
+		</p>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Reusable Svelte components</li>
+			<li>Multi-page journey system</li>
+			<li>Form validation and state management</li>
+			<li>Full TypeScript support</li>
+			<li>Svelte 5 with modern runes syntax</li>
+		</ul>
 	{/snippet}
 </GovUKPage>
