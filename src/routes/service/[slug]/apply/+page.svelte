@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import JourneyPage from '$lib/components/journey/JourneyPage.svelte';
@@ -8,6 +9,7 @@
 	import { journeyStore } from '$lib/stores/journey.svelte';
 	import { loadJourney } from '$lib/loaders/journey-loader';
 
+	const slug = $derived($page.params.slug);
 	const state = $derived(journeyStore.currentState);
 	const isCheckAnswersPage = $derived(state.currentPageId === 'check-answers');
 	const isCompleted = $derived(state.completed);
@@ -16,8 +18,15 @@
 	let error = $state<string | null>(null);
 
 	onMount(async () => {
+		await loadJourneyData();
+	});
+
+	async function loadJourneyData() {
+		loading = true;
+		error = null;
+		
 		try {
-			const journey = await loadJourney('passport');
+			const journey = await loadJourney(slug);
 			journeyStore.initJourney(journey);
 		} catch (e) {
 			error = e instanceof Error ? e.message : 'Failed to load journey';
@@ -25,15 +34,10 @@
 		} finally {
 			loading = false;
 		}
-	});
-
-	function handleSubmit() {
-		console.log('Journey completed with data:', state.data);
-		journeyStore.currentState.completed = true;
 	}
 
-	function handleStartAgain() {
-		journeyStore.reset();
+	function handleSubmit() {
+		goto('/');
 	}
 </script>
 
@@ -47,6 +51,7 @@
 	<GovUKPage title="Error">
 		{#snippet children()}
 			<p class="govuk-body">{error}</p>
+			<a href="/" class="govuk-link">Return to home</a>
 		{/snippet}
 	</GovUKPage>
 {:else if isCompleted}
@@ -54,29 +59,22 @@
 		{#snippet children()}
 			<Panel
 				title="Application complete"
-				body="Your reference number is HDJ2123F"
+				text="Your reference number is HDJ2123F"
 			/>
+
+			<p class="govuk-body">We have sent you a confirmation email.</p>
 
 			<h2 class="govuk-heading-m">What happens next</h2>
 			<p class="govuk-body">
-				We've sent you a confirmation email.
-			</p>
-			<p class="govuk-body">
-				Your passport should arrive within 3 weeks. You can track your application online.
+				We've sent your application to our processing team. They will contact you either to confirm
+				your appointment or to ask for more information.
 			</p>
 
-			<Button text="Start again" onclick={handleStartAgain} />
-
-			<h3 class="govuk-heading-s" style="margin-top: 2rem;">Submitted data:</h3>
-			<pre style="background: #f3f2f1; padding: 1rem; overflow-x: auto;"><code>{JSON.stringify(
-					state.data,
-					null,
-					2
-				)}</code></pre>
+			<Button text="Return to start" onclick={handleSubmit} />
 		{/snippet}
 	</GovUKPage>
 {:else if isCheckAnswersPage}
-	<CheckYourAnswers onSubmit={handleSubmit} submitText="Submit application" />
+	<CheckYourAnswers />
 {:else}
 	<JourneyPage />
 {/if}

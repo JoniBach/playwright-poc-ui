@@ -50,15 +50,33 @@ export async function loadJourney(journeyId: string): Promise<Journey> {
 }
 
 /**
+ * Load the journey index
+ */
+export async function loadJourneyIndex() {
+	try {
+		const response = await fetch('/journeys/index.json');
+		
+		if (!response.ok) {
+			throw new Error('Failed to load journey index');
+		}
+
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error('Error loading journey index:', error);
+		return { journeys: [] };
+	}
+}
+
+/**
  * Load all available journeys
  */
 export async function loadAllJourneys(): Promise<Journey[]> {
-	// In a real app, you might have an index.json listing all journeys
-	// For now, we'll just load known journeys
-	const journeyIds = ['passport']; // Add more as needed
+	const index = await loadJourneyIndex();
+	const enabledJourneys = index.journeys.filter((j: any) => j.enabled);
 	
 	const journeys = await Promise.all(
-		journeyIds.map(id => loadJourney(id).catch(() => null))
+		enabledJourneys.map((meta: any) => loadJourney(meta.id).catch(() => null))
 	);
 
 	return journeys.filter((j): j is Journey => j !== null);

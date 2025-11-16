@@ -1,6 +1,22 @@
-<script>
+<script lang="ts">
+	import { onMount } from 'svelte';
 	import GovUKPage from '$lib/components/GovUKPage.svelte';
 	import { Heading, Paragraph, Button } from '$lib/components/govuk';
+	import { loadJourneyIndex } from '$lib/loaders/journey-loader';
+
+	let journeys = $state<any[]>([]);
+	let loading = $state(true);
+
+	onMount(async () => {
+		try {
+			const index = await loadJourneyIndex();
+			journeys = index.journeys.filter((j: any) => j.enabled);
+		} catch (e) {
+			console.error('Error loading journeys:', e);
+		} finally {
+			loading = false;
+		}
+	});
 </script>
 
 <GovUKPage title="GOV.UK Design System Examples">
@@ -10,15 +26,25 @@
 			lead={true}
 		/>
 
-		<Heading text="Examples" level="l" tag="h2" />
+		<Heading text="Services" level="l" tag="h2" />
 
-		<div class="govuk-!-margin-bottom-8">
-			<Heading text="Apply for a passport" level="m" tag="h3" />
-			<p class="govuk-body">
-				A complete passport application service with authentic GOV.UK landing page, multi-page journey, form validation, and "Check your answers" pattern.
-			</p>
-			<Button text="Start now" href="/passport" startButton={true} />
-		</div>
+		{#if loading}
+			<p class="govuk-body">Loading services...</p>
+		{:else if journeys.length > 0}
+			{#each journeys as journey}
+				<div class="govuk-!-margin-bottom-8">
+					<Heading text={journey.name} level="m" tag="h3" />
+					<p class="govuk-body">{journey.description}</p>
+					<Button text="Start now" href="/service/{journey.slug}" startButton={true} />
+				</div>
+			{/each}
+		{:else}
+			<p class="govuk-body">No services available.</p>
+		{/if}
+
+		<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+
+		<Heading text="Developer Examples" level="l" tag="h2" />
 
 		<div class="govuk-!-margin-bottom-8">
 			<Heading text="Component showcase" level="m" tag="h3" />
@@ -26,14 +52,6 @@
 				View all 15+ GOV.UK Design System components including buttons, forms, tables, and more.
 			</p>
 			<Button text="View components" href="/components" startButton={true} />
-		</div>
-
-		<div class="govuk-!-margin-bottom-8">
-			<Heading text="Dynamic rendering" level="m" tag="h3" />
-			<p class="govuk-body">
-				See how pages can be built dynamically from JSON configuration.
-			</p>
-			<Button text="View example" href="/dynamic" startButton={true} />
 		</div>
 
 		<div class="govuk-!-margin-bottom-8">

@@ -63,7 +63,7 @@
       }
     ],
     "startButtonText": "Start now",
-    "startButtonHref": "/journey"
+    "startButtonHref": "/service/passport/apply"
   },
   "startPage": "start",
   "checkYourAnswersPage": "check-answers",
