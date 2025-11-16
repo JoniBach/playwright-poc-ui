@@ -7,7 +7,7 @@
 	const currentPage = $derived(journeyStore.currentPage);
 	const canGoBack = $derived(journeyStore.canGoBack);
 	const state = $derived(journeyStore.currentState);
-	const journey = $derived(journeyStore.currentState.journey);
+	const journey = $derived(journeyStore.currentJourney);
 
 	// Build breadcrumbs from journey metadata
 	const breadcrumbs = $derived(() => {
