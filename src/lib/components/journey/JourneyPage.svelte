@@ -1,12 +1,22 @@
 <script lang="ts">
 	import GovUKPage from '$lib/components/GovUKPage.svelte';
-	import { componentMap } from '$lib/components/govuk';
+	import { componentMap, Breadcrumbs } from '$lib/components/govuk';
 	import { Button } from '$lib/components/govuk';
 	import { journeyStore } from '$lib/stores/journey.svelte';
 
 	const currentPage = $derived(journeyStore.currentPage);
 	const canGoBack = $derived(journeyStore.canGoBack);
 	const state = $derived(journeyStore.currentState);
+	const journey = $derived(journeyStore.currentState.journey);
+
+	// Build breadcrumbs from journey metadata
+	const breadcrumbs = $derived(() => {
+		if (!journey) return [];
+		return [
+			{ text: 'Home', href: '/' },
+			{ text: journey.name }
+		];
+	});
 
 	function handleNext() {
 		journeyStore.goToNextPage();
@@ -52,6 +62,9 @@
 {#if currentPage}
 	<GovUKPage title={currentPage.title}>
 		{#snippet children()}
+			{#if breadcrumbs().length > 0}
+				<Breadcrumbs items={breadcrumbs()} />
+			{/if}
 			<form on:submit|preventDefault={handleNext}>
 				{#each currentPage.components as config}
 					{@const Component = componentMap[config.type]}

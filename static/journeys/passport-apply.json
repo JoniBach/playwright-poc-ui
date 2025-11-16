@@ -1,5 +1,5 @@
 {
-  "id": "apply-for-passport",
+  "id": "passport-apply",
   "name": "Apply for a passport",
   "landingPage": {
     "title": "Apply online for a UK passport",
@@ -63,7 +63,7 @@
       }
     ],
     "startButtonText": "Start now",
-    "startButtonHref": "/hm-passport-office/passport/apply"
+    "startButtonHref": "/hm-passport-office/passport-apply/apply"
   },
   "startPage": "start",
   "checkYourAnswersPage": "check-answers",
@@ -126,13 +126,12 @@
           }
         },
         {
-          "type": "textInput",
+          "type": "dateInput",
           "props": {
             "id": "dateOfBirth",
             "name": "dateOfBirth",
-            "label": "Date of birth",
-            "hint": "For example, 31 3 1980",
-            "width": "10"
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
           }
         }
       ],
