@@ -5,6 +5,7 @@
 		variant?: 'default' | 'secondary' | 'warning' | 'inverse';
 		disabled?: boolean;
 		startButton?: boolean;
+		type?: 'submit' | 'button' | 'reset';
 		onclick?: () => void;
 	}
 
@@ -14,6 +15,7 @@
 		variant = 'default',
 		disabled = false,
 		startButton = false,
+		type = 'submit',
 		onclick
 	}: Props = $props();
 
@@ -49,7 +51,7 @@
 	</a>
 {:else}
 	<button
-		type="button"
+		{type}
 		class={classes()}
 		{disabled}
 		data-module="govuk-button"

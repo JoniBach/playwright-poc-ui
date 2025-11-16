@@ -13,8 +13,10 @@
 		<Heading text="Features" level="l" tag="h2" />
 		<ul class="govuk-list govuk-list--bullet">
 			<li>15+ reusable GOV.UK Design System components</li>
+			<li>Multi-page journey system following GDS patterns</li>
 			<li>Full TypeScript support with type-safe props</li>
 			<li>Dynamic component rendering from JSON configuration</li>
+			<li>Form validation and state management</li>
 			<li>Svelte 5 with modern runes syntax</li>
 		</ul>
 
@@ -23,9 +25,10 @@
 			text="Explore the component library and see how to use them in your application."
 		/>
 
-		<div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+		<div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
 			<Button text="View all components" href="/components" startButton={true} />
 			<Button text="Dynamic rendering" href="/dynamic" variant="secondary" />
+			<Button text="Multi-page journey" href="/journey" variant="secondary" />
 		</div>
 
 		<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible" />

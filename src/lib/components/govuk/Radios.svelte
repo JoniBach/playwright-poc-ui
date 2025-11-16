@@ -14,6 +14,7 @@
 		options: RadioOption[];
 		value?: string;
 		inline?: boolean;
+		onchange?: (e: Event) => void;
 	}
 
 	let {
@@ -23,8 +24,9 @@
 		hint,
 		error,
 		options,
-		value = $bindable(''),
-		inline = false
+		value = '',
+		inline = false,
+		onchange
 	}: Props = $props();
 </script>
 
@@ -55,7 +57,8 @@
 						{name}
 						type="radio"
 						value={option.value}
-						bind:group={value}
+						checked={value === option.value}
+						{onchange}
 					/>
 					<label class="govuk-label govuk-radios__label" for="{id}-{index}">
 						{option.text}

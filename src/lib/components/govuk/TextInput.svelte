@@ -9,6 +9,7 @@
 		type?: 'text' | 'email' | 'number' | 'tel';
 		width?: '20' | '10' | '5' | '4' | '3' | '2';
 		autocomplete?: string;
+		oninput?: (e: Event) => void;
 	}
 
 	let {
@@ -17,10 +18,11 @@
 		label,
 		hint,
 		error,
-		value = $bindable(''),
+		value = '',
 		type = 'text',
 		width,
-		autocomplete
+		autocomplete,
+		oninput
 	}: Props = $props();
 
 	const inputClass = $derived(() => {
@@ -51,7 +53,8 @@
 		{id}
 		{name}
 		{type}
-		bind:value
+		{value}
+		{oninput}
 		aria-describedby={[hint ? `${id}-hint` : '', error ? `${id}-error` : '']
 			.filter(Boolean)
 			.join(' ') || undefined}
