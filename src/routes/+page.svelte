@@ -15,9 +15,9 @@
 		<div class="govuk-!-margin-bottom-8">
 			<Heading text="Apply for a passport" level="m" tag="h3" />
 			<p class="govuk-body">
-				A complete multi-page journey demonstrating form validation, state management, and the "Check your answers" pattern.
+				A complete passport application service with authentic GOV.UK landing page, multi-page journey, form validation, and "Check your answers" pattern.
 			</p>
-			<Button text="Start now" href="/journey" startButton={true} />
+			<Button text="Start now" href="/passport" startButton={true} />
 		</div>
 
 		<div class="govuk-!-margin-bottom-8">
