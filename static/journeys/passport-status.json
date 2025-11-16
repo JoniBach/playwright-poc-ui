@@ -1,0 +1,142 @@
+{
+  "id": "passport-status",
+  "name": "Check passport application status",
+  "landingPage": {
+    "title": "Check your passport application status",
+    "lead": "Use this service to track your passport application and see when it will arrive.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need your application reference number. This is on the email we sent you when you applied."
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and takes less than a minute to use."
+      },
+      {
+        "type": "heading",
+        "content": "What you can check",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "the status of your application",
+          "when your application was received",
+          "when your passport is expected to arrive",
+          "if we need any more information from you"
+        ]
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/hm-passport-office/passport-status/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "Check your passport application status",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your application reference number to check the status of your passport application.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "reference",
+            "name": "reference",
+            "label": "Application reference number",
+            "hint": "This is 9 characters, for example ABC123456. You can find it in the email we sent you.",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "passport-status-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "Your passport application",
+      "components": [
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Application details",
+            "rows": [
+              {
+                "key": "Reference number",
+                "value": "ABC123456"
+              },
+              {
+                "key": "Application type",
+                "value": "Adult passport renewal"
+              },
+              {
+                "key": "Submitted",
+                "value": "15 March 2024"
+              },
+              {
+                "key": "Status",
+                "value": "Being processed",
+                "tag": {
+                  "text": "In progress",
+                  "colour": "info"
+                }
+              },
+              {
+                "key": "Estimated arrival",
+                "value": "5 April 2024"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Your application is being processed. We'll send your new passport to the address you provided."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We'll email you if we need any more information."
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "What if my passport doesn't arrive on time?",
+            "text": "If your passport hasn't arrived by the estimated date, you can contact us. Most applications are processed within 3 weeks, but some may take longer if we need more information."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Check another application",
+            "href": "/hm-passport-office/passport-status/apply",
+            "secondary": true
+          }
+        }
+      ]
+    }
+  }
+}

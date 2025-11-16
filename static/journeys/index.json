@@ -18,7 +18,7 @@
       "department": "HM Passport Office",
       "departmentSlug": "hm-passport-office",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "self-assessment",

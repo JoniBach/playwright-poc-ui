@@ -64,6 +64,19 @@ export const validationRules: Record<string, ValidationRule> = {
 		}
 
 		return Object.keys(errors).length > 0 ? errors : null;
+	},
+
+	// Passport status search validation
+	'passport-status-search': (data) => {
+		const errors: Record<string, string> = {};
+
+		if (!data.reference) {
+			errors.reference = 'Enter your application reference number';
+		} else if (!/^[A-Z]{3}\d{6}$/i.test(data.reference)) {
+			errors.reference = 'Enter a valid reference number, like ABC123456';
+		}
+
+		return Object.keys(errors).length > 0 ? errors : null;
 	}
 };
 
