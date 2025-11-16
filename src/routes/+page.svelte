@@ -6,6 +6,17 @@
 
 	let journeys = $state<any[]>([]);
 	let loading = $state(true);
+	let journeysByDepartment = $derived(() => {
+		const grouped = new Map<string, any[]>();
+		journeys.forEach((journey) => {
+			const dept = journey.department || 'Other';
+			if (!grouped.has(dept)) {
+				grouped.set(dept, []);
+			}
+			grouped.get(dept)!.push(journey);
+		});
+		return Array.from(grouped.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+	});
 
 	onMount(async () => {
 		try {
@@ -30,12 +41,19 @@
 
 		{#if loading}
 			<p class="govuk-body">Loading services...</p>
-		{:else if journeys.length > 0}
-			{#each journeys as journey}
-				<div class="govuk-!-margin-bottom-8">
-					<Heading text={journey.name} level="m" tag="h3" />
-					<p class="govuk-body">{journey.description}</p>
-					<Button text="Start now" href="/service/{journey.slug}" startButton={true} />
+		{:else if journeysByDepartment().length > 0}
+			{#each journeysByDepartment() as [department, deptJourneys]}
+				<div class="govuk-!-margin-bottom-9">
+					<Heading text={department} level="m" tag="h2" />
+					
+					{#each deptJourneys as journey}
+						<div class="govuk-!-margin-bottom-6">
+							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+								<a href="/service/{journey.slug}" class="govuk-link">{journey.name}</a>
+							</h3>
+							<p class="govuk-body govuk-!-margin-bottom-2">{journey.description}</p>
+						</div>
+					{/each}
 				</div>
 			{/each}
 		{:else}

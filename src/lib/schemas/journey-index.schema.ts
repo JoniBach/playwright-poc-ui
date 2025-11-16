@@ -5,6 +5,7 @@ export const JourneyMetadataSchema = z.object({
 	name: z.string(),
 	description: z.string(),
 	slug: z.string(),
+	department: z.string(),
 	enabled: z.boolean().default(true)
 });
 
