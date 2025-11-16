@@ -3,6 +3,70 @@ import type { Journey } from '$lib/types/journey';
 export const exampleJourney: Journey = {
 	id: 'apply-for-passport',
 	name: 'Apply for a passport',
+	landingPage: {
+		title: 'Apply online for a UK passport',
+		lead: 'Use this service to apply for, renew, replace or update your passport and pay for it online.',
+		sections: [
+			{
+				type: 'heading',
+				content: 'How long it takes',
+				level: 'm'
+			},
+			{
+				type: 'paragraph',
+				content: 'It should take around 3 weeks to get your first UK adult passport, but it can take longer.'
+			},
+			{
+				type: 'paragraph',
+				content: "All other application types (for example, renewing a passport or getting a child passport) should take 3 weeks. It can take longer if more information is needed or your application hasn't been filled out correctly."
+			},
+			{
+				type: 'heading',
+				content: 'Cost',
+				level: 'm'
+			},
+			{
+				type: 'paragraph',
+				content: 'It costs:'
+			},
+			{
+				type: 'list',
+				listType: 'bullet',
+				content: [
+					'£88.50 for an adult passport (or £100 for a 50 page frequent traveller passport)',
+					'£57.50 for a child passport (or £69 for a 50 page frequent traveller passport)'
+				]
+			},
+			{
+				type: 'heading',
+				content: 'Before you start',
+				level: 'm'
+			},
+			{
+				type: 'paragraph',
+				content: "You'll need a debit or credit card to use this service."
+			},
+			{
+				type: 'paragraph',
+				content: "It's £9.50 cheaper to apply for a passport online than by paper form."
+			},
+			{
+				type: 'insetText',
+				content: "You must be aged 16 or over to get an adult passport. There's a different service to get a passport for a child."
+			},
+			{
+				type: 'warningText',
+				content: "There are different rules if you're applying from the Channel Islands or Isle of Man."
+			},
+			{
+				type: 'details',
+				summary: "What you'll need to do",
+				content: "You'll need to provide 2 identical digital photos and your supporting documents. You'll also need to pay the fee and confirm your identity online or at a Post Office."
+			}
+		],
+		startButtonText: 'Start now',
+		startButtonHref: '/journey'
+	},
 	startPage: 'start',
 	checkYourAnswersPage: 'check-answers',
 	completionPage: 'confirmation',
