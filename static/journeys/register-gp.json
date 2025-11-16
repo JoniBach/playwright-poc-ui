@@ -1,0 +1,364 @@
+{
+  "id": "register-gp",
+  "name": "Register with a GP",
+  "landingPage": {
+    "title": "Register with a GP surgery",
+    "lead": "You need to register with a GP surgery to use NHS services.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "proof of identity (such as a passport or driving licence)",
+          "proof of address (such as a utility bill)",
+          "your NHS number (if you know it)",
+          "details of your previous GP (if you had one)"
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Who can register",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "Anyone in England can register with a GP surgery. You do not need proof of address, immigration status, ID or an NHS number."
+      },
+      {
+        "type": "insetText",
+        "content": "This service takes around 10 minutes to complete. You'll be registered within 3 working days."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/nhs/register-gp/apply"
+  },
+  "startPage": "start",
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "Register with a GP surgery",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Use this service to register with a GP surgery near you.",
+            "lead": true
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You can register with any GP surgery, but it's easier to access appointments if you register with one near where you live."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to provide your personal details and contact information."
+          }
+        }
+      ],
+      "nextPage": "personal-details"
+    },
+    "personal-details": {
+      "id": "personal-details",
+      "title": "Your personal details",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "firstName",
+            "name": "firstName",
+            "label": "First name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "lastName",
+            "name": "lastName",
+            "label": "Last name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nhsNumber",
+            "name": "nhsNumber",
+            "label": "NHS number (optional)",
+            "hint": "This is a 10 digit number, like 485 777 3456. You can find it on any letter the NHS has sent you.",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "contact-details",
+      "previousPage": "start",
+      "validation": "nhs-personal-details"
+    },
+    "contact-details": {
+      "id": "contact-details",
+      "title": "Your contact details",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "email",
+            "name": "email",
+            "label": "Email address",
+            "hint": "We'll send your registration confirmation to this email address",
+            "autocomplete": "email",
+            "type": "email",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "phone",
+            "name": "phone",
+            "label": "Phone number",
+            "hint": "We'll use this to contact you about appointments",
+            "autocomplete": "tel",
+            "type": "tel",
+            "width": "20"
+          }
+        }
+      ],
+      "nextPage": "address",
+      "previousPage": "personal-details",
+      "validation": "contact-details"
+    },
+    "address": {
+      "id": "address",
+      "title": "Your address",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "This helps us find a GP surgery near you."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "addressLine1",
+            "name": "addressLine1",
+            "label": "Address line 1",
+            "autocomplete": "address-line1"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "addressLine2",
+            "name": "addressLine2",
+            "label": "Address line 2 (optional)",
+            "autocomplete": "address-line2"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "city",
+            "name": "city",
+            "label": "Town or city",
+            "autocomplete": "address-level2",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "postcode",
+            "name": "postcode",
+            "label": "Postcode",
+            "autocomplete": "postal-code",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "previous-gp",
+      "previousPage": "contact-details",
+      "validation": "address"
+    },
+    "previous-gp": {
+      "id": "previous-gp",
+      "title": "Previous GP",
+      "components": [
+        {
+          "type": "radios",
+          "props": {
+            "id": "hadPreviousGP",
+            "name": "hadPreviousGP",
+            "legend": "Have you been registered with a GP before?",
+            "items": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              }
+            ]
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "Why do we need this information?",
+            "text": "If you've been registered before, we can transfer your medical records to your new GP surgery."
+          }
+        }
+      ],
+      "nextPage": "medical-conditions",
+      "previousPage": "address",
+      "validation": "required"
+    },
+    "medical-conditions": {
+      "id": "medical-conditions",
+      "title": "Medical information",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "This information helps your GP provide better care."
+          }
+        },
+        {
+          "type": "checkboxes",
+          "props": {
+            "id": "medicalConditions",
+            "name": "medicalConditions",
+            "legend": "Do you have any of these conditions? (optional)",
+            "hint": "Select all that apply",
+            "items": [
+              {
+                "value": "diabetes",
+                "text": "Diabetes"
+              },
+              {
+                "value": "asthma",
+                "text": "Asthma"
+              },
+              {
+                "value": "heart-disease",
+                "text": "Heart disease"
+              },
+              {
+                "value": "high-blood-pressure",
+                "text": "High blood pressure"
+              },
+              {
+                "value": "none",
+                "text": "None of these",
+                "exclusive": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "textarea",
+          "props": {
+            "id": "allergies",
+            "name": "allergies",
+            "label": "Do you have any allergies? (optional)",
+            "hint": "For example, penicillin, peanuts",
+            "rows": 3
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "previous-gp"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers before submitting your registration",
+      "components": []
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Registration complete",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Registration submitted",
+            "content": "Your reference number is NHS-REG-123456"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "The GP surgery will contact you within 3 working days to confirm your registration and arrange a new patient health check."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "If you need urgent medical help",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You can still use NHS services while waiting for your registration to be processed:"
+          }
+        },
+        {
+          "type": "list",
+          "props": {
+            "listType": "bullet",
+            "items": [
+              "Call 111 for urgent medical help",
+              "Call 999 for life-threatening emergencies",
+              "Visit an NHS walk-in centre"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

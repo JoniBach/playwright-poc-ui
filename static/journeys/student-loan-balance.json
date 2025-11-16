@@ -1,0 +1,220 @@
+{
+  "id": "student-loan-balance",
+  "name": "Check student loan balance",
+  "landingPage": {
+    "title": "Check your student loan balance",
+    "lead": "Find out how much you owe on your student loan and how much you've repaid.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need your student loan customer reference number."
+      },
+      {
+        "type": "heading",
+        "content": "What you can view",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your current loan balance",
+          "how much you've repaid",
+          "your repayment threshold",
+          "interest charged on your loan",
+          "when your loan will be written off"
+        ]
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and takes less than a minute to use."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/dfe/student-loan-balance/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "Check your student loan balance",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your details to view your student loan balance.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "customerReference",
+            "name": "customerReference",
+            "label": "Customer reference number",
+            "hint": "This is on letters from Student Finance England. For example, SFE-2024-123456",
+            "width": "20"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "student-loan-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "Your student loan balance",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "£32,450.00",
+            "content": "Current loan balance as of April 2024"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Loan details",
+            "rows": [
+              {
+                "key": "Customer reference",
+                "value": "SFE-2024-123456"
+              },
+              {
+                "key": "Loan type",
+                "value": "Plan 2 (started university 2012 or later)"
+              },
+              {
+                "key": "Current balance",
+                "value": "£32,450.00"
+              },
+              {
+                "key": "Original amount borrowed",
+                "value": "£35,000.00"
+              },
+              {
+                "key": "Total repaid",
+                "value": "£8,200.00"
+              },
+              {
+                "key": "Interest charged",
+                "value": "£5,650.00"
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Repayment information",
+            "rows": [
+              {
+                "key": "Repayment threshold",
+                "value": "£27,295 per year"
+              },
+              {
+                "key": "Current interest rate",
+                "value": "5.25% per year"
+              },
+              {
+                "key": "Monthly repayment (estimated)",
+                "value": "£85.00"
+              },
+              {
+                "key": "Loan will be written off",
+                "value": "April 2053 (30 years after first repayment)"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Recent repayments",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Payments received",
+            "headers": ["Date", "Amount", "Source", "Balance after"],
+            "rows": [
+              {
+                "date": "March 2024",
+                "amount": "£85.00",
+                "source": "PAYE",
+                "balance": "£32,450.00"
+              },
+              {
+                "date": "February 2024",
+                "amount": "£85.00",
+                "source": "PAYE",
+                "balance": "£32,535.00"
+              },
+              {
+                "date": "January 2024",
+                "amount": "£85.00",
+                "source": "PAYE",
+                "balance": "£32,620.00"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Understanding your repayments",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You repay 9% of your income over the threshold (£27,295). Repayments are taken automatically from your salary through PAYE."
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "How is interest calculated?",
+            "text": "Interest is charged from the day you get your first payment until your loan is repaid in full or written off. The rate is based on the Retail Price Index (RPI) plus up to 3%, depending on your income."
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "Can I make extra repayments?",
+            "text": "Yes, you can make voluntary repayments at any time. Contact Student Finance England to arrange this. Extra repayments will reduce your balance and the amount of interest you pay."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Download statement",
+            "href": "#",
+            "secondary": true
+          }
+        }
+      ]
+    }
+  }
+}

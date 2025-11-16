@@ -1,0 +1,424 @@
+{
+  "id": "universal-credit",
+  "name": "Apply for Universal Credit",
+  "landingPage": {
+    "title": "Apply for Universal Credit",
+    "lead": "Universal Credit is a payment to help with your living costs. It's paid monthly - or twice a month for some people in Scotland.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you'll get",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "Universal Credit can help if you're on a low income, out of work or you cannot work. You may be able to get it if you're employed, self-employed or have no income."
+      },
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your bank, building society or credit union account details",
+          "an email address",
+          "information about your housing, for example how much rent you pay",
+          "details of your income, for example payslips",
+          "details of savings and any investments, like shares or a property you rent out",
+          "details of how much you pay for childcare if you're applying for help with childcare costs"
+        ]
+      },
+      {
+        "type": "warningText",
+        "content": "If you're in a couple, you and your partner must apply together."
+      },
+      {
+        "type": "insetText",
+        "content": "This service takes around 40 minutes to complete. You'll get your first payment within 5 weeks."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/dwp/universal-credit/apply"
+  },
+  "startPage": "start",
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "Apply for Universal Credit",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Use this service to apply for Universal Credit.",
+            "lead": true
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to verify your identity using GOV.UK Verify or your Government Gateway account."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll be asked about your income, savings, housing costs and childcare costs."
+          }
+        }
+      ],
+      "nextPage": "personal-details"
+    },
+    "personal-details": {
+      "id": "personal-details",
+      "title": "Your personal details",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "firstName",
+            "name": "firstName",
+            "label": "First name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "lastName",
+            "name": "lastName",
+            "label": "Last name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nationalInsurance",
+            "name": "nationalInsurance",
+            "label": "National Insurance number",
+            "hint": "It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "housing",
+      "previousPage": "start",
+      "validation": "dwp-personal-details"
+    },
+    "housing": {
+      "id": "housing",
+      "title": "Your housing",
+      "components": [
+        {
+          "type": "radios",
+          "props": {
+            "id": "housingStatus",
+            "name": "housingStatus",
+            "legend": "What is your housing situation?",
+            "items": [
+              {
+                "value": "renting-private",
+                "text": "Renting from a private landlord"
+              },
+              {
+                "value": "renting-social",
+                "text": "Renting from a council or housing association"
+              },
+              {
+                "value": "homeowner",
+                "text": "I own my home"
+              },
+              {
+                "value": "living-with-family",
+                "text": "Living with family or friends"
+              },
+              {
+                "value": "homeless",
+                "text": "Homeless or in temporary accommodation"
+              }
+            ]
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "monthlyRent",
+            "name": "monthlyRent",
+            "label": "How much rent do you pay per month? (if applicable)",
+            "hint": "Enter 0 if you don't pay rent",
+            "prefix": "£",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "income",
+      "previousPage": "personal-details",
+      "validation": "required"
+    },
+    "income": {
+      "id": "income",
+      "title": "Your income",
+      "components": [
+        {
+          "type": "radios",
+          "props": {
+            "id": "employmentStatus",
+            "name": "employmentStatus",
+            "legend": "What is your employment status?",
+            "items": [
+              {
+                "value": "employed",
+                "text": "Employed"
+              },
+              {
+                "value": "self-employed",
+                "text": "Self-employed"
+              },
+              {
+                "value": "unemployed",
+                "text": "Unemployed"
+              },
+              {
+                "value": "unable-to-work",
+                "text": "Unable to work due to illness or disability"
+              }
+            ]
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "monthlyIncome",
+            "name": "monthlyIncome",
+            "label": "What is your monthly income before tax?",
+            "hint": "Include wages, benefits, pensions. Enter 0 if you have no income.",
+            "prefix": "£",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "savings",
+      "previousPage": "housing",
+      "validation": "required"
+    },
+    "savings": {
+      "id": "savings",
+      "title": "Your savings and investments",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You must tell us about any money you have in savings accounts, ISAs, or investments."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "totalSavings",
+            "name": "totalSavings",
+            "label": "Total savings and investments",
+            "hint": "Include all bank accounts, ISAs, shares, property you rent out. Enter 0 if you have none.",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "insetText",
+          "props": {
+            "text": "If you have more than £16,000 in savings, you will not be eligible for Universal Credit."
+          }
+        }
+      ],
+      "nextPage": "dependents",
+      "previousPage": "income",
+      "validation": "required"
+    },
+    "dependents": {
+      "id": "dependents",
+      "title": "Children and dependents",
+      "components": [
+        {
+          "type": "radios",
+          "props": {
+            "id": "hasChildren",
+            "name": "hasChildren",
+            "legend": "Do you have any children or young people you're responsible for?",
+            "items": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              }
+            ]
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "numberOfChildren",
+            "name": "numberOfChildren",
+            "label": "How many children? (if applicable)",
+            "hint": "Include children under 16, or under 20 if they're in approved education or training",
+            "width": "2"
+          }
+        }
+      ],
+      "nextPage": "bank-details",
+      "previousPage": "savings",
+      "validation": "required"
+    },
+    "bank-details": {
+      "id": "bank-details",
+      "title": "Your bank details",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We'll pay your Universal Credit into this account."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "accountName",
+            "name": "accountName",
+            "label": "Name on the account",
+            "autocomplete": "name",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "sortCode",
+            "name": "sortCode",
+            "label": "Sort code",
+            "hint": "Must be 6 digits long",
+            "width": "5"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "accountNumber",
+            "name": "accountNumber",
+            "label": "Account number",
+            "hint": "Must be between 6 and 8 digits long",
+            "width": "10"
+          }
+        },
+        {
+          "type": "warningText",
+          "props": {
+            "text": "Make sure these details are correct. We cannot recover payments made to the wrong account."
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "dependents",
+      "validation": "bank-details"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers before submitting your application",
+      "components": []
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Application complete",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Application submitted",
+            "content": "Your reference number is UC-2024-123456"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to verify your identity and attend an interview at your local Jobcentre Plus. We'll contact you within 7 days to arrange this."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Your first payment",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll get your first payment within 5 weeks of making your claim. This includes a 1 month assessment period and up to 7 days for the payment to reach your account."
+          }
+        },
+        {
+          "type": "warningText",
+          "props": {
+            "text": "If you need help before your first payment, you may be able to get an advance."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What you need to do",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "list",
+          "props": {
+            "listType": "bullet",
+            "items": [
+              "Sign your claimant commitment at your interview",
+              "Report any changes to your circumstances",
+              "Keep evidence of looking for work (if required)"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

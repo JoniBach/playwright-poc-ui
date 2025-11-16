@@ -1,0 +1,171 @@
+{
+  "id": "probate-search",
+  "name": "Search probate records",
+  "landingPage": {
+    "title": "Search probate records",
+    "lead": "Search for probate records (wills and grants) from 1858 to today.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you can search for",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "grants of probate",
+          "letters of administration",
+          "copies of wills",
+          "estate values"
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need the name of the person who died and an approximate date of death."
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and takes less than a minute to use."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/moj/probate-search/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "Search probate records",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Search for probate records by name and date.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "firstName",
+            "name": "firstName",
+            "label": "First name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "lastName",
+            "name": "lastName",
+            "label": "Last name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfDeath",
+            "name": "dateOfDeath",
+            "legend": "Date of death (approximate)",
+            "hint": "For example, 31 3 2020"
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "probate-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "Probate records found",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We found 3 records matching your search."
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Probate records",
+            "headers": ["Name", "Date of death", "Date of probate", "Estate value", "Actions"],
+            "rows": [
+              {
+                "name": "John Smith",
+                "dateOfDeath": "15 March 2020",
+                "dateOfProbate": "10 June 2020",
+                "estateValue": "£250,000",
+                "actions": {
+                  "link": {
+                    "href": "#",
+                    "text": "View details"
+                  }
+                }
+              },
+              {
+                "name": "John Michael Smith",
+                "dateOfDeath": "22 March 2020",
+                "dateOfProbate": "5 July 2020",
+                "estateValue": "£180,000",
+                "actions": {
+                  "link": {
+                    "href": "#",
+                    "text": "View details"
+                  }
+                }
+              },
+              {
+                "name": "John Smith",
+                "dateOfDeath": "8 April 2020",
+                "dateOfProbate": "15 August 2020",
+                "estateValue": "£95,000",
+                "actions": {
+                  "link": {
+                    "href": "#",
+                    "text": "View details"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Order copies",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You can order copies of probate documents for £1.50 each."
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "What information is included?",
+            "text": "Probate records include the grant of probate or letters of administration, the will (if there was one), and the value of the estate."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Search again",
+            "href": "/moj/probate-search/apply",
+            "secondary": true
+          }
+        }
+      ]
+    }
+  }
+}

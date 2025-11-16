@@ -1,0 +1,268 @@
+{
+  "id": "nhs-medical-records",
+  "name": "View your NHS medical records",
+  "landingPage": {
+    "title": "View your NHS medical records online",
+    "lead": "Access your GP medical records, test results, and prescriptions online.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need your NHS number and date of birth to access your records."
+      },
+      {
+        "type": "heading",
+        "content": "What you can view",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your medical history and conditions",
+          "current and past prescriptions",
+          "test results and reports",
+          "upcoming appointments",
+          "immunisation history"
+        ]
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and secure. Your records are confidential."
+      },
+      {
+        "type": "warningText",
+        "content": "If you need urgent medical help, call 111 or 999. Do not use this service for emergencies."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/nhs/nhs-medical-records/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "Access your medical records",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your details to view your NHS medical records.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nhsNumber",
+            "name": "nhsNumber",
+            "label": "NHS number",
+            "hint": "This is a 10 digit number, like 485 777 3456",
+            "width": "10"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        },
+        {
+          "type": "insetText",
+          "props": {
+            "text": "We use this information to verify your identity and protect your medical records."
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "nhs-records-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "Your NHS medical records",
+      "components": [
+        {
+          "type": "notificationBanner",
+          "props": {
+            "type": "success",
+            "title": "Success",
+            "text": "You have 1 new test result available"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Personal details",
+            "rows": [
+              {
+                "key": "NHS number",
+                "value": "485 777 3456"
+              },
+              {
+                "key": "Name",
+                "value": "Sarah Johnson"
+              },
+              {
+                "key": "Date of birth",
+                "value": "15 March 1985"
+              },
+              {
+                "key": "Registered GP",
+                "value": "Dr. Smith, Riverside Medical Centre"
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Current prescriptions",
+            "rows": [
+              {
+                "key": "Medication",
+                "value": "Salbutamol inhaler 100mcg"
+              },
+              {
+                "key": "Dosage",
+                "value": "2 puffs when needed"
+              },
+              {
+                "key": "Prescribed",
+                "value": "12 March 2024"
+              },
+              {
+                "key": "Repeat due",
+                "value": "12 April 2024",
+                "tag": {
+                  "text": "Due soon",
+                  "colour": "warning"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Upcoming appointments",
+            "rows": [
+              {
+                "key": "Appointment",
+                "value": "Annual health check"
+              },
+              {
+                "key": "Date and time",
+                "value": "22 April 2024 at 10:30am"
+              },
+              {
+                "key": "Location",
+                "value": "Riverside Medical Centre"
+              },
+              {
+                "key": "With",
+                "value": "Dr. Smith"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Recent test results",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "headers": ["Test", "Date", "Result", "Status"],
+            "rows": [
+              {
+                "test": "Blood pressure",
+                "date": "15 March 2024",
+                "result": "120/80 mmHg",
+                "status": {
+                  "tag": {
+                    "text": "Normal",
+                    "colour": "success"
+                  }
+                }
+              },
+              {
+                "test": "Cholesterol",
+                "date": "15 March 2024",
+                "result": "4.2 mmol/L",
+                "status": {
+                  "tag": {
+                    "text": "Normal",
+                    "colour": "success"
+                  }
+                }
+              },
+              {
+                "test": "Blood glucose",
+                "date": "15 March 2024",
+                "result": "5.1 mmol/L",
+                "status": {
+                  "tag": {
+                    "text": "Normal",
+                    "colour": "success"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Medical conditions",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "rows": [
+              {
+                "key": "Asthma",
+                "value": "Diagnosed 2010, well controlled"
+              },
+              {
+                "key": "Allergies",
+                "value": "Penicillin"
+              }
+            ]
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "How to order repeat prescriptions",
+            "text": "You can order repeat prescriptions online through your GP surgery's website or by calling them. Allow 2 working days for your prescription to be ready."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Book an appointment",
+            "href": "#",
+            "secondary": false
+          }
+        }
+      ]
+    }
+  }
+}

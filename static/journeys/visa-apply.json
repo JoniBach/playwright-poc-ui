@@ -1,0 +1,386 @@
+{
+  "id": "visa-apply",
+  "name": "Apply for a UK visa",
+  "landingPage": {
+    "title": "Apply for a UK visa",
+    "lead": "You need a visa to come to the UK to visit, work, study or live.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your passport or travel document",
+          "proof of your relationship if you have a partner in the UK",
+          "proof you can support yourself financially",
+          "details of where you'll be staying",
+          "tuberculosis test results if you're from certain countries"
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Cost",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "The cost depends on the type of visa you're applying for. Most visas cost between £95 and £1,500."
+      },
+      {
+        "type": "warningText",
+        "content": "You must apply for your visa before you travel to the UK."
+      },
+      {
+        "type": "insetText",
+        "content": "This service takes around 45 minutes to complete. Processing takes up to 3 weeks."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/home-office/visa-apply/apply"
+  },
+  "startPage": "start",
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "Apply for a UK visa",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Use this service to apply for a UK visa online.",
+            "lead": true
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to provide biometric information (fingerprints and a photo) at a visa application centre."
+          }
+        }
+      ],
+      "nextPage": "visa-type"
+    },
+    "visa-type": {
+      "id": "visa-type",
+      "title": "Type of visa",
+      "components": [
+        {
+          "type": "radios",
+          "props": {
+            "id": "visaType",
+            "name": "visaType",
+            "legend": "What type of visa do you want to apply for?",
+            "items": [
+              {
+                "value": "tourist",
+                "text": "Standard Visitor visa (tourism, visiting family)"
+              },
+              {
+                "value": "work",
+                "text": "Skilled Worker visa"
+              },
+              {
+                "value": "student",
+                "text": "Student visa"
+              },
+              {
+                "value": "family",
+                "text": "Family visa (spouse, partner, child)"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "personal-details",
+      "previousPage": "start",
+      "validation": "required"
+    },
+    "personal-details": {
+      "id": "personal-details",
+      "title": "Your personal details",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "firstName",
+            "name": "firstName",
+            "label": "First name",
+            "hint": "As shown on your passport",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "lastName",
+            "name": "lastName",
+            "label": "Last name",
+            "hint": "As shown on your passport",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nationality",
+            "name": "nationality",
+            "label": "Nationality",
+            "hint": "As shown on your passport",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "passportNumber",
+            "name": "passportNumber",
+            "label": "Passport number",
+            "width": "20"
+          }
+        }
+      ],
+      "nextPage": "travel-details",
+      "previousPage": "visa-type",
+      "validation": "visa-personal-details"
+    },
+    "travel-details": {
+      "id": "travel-details",
+      "title": "Your travel details",
+      "components": [
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "arrivalDate",
+            "name": "arrivalDate",
+            "legend": "When do you plan to arrive in the UK?",
+            "hint": "For example, 15 6 2024"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "lengthOfStay",
+            "name": "lengthOfStay",
+            "label": "How long do you plan to stay?",
+            "hint": "For example, 2 weeks, 6 months",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textarea",
+          "props": {
+            "id": "purposeOfVisit",
+            "name": "purposeOfVisit",
+            "label": "Purpose of your visit",
+            "hint": "Explain why you're coming to the UK",
+            "rows": 5
+          }
+        }
+      ],
+      "nextPage": "uk-address",
+      "previousPage": "personal-details",
+      "validation": "required"
+    },
+    "uk-address": {
+      "id": "uk-address",
+      "title": "Where you'll stay in the UK",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Provide the address where you'll be staying during your visit."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "ukAddressLine1",
+            "name": "ukAddressLine1",
+            "label": "Address line 1"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "ukAddressLine2",
+            "name": "ukAddressLine2",
+            "label": "Address line 2 (optional)"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "ukCity",
+            "name": "ukCity",
+            "label": "Town or city",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "ukPostcode",
+            "name": "ukPostcode",
+            "label": "Postcode",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "financial-evidence",
+      "previousPage": "travel-details",
+      "validation": "address"
+    },
+    "financial-evidence": {
+      "id": "financial-evidence",
+      "title": "Financial evidence",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You must show you can support yourself financially during your stay."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "monthlyIncome",
+            "name": "monthlyIncome",
+            "label": "Your monthly income",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "savings",
+            "name": "savings",
+            "label": "Your savings",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "sponsorship",
+            "name": "sponsorship",
+            "legend": "Will someone in the UK sponsor your visit?",
+            "items": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "uk-address",
+      "validation": "required"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers before submitting your application",
+      "components": []
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Application complete",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Application submitted",
+            "content": "Your reference number is VISA-2024-ABC123"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email with your application reference number."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You must now:"
+          }
+        },
+        {
+          "type": "list",
+          "props": {
+            "listType": "number",
+            "items": [
+              "Pay the visa application fee",
+              "Book an appointment at a visa application centre to provide your biometric information",
+              "Attend your appointment with all required documents"
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Processing time",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll usually get a decision within 3 weeks. You can pay extra for a faster decision."
+          }
+        },
+        {
+          "type": "warningText",
+          "props": {
+            "text": "Do not book travel to the UK until you have received your visa."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Pay visa fee",
+            "href": "#"
+          }
+        }
+      ]
+    }
+  }
+}

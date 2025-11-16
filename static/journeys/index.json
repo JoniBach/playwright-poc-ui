@@ -28,7 +28,7 @@
       "department": "HM Revenue and Customs (HMRC)",
       "departmentSlug": "hmrc",
       "type": "data-entry",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "tax-summary",
@@ -38,17 +38,17 @@
       "department": "HM Revenue and Customs (HMRC)",
       "departmentSlug": "hmrc",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "universal-credit",
       "name": "Apply for Universal Credit",
-      "description": "Universal Credit is a payment to help with your living costs",
+      "description": "Apply for Universal Credit to help with living costs",
       "slug": "universal-credit",
       "department": "Department for Work and Pensions (DWP)",
       "departmentSlug": "dwp",
       "type": "data-entry",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "state-pension-forecast",
@@ -58,7 +58,7 @@
       "department": "Department for Work and Pensions (DWP)",
       "departmentSlug": "dwp",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "register-gp",
@@ -68,7 +68,7 @@
       "department": "National Health Service (NHS)",
       "departmentSlug": "nhs",
       "type": "data-entry",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "nhs-medical-records",
@@ -78,7 +78,7 @@
       "department": "National Health Service (NHS)",
       "departmentSlug": "nhs",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "join-armed-forces",
@@ -88,7 +88,7 @@
       "department": "Ministry of Defence (MOD)",
       "departmentSlug": "mod",
       "type": "data-entry",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "service-records",
@@ -98,7 +98,7 @@
       "department": "Ministry of Defence (MOD)",
       "departmentSlug": "mod",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "student-finance",
@@ -108,7 +108,7 @@
       "department": "Department for Education (DfE)",
       "departmentSlug": "dfe",
       "type": "data-entry",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "student-loan-balance",
@@ -118,7 +118,7 @@
       "department": "Department for Education (DfE)",
       "departmentSlug": "dfe",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "visa-apply",
@@ -128,7 +128,7 @@
       "department": "Home Office",
       "departmentSlug": "home-office",
       "type": "data-entry",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "visa-status",
@@ -138,7 +138,7 @@
       "department": "Home Office",
       "departmentSlug": "home-office",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "probate-apply",
@@ -148,7 +148,7 @@
       "department": "Ministry of Justice (MOJ)",
       "departmentSlug": "moj",
       "type": "data-entry",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "probate-search",
@@ -158,7 +158,7 @@
       "department": "Ministry of Justice (MOJ)",
       "departmentSlug": "moj",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "driving-licence-apply",
@@ -188,17 +188,17 @@
       "department": "HM Courts & Tribunals Service (HMCTS)",
       "departmentSlug": "hmcts",
       "type": "data-entry",
-      "enabled": false
+      "enabled": true
     },
     {
-      "id": "court-case-tracker",
+      "id": "track-court-case",
       "name": "Track your court case",
       "description": "View the status and details of your court case online",
-      "slug": "court-case-tracker",
+      "slug": "track-court-case",
       "department": "HM Courts & Tribunals Service (HMCTS)",
       "departmentSlug": "hmcts",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     }
   ]
 }

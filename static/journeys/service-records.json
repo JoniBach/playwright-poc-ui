@@ -1,0 +1,225 @@
+{
+  "id": "service-records",
+  "name": "Check service records and medals",
+  "landingPage": {
+    "title": "Check your service records and medals",
+    "lead": "View your military service history, medals and awards online.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need your service number."
+      },
+      {
+        "type": "heading",
+        "content": "What you can view",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your service history",
+          "medals and awards",
+          "dates of service",
+          "rank progression",
+          "deployment history"
+        ]
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and secure. Your service records are confidential."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/mod/service-records/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "Check your service records",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your details to view your service records.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "serviceNumber",
+            "name": "serviceNumber",
+            "label": "Service number",
+            "hint": "This is on your service ID card",
+            "width": "20"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "service-records-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "Your service records",
+      "components": [
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Service details",
+            "rows": [
+              {
+                "key": "Service number",
+                "value": "25123456"
+              },
+              {
+                "key": "Name",
+                "value": "Sergeant James Wilson"
+              },
+              {
+                "key": "Service",
+                "value": "British Army"
+              },
+              {
+                "key": "Regiment",
+                "value": "Royal Engineers"
+              },
+              {
+                "key": "Current rank",
+                "value": "Sergeant"
+              },
+              {
+                "key": "Service status",
+                "value": "Active",
+                "tag": {
+                  "text": "Active",
+                  "colour": "success"
+                }
+              },
+              {
+                "key": "Years of service",
+                "value": "12 years"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Service history",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Rank progression and postings",
+            "headers": ["Date", "Rank", "Unit", "Location"],
+            "rows": [
+              {
+                "date": "Jan 2020",
+                "rank": "Sergeant",
+                "unit": "23 Engineer Regiment",
+                "location": "Catterick"
+              },
+              {
+                "date": "Jun 2017",
+                "rank": "Corporal",
+                "unit": "21 Engineer Regiment",
+                "location": "Ripon"
+              },
+              {
+                "date": "Mar 2015",
+                "rank": "Lance Corporal",
+                "unit": "26 Engineer Regiment",
+                "location": "Germany"
+              },
+              {
+                "date": "Sep 2012",
+                "rank": "Sapper",
+                "unit": "Training Regiment",
+                "location": "Gibraltar Barracks"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Medals and awards",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Medals awarded",
+            "headers": ["Medal", "Date awarded", "Campaign/Service"],
+            "rows": [
+              {
+                "medal": "Operational Service Medal",
+                "date": "Dec 2018",
+                "campaign": "Afghanistan"
+              },
+              {
+                "medal": "Long Service and Good Conduct Medal",
+                "date": "Sep 2022",
+                "campaign": "15 years service"
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Contact details",
+            "rows": [
+              {
+                "key": "Unit address",
+                "value": "23 Engineer Regiment, Catterick Garrison, North Yorkshire, DL9 3PS"
+              },
+              {
+                "key": "Emergency contact",
+                "value": "On file"
+              }
+            ]
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "How to request official documents",
+            "text": "You can request official copies of your service records, including discharge papers and medal certificates, by contacting the Veterans UK helpline."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Download service record",
+            "href": "#",
+            "secondary": true
+          }
+        }
+      ]
+    }
+  }
+}

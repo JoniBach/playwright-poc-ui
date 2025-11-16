@@ -1,0 +1,363 @@
+{
+  "id": "money-claim",
+  "name": "Make a money claim",
+  "landingPage": {
+    "title": "Make a money claim online",
+    "lead": "Claim money you're owed by a person or business.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "the name and address of the person or business you're claiming from",
+          "details of why you're claiming",
+          "evidence to support your claim",
+          "the amount you're claiming"
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Cost",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "The fee depends on how much you're claiming. It ranges from £25 to £10,000."
+      },
+      {
+        "type": "warningText",
+        "content": "You may not get your money back even if you win. The court can't make someone pay if they don't have the money."
+      },
+      {
+        "type": "insetText",
+        "content": "This service takes around 30 minutes to complete."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/hmcts/money-claim/apply"
+  },
+  "startPage": "start",
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "Make a money claim",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Use this service to make a money claim online.",
+            "lead": true
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You should try to resolve the dispute before making a claim. You may need to show you've tried mediation."
+          }
+        }
+      ],
+      "nextPage": "claim-type"
+    },
+    "claim-type": {
+      "id": "claim-type",
+      "title": "Type of claim",
+      "components": [
+        {
+          "type": "radios",
+          "props": {
+            "id": "claimType",
+            "name": "claimType",
+            "legend": "What type of claim are you making?",
+            "items": [
+              {
+                "value": "goods-services",
+                "text": "Money owed for goods or services"
+              },
+              {
+                "value": "loan",
+                "text": "Unpaid loan"
+              },
+              {
+                "value": "rent",
+                "text": "Unpaid rent"
+              },
+              {
+                "value": "damages",
+                "text": "Compensation for damages"
+              },
+              {
+                "value": "other",
+                "text": "Other"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "claimant-details",
+      "previousPage": "start",
+      "validation": "required"
+    },
+    "claimant-details": {
+      "id": "claimant-details",
+      "title": "Your details (claimant)",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You are the claimant - the person making the claim."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "claimantName",
+            "name": "claimantName",
+            "label": "Your full name",
+            "autocomplete": "name",
+            "width": "30"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "claimantAddress",
+            "name": "claimantAddress",
+            "label": "Your address",
+            "width": "30"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "claimantEmail",
+            "name": "claimantEmail",
+            "label": "Your email address",
+            "type": "email",
+            "autocomplete": "email",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "claimantPhone",
+            "name": "claimantPhone",
+            "label": "Your phone number",
+            "type": "tel",
+            "autocomplete": "tel",
+            "width": "20"
+          }
+        }
+      ],
+      "nextPage": "defendant-details",
+      "previousPage": "claim-type",
+      "validation": "money-claim-claimant"
+    },
+    "defendant-details": {
+      "id": "defendant-details",
+      "title": "Defendant details",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "The defendant is the person or business you're claiming from."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "defendantName",
+            "name": "defendantName",
+            "label": "Defendant's name or business name",
+            "width": "30"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "defendantAddress",
+            "name": "defendantAddress",
+            "label": "Defendant's address",
+            "width": "30"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "defendantEmail",
+            "name": "defendantEmail",
+            "label": "Defendant's email address (if known)",
+            "type": "email",
+            "width": "20"
+          }
+        }
+      ],
+      "nextPage": "claim-amount",
+      "previousPage": "claimant-details",
+      "validation": "money-claim-defendant"
+    },
+    "claim-amount": {
+      "id": "claim-amount",
+      "title": "Claim amount",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "claimAmount",
+            "name": "claimAmount",
+            "label": "How much are you claiming?",
+            "hint": "Do not include interest or court fees",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "claimInterest",
+            "name": "claimInterest",
+            "legend": "Do you want to claim interest?",
+            "items": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "claim-details",
+      "previousPage": "defendant-details",
+      "validation": "required"
+    },
+    "claim-details": {
+      "id": "claim-details",
+      "title": "Details of your claim",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Explain why you're making this claim."
+          }
+        },
+        {
+          "type": "textarea",
+          "props": {
+            "id": "claimReason",
+            "name": "claimReason",
+            "label": "Why you're claiming",
+            "hint": "Include dates, amounts and what happened",
+            "rows": 10
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "What should I include?",
+            "text": "Include: what you're claiming for, when it happened, what you've done to try to resolve it, copies of any relevant documents or correspondence."
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "claim-amount",
+      "validation": "required"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers before submitting your claim",
+      "components": []
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Claim submitted",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Claim submitted",
+            "content": "Your claim number is MC-2024-123456"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We'll send your claim to the defendant. They have 14 days to respond."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Court fee",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "rows": [
+              {
+                "key": "Claim amount",
+                "value": "£1,500.00"
+              },
+              {
+                "key": "Court fee",
+                "value": "£70.00"
+              },
+              {
+                "key": "Total to pay",
+                "value": "£70.00"
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You must pay the court fee within 7 days or your claim will be cancelled."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Pay court fee",
+            "href": "#"
+          }
+        }
+      ]
+    }
+  }
+}

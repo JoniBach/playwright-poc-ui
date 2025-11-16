@@ -1,0 +1,279 @@
+{
+  "id": "track-court-case",
+  "name": "Track your court case",
+  "landingPage": {
+    "title": "Track your court case",
+    "lead": "Check the status of your court case and view upcoming hearings.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need your case number."
+      },
+      {
+        "type": "heading",
+        "content": "What you can view",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "case status",
+          "upcoming hearing dates",
+          "court documents",
+          "case history",
+          "next steps"
+        ]
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and takes less than a minute to use."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/hmcts/track-court-case/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "Track your court case",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your case number to track your court case.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "caseNumber",
+            "name": "caseNumber",
+            "label": "Case number",
+            "hint": "For example, MC-2024-123456",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "postcode",
+            "name": "postcode",
+            "label": "Your postcode",
+            "hint": "For security verification",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "court-case-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "Your court case",
+      "components": [
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Case details",
+            "rows": [
+              {
+                "key": "Case number",
+                "value": "MC-2024-123456"
+              },
+              {
+                "key": "Case type",
+                "value": "Money claim"
+              },
+              {
+                "key": "Claimant",
+                "value": "John Smith"
+              },
+              {
+                "key": "Defendant",
+                "value": "ABC Limited"
+              },
+              {
+                "key": "Claim amount",
+                "value": "£1,500.00"
+              },
+              {
+                "key": "Status",
+                "value": "Awaiting hearing",
+                "tag": {
+                  "text": "Active",
+                  "colour": "info"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Next hearing",
+            "rows": [
+              {
+                "key": "Date and time",
+                "value": "15 May 2024 at 10:00am"
+              },
+              {
+                "key": "Court",
+                "value": "County Court at Manchester"
+              },
+              {
+                "key": "Address",
+                "value": "1 Bridge Street West, Manchester, M60 9DJ"
+              },
+              {
+                "key": "Hearing type",
+                "value": "Small claims hearing"
+              },
+              {
+                "key": "Judge",
+                "value": "District Judge Williams"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Case history",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Case events",
+            "headers": ["Date", "Event", "Status"],
+            "rows": [
+              {
+                "date": "10 April 2024",
+                "event": "Hearing date set",
+                "status": {
+                  "tag": {
+                    "text": "Complete",
+                    "colour": "success"
+                  }
+                }
+              },
+              {
+                "date": "25 March 2024",
+                "event": "Defence filed",
+                "status": {
+                  "tag": {
+                    "text": "Complete",
+                    "colour": "success"
+                  }
+                }
+              },
+              {
+                "date": "15 March 2024",
+                "event": "Claim issued",
+                "status": {
+                  "tag": {
+                    "text": "Complete",
+                    "colour": "success"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Documents",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Case documents",
+            "headers": ["Document", "Date uploaded", "Actions"],
+            "rows": [
+              {
+                "document": "Claim form",
+                "date": "15 March 2024",
+                "actions": {
+                  "link": {
+                    "href": "#",
+                    "text": "Download"
+                  }
+                }
+              },
+              {
+                "document": "Defence",
+                "date": "25 March 2024",
+                "actions": {
+                  "link": {
+                    "href": "#",
+                    "text": "Download"
+                  }
+                }
+              },
+              {
+                "document": "Hearing notice",
+                "date": "10 April 2024",
+                "actions": {
+                  "link": {
+                    "href": "#",
+                    "text": "Download"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What you need to do",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "list",
+          "props": {
+            "listType": "bullet",
+            "items": [
+              "Attend the hearing on 15 May 2024 at 10:00am",
+              "Bring all relevant documents and evidence",
+              "Arrive at least 15 minutes before the hearing"
+            ]
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "What happens at a small claims hearing?",
+            "text": "A small claims hearing is informal. The judge will listen to both sides and look at the evidence. You don't need a lawyer, but you can bring one if you want to."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Check another case",
+            "href": "/hmcts/track-court-case/apply",
+            "secondary": true
+          }
+        }
+      ]
+    }
+  }
+}

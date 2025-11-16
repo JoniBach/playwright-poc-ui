@@ -1,0 +1,384 @@
+{
+  "id": "join-armed-forces",
+  "name": "Apply to join the Armed Forces",
+  "landingPage": {
+    "title": "Apply to join the British Armed Forces",
+    "lead": "Start your application to join the Army, Royal Navy or Royal Air Force.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your National Insurance number",
+          "details of your education and qualifications",
+          "your employment history",
+          "details of any medical conditions",
+          "contact details for 2 references"
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Eligibility",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You must be aged 16 or over and a British, Irish or Commonwealth citizen."
+      },
+      {
+        "type": "insetText",
+        "content": "This service takes around 45 minutes to complete. You'll be contacted within 5 working days."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/mod/join-armed-forces/apply"
+  },
+  "startPage": "start",
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "Apply to join the Armed Forces",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Use this service to start your application to join the British Armed Forces.",
+            "lead": true
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to pass fitness tests, medical assessments and security checks."
+          }
+        }
+      ],
+      "nextPage": "service-preference"
+    },
+    "service-preference": {
+      "id": "service-preference",
+      "title": "Service preference",
+      "components": [
+        {
+          "type": "radios",
+          "props": {
+            "id": "serviceChoice",
+            "name": "serviceChoice",
+            "legend": "Which service do you want to join?",
+            "items": [
+              {
+                "value": "army",
+                "text": "British Army"
+              },
+              {
+                "value": "navy",
+                "text": "Royal Navy"
+              },
+              {
+                "value": "raf",
+                "text": "Royal Air Force"
+              }
+            ]
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "roleType",
+            "name": "roleType",
+            "legend": "What type of role are you interested in?",
+            "items": [
+              {
+                "value": "officer",
+                "text": "Officer"
+              },
+              {
+                "value": "soldier",
+                "text": "Soldier/Rating/Airman"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "personal-details",
+      "previousPage": "start",
+      "validation": "required"
+    },
+    "personal-details": {
+      "id": "personal-details",
+      "title": "Your personal details",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "firstName",
+            "name": "firstName",
+            "label": "First name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "lastName",
+            "name": "lastName",
+            "label": "Last name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nationalInsurance",
+            "name": "nationalInsurance",
+            "label": "National Insurance number",
+            "hint": "It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "qualifications",
+      "previousPage": "service-preference",
+      "validation": "armed-forces-personal"
+    },
+    "qualifications": {
+      "id": "qualifications",
+      "title": "Your qualifications",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Tell us about your education and qualifications."
+          }
+        },
+        {
+          "type": "checkboxes",
+          "props": {
+            "id": "qualifications",
+            "name": "qualifications",
+            "legend": "What qualifications do you have?",
+            "items": [
+              {
+                "value": "gcse",
+                "text": "GCSEs or equivalent"
+              },
+              {
+                "value": "a-level",
+                "text": "A-levels or equivalent"
+              },
+              {
+                "value": "degree",
+                "text": "University degree"
+              },
+              {
+                "value": "vocational",
+                "text": "Vocational qualifications"
+              },
+              {
+                "value": "none",
+                "text": "None of these",
+                "exclusive": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "textarea",
+          "props": {
+            "id": "qualificationDetails",
+            "name": "qualificationDetails",
+            "label": "Qualification details",
+            "hint": "List your qualifications, grades and dates",
+            "rows": 5
+          }
+        }
+      ],
+      "nextPage": "fitness",
+      "previousPage": "personal-details",
+      "validation": "required"
+    },
+    "fitness": {
+      "id": "fitness",
+      "title": "Fitness and health",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to meet certain fitness and health standards."
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "fitnessLevel",
+            "name": "fitnessLevel",
+            "legend": "How would you describe your current fitness level?",
+            "items": [
+              {
+                "value": "very-fit",
+                "text": "Very fit - I exercise regularly"
+              },
+              {
+                "value": "moderately-fit",
+                "text": "Moderately fit - I exercise sometimes"
+              },
+              {
+                "value": "not-fit",
+                "text": "Not very fit - I don't exercise much"
+              }
+            ]
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "medicalConditions",
+            "name": "medicalConditions",
+            "legend": "Do you have any medical conditions that might affect your ability to serve?",
+            "items": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "background",
+      "previousPage": "qualifications",
+      "validation": "required"
+    },
+    "background": {
+      "id": "background",
+      "title": "Background checks",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We need to carry out security and background checks."
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "criminalRecord",
+            "name": "criminalRecord",
+            "legend": "Do you have any unspent criminal convictions?",
+            "items": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              }
+            ]
+          }
+        },
+        {
+          "type": "insetText",
+          "props": {
+            "text": "Having a criminal record doesn't automatically disqualify you. Each case is considered individually."
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "fitness",
+      "validation": "required"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers before submitting your application",
+      "components": []
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Application complete",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Application submitted",
+            "content": "Your reference number is MOD-2024-123456"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "A recruitment officer will contact you within 5 working days to discuss the next steps."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Next steps",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "list",
+          "props": {
+            "listType": "number",
+            "items": [
+              "Interview with a recruitment officer",
+              "Fitness assessment",
+              "Medical examination",
+              "Security and background checks",
+              "Assessment centre (if successful)"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "The full recruitment process can take 3 to 6 months."
+          }
+        }
+      ]
+    }
+  }
+}

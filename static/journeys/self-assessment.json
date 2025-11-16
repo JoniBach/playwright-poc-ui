@@ -1,0 +1,380 @@
+{
+  "id": "self-assessment",
+  "name": "File Self Assessment tax return",
+  "landingPage": {
+    "title": "File your Self Assessment tax return",
+    "lead": "Use this service to file your Self Assessment tax return online.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your 10-digit Unique Taxpayer Reference (UTR)",
+          "your National Insurance number",
+          "details of your untaxed income from the tax year, including income from self-employment, dividends and interest on shares",
+          "records of any expenses relating to self-employment"
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Deadlines",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You must send your return by midnight on 31 January following the end of the tax year."
+      },
+      {
+        "type": "warningText",
+        "content": "You'll be charged a £100 penalty if your tax return is up to 3 months late. You'll have to pay more if it's later, or if you pay your tax bill late."
+      },
+      {
+        "type": "insetText",
+        "content": "This service takes around 30 minutes to complete if you have all your information ready."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/hmrc/self-assessment/apply"
+  },
+  "startPage": "start",
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "File your Self Assessment tax return",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Use this service to file your Self Assessment tax return for the 2023 to 2024 tax year.",
+            "lead": true
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to sign in with your Government Gateway user ID and password."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Make sure you have all your income and expense records for the tax year."
+          }
+        }
+      ],
+      "nextPage": "taxpayer-details"
+    },
+    "taxpayer-details": {
+      "id": "taxpayer-details",
+      "title": "Your taxpayer details",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "utr",
+            "name": "utr",
+            "label": "Unique Taxpayer Reference (UTR)",
+            "hint": "This is 10 numbers, for example 1234567890. It will be on tax returns and other letters from HMRC.",
+            "width": "10"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nationalInsurance",
+            "name": "nationalInsurance",
+            "label": "National Insurance number",
+            "hint": "It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "income-sources",
+      "previousPage": "start",
+      "validation": "hmrc-taxpayer-details"
+    },
+    "income-sources": {
+      "id": "income-sources",
+      "title": "Your income sources",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Select all the types of income you received in the 2023 to 2024 tax year."
+          }
+        },
+        {
+          "type": "checkboxes",
+          "props": {
+            "id": "incomeSources",
+            "name": "incomeSources",
+            "legend": "What types of income did you receive?",
+            "items": [
+              {
+                "value": "employment",
+                "text": "Employment (PAYE)"
+              },
+              {
+                "value": "self-employment",
+                "text": "Self-employment"
+              },
+              {
+                "value": "dividends",
+                "text": "Dividends from shares"
+              },
+              {
+                "value": "interest",
+                "text": "Interest from savings"
+              },
+              {
+                "value": "property",
+                "text": "Property rental income"
+              },
+              {
+                "value": "pension",
+                "text": "Pension income"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "employment-income",
+      "previousPage": "taxpayer-details",
+      "validation": "required"
+    },
+    "employment-income": {
+      "id": "employment-income",
+      "title": "Employment income",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your total employment income from all jobs in the 2023 to 2024 tax year."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "employmentIncome",
+            "name": "employmentIncome",
+            "label": "Total employment income",
+            "hint": "You can find this on your P60 or final payslip",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "taxPaidEmployment",
+            "name": "taxPaidEmployment",
+            "label": "Tax already paid on employment income",
+            "hint": "This is shown on your P60",
+            "prefix": "£",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "self-employment-income",
+      "previousPage": "income-sources",
+      "validation": "required"
+    },
+    "self-employment-income": {
+      "id": "self-employment-income",
+      "title": "Self-employment income",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your self-employment income and expenses for the 2023 to 2024 tax year."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "selfEmploymentIncome",
+            "name": "selfEmploymentIncome",
+            "label": "Total self-employment income",
+            "hint": "Your turnover before expenses",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "selfEmploymentExpenses",
+            "name": "selfEmploymentExpenses",
+            "label": "Total allowable expenses",
+            "hint": "Include office costs, travel, equipment",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "What expenses can I claim?",
+            "text": "You can claim expenses that are wholly and exclusively for your business, such as office costs, travel, equipment, and professional fees."
+          }
+        }
+      ],
+      "nextPage": "other-income",
+      "previousPage": "employment-income",
+      "validation": "required"
+    },
+    "other-income": {
+      "id": "other-income",
+      "title": "Other income",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter any other income you received in the 2023 to 2024 tax year."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "dividendIncome",
+            "name": "dividendIncome",
+            "label": "Dividends from shares",
+            "hint": "Enter 0 if you had none",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "interestIncome",
+            "name": "interestIncome",
+            "label": "Interest from savings",
+            "hint": "Enter 0 if you had none",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "propertyIncome",
+            "name": "propertyIncome",
+            "label": "Property rental income",
+            "hint": "Enter 0 if you had none",
+            "prefix": "£",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "self-employment-income",
+      "validation": "required"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers before submitting your tax return",
+      "components": []
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Tax return submitted",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Tax return submitted",
+            "content": "Your reference number is SA-2024-123456"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We'll calculate your tax bill and send you a statement. You must pay any tax you owe by 31 January 2025."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Your tax calculation",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "rows": [
+              {
+                "key": "Total income",
+                "value": "£45,000.00"
+              },
+              {
+                "key": "Total allowances",
+                "value": "£12,570.00"
+              },
+              {
+                "key": "Taxable income",
+                "value": "£32,430.00"
+              },
+              {
+                "key": "Tax due",
+                "value": "£4,986.00"
+              },
+              {
+                "key": "Tax already paid",
+                "value": "£3,200.00"
+              },
+              {
+                "key": "Amount to pay",
+                "value": "£1,786.00"
+              }
+            ]
+          }
+        },
+        {
+          "type": "warningText",
+          "props": {
+            "text": "You must pay your tax bill by 31 January 2025 to avoid penalties and interest charges."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Pay your tax bill",
+            "href": "#"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "id": "probate-apply",
+  "name": "Apply for probate",
+  "landingPage": {
+    "title": "Apply for probate",
+    "lead": "You need to apply for probate if you're dealing with the estate of someone who has died.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "the original will and 3 copies",
+          "the death certificate",
+          "details of the estate's value",
+          "details of assets and debts",
+          "details of beneficiaries"
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Cost",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "It costs £273 to apply for probate. There's no fee if the estate is worth less than £5,000."
+      },
+      {
+        "type": "insetText",
+        "content": "This service takes around 30 minutes to complete. You'll get probate within 16 weeks."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/moj/probate-apply/apply"
+  },
+  "startPage": "start",
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "Apply for probate",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Use this service to apply for probate online.",
+            "lead": true
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to value the estate and report its value to HMRC before you apply."
+          }
+        }
+      ],
+      "nextPage": "deceased-details"
+    },
+    "deceased-details": {
+      "id": "deceased-details",
+      "title": "Details of the person who died",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "deceasedFirstName",
+            "name": "deceasedFirstName",
+            "label": "First name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "deceasedLastName",
+            "name": "deceasedLastName",
+            "label": "Last name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfDeath",
+            "name": "dateOfDeath",
+            "legend": "Date of death",
+            "hint": "For example, 31 3 2024"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "lastAddress",
+            "name": "lastAddress",
+            "label": "Last known address",
+            "width": "30"
+          }
+        }
+      ],
+      "nextPage": "estate-value",
+      "previousPage": "start",
+      "validation": "probate-deceased"
+    },
+    "estate-value": {
+      "id": "estate-value",
+      "title": "Value of the estate",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter the total value of the estate before any debts are paid."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "grossEstateValue",
+            "name": "grossEstateValue",
+            "label": "Gross value of the estate",
+            "hint": "Include property, savings, investments, and personal possessions",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "netEstateValue",
+            "name": "netEstateValue",
+            "label": "Net value of the estate",
+            "hint": "After debts and funeral expenses",
+            "prefix": "£",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "assets",
+      "previousPage": "deceased-details",
+      "validation": "required"
+    },
+    "assets": {
+      "id": "assets",
+      "title": "Assets",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "List the main assets in the estate."
+          }
+        },
+        {
+          "type": "checkboxes",
+          "props": {
+            "id": "assetTypes",
+            "name": "assetTypes",
+            "legend": "What types of assets are in the estate?",
+            "items": [
+              {
+                "value": "property",
+                "text": "Property (house, flat, land)"
+              },
+              {
+                "value": "savings",
+                "text": "Savings and bank accounts"
+              },
+              {
+                "value": "investments",
+                "text": "Investments (shares, bonds)"
+              },
+              {
+                "value": "pension",
+                "text": "Pension"
+              },
+              {
+                "value": "vehicles",
+                "text": "Vehicles"
+              },
+              {
+                "value": "personal",
+                "text": "Personal possessions"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "debts",
+      "previousPage": "estate-value",
+      "validation": "required"
+    },
+    "debts": {
+      "id": "debts",
+      "title": "Debts and funeral expenses",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "funeralCosts",
+            "name": "funeralCosts",
+            "label": "Funeral costs",
+            "prefix": "£",
+            "width": "10"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "otherDebts",
+            "name": "otherDebts",
+            "label": "Other debts",
+            "hint": "Include mortgages, loans, credit cards",
+            "prefix": "£",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "will-details",
+      "previousPage": "assets",
+      "validation": "required"
+    },
+    "will-details": {
+      "id": "will-details",
+      "title": "Will details",
+      "components": [
+        {
+          "type": "radios",
+          "props": {
+            "id": "hasWill",
+            "name": "hasWill",
+            "legend": "Did the person leave a will?",
+            "items": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              }
+            ]
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "willDate",
+            "name": "willDate",
+            "legend": "Date of will (if applicable)",
+            "hint": "For example, 15 6 2020"
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "debts",
+      "validation": "required"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers before submitting your application",
+      "components": []
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Application complete",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Application submitted",
+            "content": "Your reference number is PROB-2024-123456"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll receive the grant of probate within 16 weeks. We'll send it to the address you provided."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "After you get probate",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "list",
+          "props": {
+            "listType": "bullet",
+            "items": [
+              "Collect the assets",
+              "Pay any debts",
+              "Distribute the estate to beneficiaries",
+              "Keep records of all transactions"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

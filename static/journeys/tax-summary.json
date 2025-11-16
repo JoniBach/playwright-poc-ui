@@ -1,0 +1,275 @@
+{
+  "id": "tax-summary",
+  "name": "View your tax summary and payments",
+  "landingPage": {
+    "title": "View your tax summary and payments",
+    "lead": "Check your tax codes, payments and refunds online.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need your Unique Taxpayer Reference (UTR) number."
+      },
+      {
+        "type": "heading",
+        "content": "What you can view",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your current tax codes",
+          "payments you've made to HMRC",
+          "any refunds due to you",
+          "your Self Assessment account balance",
+          "upcoming payment deadlines"
+        ]
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and secure. Your tax information is confidential."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/hmrc/tax-summary/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "View your tax summary",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your details to view your tax summary and payments.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "utr",
+            "name": "utr",
+            "label": "Unique Taxpayer Reference (UTR)",
+            "hint": "This is 10 numbers, for example 1234567890",
+            "width": "10"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nationalInsurance",
+            "name": "nationalInsurance",
+            "label": "National Insurance number",
+            "hint": "For example, 'QQ 12 34 56 C'",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "tax-summary-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "Your tax summary",
+      "components": [
+        {
+          "type": "notificationBanner",
+          "props": {
+            "type": "success",
+            "title": "Important",
+            "text": "You have a tax refund of £245.00 due"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Your tax account",
+            "rows": [
+              {
+                "key": "Unique Taxpayer Reference",
+                "value": "1234567890"
+              },
+              {
+                "key": "Account balance",
+                "value": "-£245.00",
+                "tag": {
+                  "text": "Refund due",
+                  "colour": "success"
+                }
+              },
+              {
+                "key": "Tax year",
+                "value": "2023 to 2024"
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Current tax codes",
+            "rows": [
+              {
+                "key": "Employment tax code",
+                "value": "1257L"
+              },
+              {
+                "key": "What this means",
+                "value": "You have a tax-free Personal Allowance of £12,570"
+              },
+              {
+                "key": "Effective from",
+                "value": "6 April 2023"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Recent payments",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Payments made to HMRC",
+            "headers": ["Date", "Description", "Amount", "Status"],
+            "rows": [
+              {
+                "date": "31 January 2024",
+                "description": "Self Assessment payment on account",
+                "amount": "£2,500.00",
+                "status": {
+                  "tag": {
+                    "text": "Paid",
+                    "colour": "success"
+                  }
+                }
+              },
+              {
+                "date": "31 July 2023",
+                "description": "Self Assessment payment on account",
+                "amount": "£2,500.00",
+                "status": {
+                  "tag": {
+                    "text": "Paid",
+                    "colour": "success"
+                  }
+                }
+              },
+              {
+                "date": "31 January 2023",
+                "description": "Self Assessment balancing payment",
+                "amount": "£1,200.00",
+                "status": {
+                  "tag": {
+                    "text": "Paid",
+                    "colour": "success"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Upcoming payments",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "rows": [
+              {
+                "key": "Next payment due",
+                "value": "31 July 2024"
+              },
+              {
+                "key": "Amount",
+                "value": "£2,500.00"
+              },
+              {
+                "key": "Description",
+                "value": "Self Assessment payment on account"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Tax refunds",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Refund details",
+            "rows": [
+              {
+                "key": "Refund amount",
+                "value": "£245.00"
+              },
+              {
+                "key": "Reason",
+                "value": "Overpayment of tax in 2022 to 2023"
+              },
+              {
+                "key": "Status",
+                "value": "Being processed",
+                "tag": {
+                  "text": "Processing",
+                  "colour": "info"
+                }
+              },
+              {
+                "key": "Expected payment date",
+                "value": "Within 5 working days"
+              }
+            ]
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "How do I get my refund faster?",
+            "text": "Refunds are usually paid within 5 working days. If you need your refund urgently, you can contact HMRC to request a faster payment."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Make a payment",
+            "href": "#"
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "View full tax account",
+            "href": "#",
+            "secondary": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "id": "student-finance",
+  "name": "Apply for student finance",
+  "landingPage": {
+    "title": "Apply for student finance",
+    "lead": "Apply for student finance to help pay for your tuition fees and living costs while you study.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you can get",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "Tuition Fee Loan - up to £9,250 per year",
+          "Maintenance Loan - up to £13,022 per year",
+          "Extra help if you're disabled or have children"
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your course details",
+          "your bank account details",
+          "your household income details",
+          "your National Insurance number"
+        ]
+      },
+      {
+        "type": "warningText",
+        "content": "Apply as soon as you've accepted your place at university or college. It can take up to 6 weeks to process your application."
+      },
+      {
+        "type": "insetText",
+        "content": "This service takes around 30 minutes to complete."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/dfe/student-finance/apply"
+  },
+  "startPage": "start",
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "Apply for student finance",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Use this service to apply for student finance for the 2024 to 2025 academic year.",
+            "lead": true
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to provide details about your course, your living arrangements, and your household income."
+          }
+        }
+      ],
+      "nextPage": "personal-details"
+    },
+    "personal-details": {
+      "id": "personal-details",
+      "title": "Your personal details",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "firstName",
+            "name": "firstName",
+            "label": "First name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "lastName",
+            "name": "lastName",
+            "label": "Last name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nationalInsurance",
+            "name": "nationalInsurance",
+            "label": "National Insurance number",
+            "hint": "It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "course-details",
+      "previousPage": "start",
+      "validation": "student-finance-personal"
+    },
+    "course-details": {
+      "id": "course-details",
+      "title": "Your course details",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "universityName",
+            "name": "universityName",
+            "label": "University or college name",
+            "width": "30"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "courseName",
+            "name": "courseName",
+            "label": "Course name",
+            "hint": "For example, BSc Computer Science",
+            "width": "30"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "courseStartDate",
+            "name": "courseStartDate",
+            "legend": "Course start date",
+            "hint": "For example, 09 2024"
+          }
+        },
+        {
+          "type": "select",
+          "props": {
+            "id": "courseLength",
+            "name": "courseLength",
+            "label": "Course length",
+            "items": [
+              {
+                "value": "",
+                "text": "Select course length"
+              },
+              {
+                "value": "1",
+                "text": "1 year"
+              },
+              {
+                "value": "2",
+                "text": "2 years"
+              },
+              {
+                "value": "3",
+                "text": "3 years"
+              },
+              {
+                "value": "4",
+                "text": "4 years"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "living-arrangements",
+      "previousPage": "personal-details",
+      "validation": "required"
+    },
+    "living-arrangements": {
+      "id": "living-arrangements",
+      "title": "Your living arrangements",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "This affects how much Maintenance Loan you can get."
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "livingArrangement",
+            "name": "livingArrangement",
+            "legend": "Where will you live during term time?",
+            "items": [
+              {
+                "value": "parents",
+                "text": "Living with parents"
+              },
+              {
+                "value": "university",
+                "text": "University accommodation"
+              },
+              {
+                "value": "private-london",
+                "text": "Private accommodation in London"
+              },
+              {
+                "value": "private-outside-london",
+                "text": "Private accommodation outside London"
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "household-income",
+      "previousPage": "course-details",
+      "validation": "required"
+    },
+    "household-income": {
+      "id": "household-income",
+      "title": "Household income",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We use your household income to calculate how much Maintenance Loan you can get."
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "dependentStatus",
+            "name": "dependentStatus",
+            "legend": "Are you financially dependent on your parents?",
+            "hint": "You're usually dependent if you're under 25 and haven't been financially independent for 3 years",
+            "items": [
+              {
+                "value": "dependent",
+                "text": "Yes, I'm dependent"
+              },
+              {
+                "value": "independent",
+                "text": "No, I'm independent"
+              }
+            ]
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "householdIncome",
+            "name": "householdIncome",
+            "label": "Total household income",
+            "hint": "Combined income of you and your parents (or partner if you have one) before tax",
+            "prefix": "£",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "bank-details",
+      "previousPage": "living-arrangements",
+      "validation": "required"
+    },
+    "bank-details": {
+      "id": "bank-details",
+      "title": "Your bank details",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We'll pay your Maintenance Loan into this account."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "accountName",
+            "name": "accountName",
+            "label": "Name on the account",
+            "autocomplete": "name",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "sortCode",
+            "name": "sortCode",
+            "label": "Sort code",
+            "hint": "Must be 6 digits long",
+            "width": "5"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "accountNumber",
+            "name": "accountNumber",
+            "label": "Account number",
+            "hint": "Must be between 6 and 8 digits long",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "household-income",
+      "validation": "bank-details"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers before submitting your application",
+      "components": []
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Application complete",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Application submitted",
+            "content": "Your customer reference number is SFE-2024-123456"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We'll assess your application and send you a Student Finance Entitlement letter within 6 weeks. This will tell you how much you'll get."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Your estimated entitlement",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "rows": [
+              {
+                "key": "Tuition Fee Loan",
+                "value": "£9,250 per year"
+              },
+              {
+                "key": "Maintenance Loan",
+                "value": "Up to £9,978 per year"
+              },
+              {
+                "key": "Total",
+                "value": "Up to £19,228 per year"
+              }
+            ]
+          }
+        },
+        {
+          "type": "insetText",
+          "props": {
+            "text": "This is an estimate. Your final entitlement will be confirmed in your Student Finance Entitlement letter."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What you need to do",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "list",
+          "props": {
+            "listType": "bullet",
+            "items": [
+              "Check your university has confirmed your place",
+              "Provide evidence of your household income if requested",
+              "Sign your declaration when you receive it"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

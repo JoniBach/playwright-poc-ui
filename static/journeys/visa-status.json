@@ -1,0 +1,222 @@
+{
+  "id": "visa-status",
+  "name": "Check visa application status",
+  "landingPage": {
+    "title": "Check your visa application status",
+    "lead": "Track your visa application and see when a decision will be made.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need your visa application reference number."
+      },
+      {
+        "type": "heading",
+        "content": "What you can check",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "the status of your application",
+          "when your application was received",
+          "when a decision is expected",
+          "if we need any more information from you"
+        ]
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and takes less than a minute to use."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/home-office/visa-status/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "Check your visa application status",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your application reference number to check the status of your visa application.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "reference",
+            "name": "reference",
+            "label": "Application reference number",
+            "hint": "This is on the email we sent you when you applied. For example, VISA-2024-ABC123",
+            "width": "20"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "visa-status-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "Your visa application",
+      "components": [
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Application details",
+            "rows": [
+              {
+                "key": "Reference number",
+                "value": "VISA-2024-ABC123"
+              },
+              {
+                "key": "Visa type",
+                "value": "Standard Visitor visa"
+              },
+              {
+                "key": "Application submitted",
+                "value": "15 March 2024"
+              },
+              {
+                "key": "Biometrics provided",
+                "value": "18 March 2024"
+              },
+              {
+                "key": "Status",
+                "value": "Being processed",
+                "tag": {
+                  "text": "In progress",
+                  "colour": "info"
+                }
+              },
+              {
+                "key": "Expected decision",
+                "value": "By 5 April 2024"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Application timeline",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Application progress",
+            "headers": ["Stage", "Date", "Status"],
+            "rows": [
+              {
+                "stage": "Application submitted",
+                "date": "15 March 2024",
+                "status": {
+                  "tag": {
+                    "text": "Complete",
+                    "colour": "success"
+                  }
+                }
+              },
+              {
+                "stage": "Payment received",
+                "date": "15 March 2024",
+                "status": {
+                  "tag": {
+                    "text": "Complete",
+                    "colour": "success"
+                  }
+                }
+              },
+              {
+                "stage": "Biometrics appointment",
+                "date": "18 March 2024",
+                "status": {
+                  "tag": {
+                    "text": "Complete",
+                    "colour": "success"
+                  }
+                }
+              },
+              {
+                "stage": "Application being processed",
+                "date": "In progress",
+                "status": {
+                  "tag": {
+                    "text": "Current",
+                    "colour": "info"
+                  }
+                }
+              },
+              {
+                "stage": "Decision made",
+                "date": "Pending",
+                "status": {
+                  "tag": {
+                    "text": "Pending",
+                    "colour": "inactive"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Your application is being processed. We'll email you when a decision has been made."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You can collect your passport and decision letter from the visa application centre once we've made a decision."
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "What if my application is taking longer than expected?",
+            "text": "Processing times can vary. If your application is taking longer than the standard processing time, you can contact UK Visas and Immigration for an update."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Check another application",
+            "href": "/home-office/visa-status/apply",
+            "secondary": true
+          }
+        }
+      ]
+    }
+  }
+}

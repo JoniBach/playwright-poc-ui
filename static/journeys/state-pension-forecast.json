@@ -1,0 +1,267 @@
+{
+  "id": "state-pension-forecast",
+  "name": "Check State Pension forecast",
+  "landingPage": {
+    "title": "Check your State Pension forecast",
+    "lead": "Use this service to find out how much State Pension you could get and when you could get it.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need your National Insurance number."
+      },
+      {
+        "type": "heading",
+        "content": "What you'll find out",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "how much State Pension you could get",
+          "when you can get your State Pension",
+          "how to increase your State Pension",
+          "your National Insurance record"
+        ]
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and takes less than 5 minutes to use."
+      },
+      {
+        "type": "paragraph",
+        "content": "You can also use this service to get a State Pension statement."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/dwp/state-pension-forecast/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "Check your State Pension forecast",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter your details to view your State Pension forecast.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nationalInsurance",
+            "name": "nationalInsurance",
+            "label": "National Insurance number",
+            "hint": "It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.",
+            "width": "10"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "pension-forecast-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "Your State Pension forecast",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "£203.85 per week",
+            "content": "This is your forecast for the full State Pension"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Your State Pension age",
+            "rows": [
+              {
+                "key": "You'll reach State Pension age on",
+                "value": "6 May 2047"
+              },
+              {
+                "key": "Your State Pension age is",
+                "value": "67 years old"
+              },
+              {
+                "key": "Years until State Pension",
+                "value": "23 years"
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Your forecast",
+            "rows": [
+              {
+                "key": "Forecast amount per week",
+                "value": "£203.85"
+              },
+              {
+                "key": "Forecast amount per month",
+                "value": "£884.00"
+              },
+              {
+                "key": "Forecast amount per year",
+                "value": "£10,600.20"
+              },
+              {
+                "key": "Forecast based on",
+                "value": "Your National Insurance record up to 5 April 2024"
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Your National Insurance record",
+            "rows": [
+              {
+                "key": "Years you have",
+                "value": "15 years",
+                "tag": {
+                  "text": "On track",
+                  "colour": "success"
+                }
+              },
+              {
+                "key": "Years you need",
+                "value": "35 years for the full State Pension"
+              },
+              {
+                "key": "Years to add",
+                "value": "20 more years"
+              },
+              {
+                "key": "Years you can still add",
+                "value": "23 years before you reach State Pension age"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "How to increase your State Pension",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You can increase your State Pension by:"
+          }
+        },
+        {
+          "type": "list",
+          "props": {
+            "listType": "bullet",
+            "items": [
+              "paying voluntary National Insurance contributions",
+              "working and paying National Insurance until you reach State Pension age",
+              "getting National Insurance credits if you're unable to work"
+            ]
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "What are National Insurance credits?",
+            "text": "You may get National Insurance credits if you're unable to work, for example because you're ill, unemployed, or caring for someone. These credits count towards your State Pension."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Gaps in your National Insurance record",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Years with gaps",
+            "headers": ["Tax year", "Status", "Action"],
+            "rows": [
+              {
+                "year": "2023 to 2024",
+                "status": {
+                  "tag": {
+                    "text": "Full year",
+                    "colour": "success"
+                  }
+                },
+                "action": "None needed"
+              },
+              {
+                "year": "2022 to 2023",
+                "status": {
+                  "tag": {
+                    "text": "Full year",
+                    "colour": "success"
+                  }
+                },
+                "action": "None needed"
+              },
+              {
+                "year": "2021 to 2022",
+                "status": {
+                  "tag": {
+                    "text": "Gap",
+                    "colour": "warning"
+                  }
+                },
+                "action": {
+                  "link": {
+                    "href": "#",
+                    "text": "Pay voluntary contributions"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "insetText",
+          "props": {
+            "text": "This forecast is based on the current law. The law may change in the future."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Print your forecast",
+            "href": "#",
+            "secondary": true
+          }
+        }
+      ]
+    }
+  }
+}
