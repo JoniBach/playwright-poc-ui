@@ -6,14 +6,25 @@
 	import GovUKPage from '$lib/components/GovUKPage.svelte';
 	import { Panel, Button } from '$lib/components/govuk';
 	import { journeyStore } from '$lib/stores/journey.svelte';
-	import { exampleJourney } from '$lib/journeys/example-journey';
+	import { loadJourney } from '$lib/loaders/journey-loader';
 
 	const state = $derived(journeyStore.currentState);
 	const isCheckAnswersPage = $derived(state.currentPageId === 'check-answers');
 	const isCompleted = $derived(state.completed);
 
-	onMount(() => {
-		journeyStore.initJourney(exampleJourney);
+	let loading = $state(true);
+	let error = $state<string | null>(null);
+
+	onMount(async () => {
+		try {
+			const journey = await loadJourney('passport');
+			journeyStore.initJourney(journey);
+		} catch (e) {
+			error = e instanceof Error ? e.message : 'Failed to load journey';
+			console.error('Error loading journey:', e);
+		} finally {
+			loading = false;
+		}
 	});
 
 	function handleSubmit() {
@@ -26,7 +37,19 @@
 	}
 </script>
 
-{#if isCompleted}
+{#if loading}
+	<GovUKPage title="Loading...">
+		{#snippet children()}
+			<p class="govuk-body">Loading journey...</p>
+		{/snippet}
+	</GovUKPage>
+{:else if error}
+	<GovUKPage title="Error">
+		{#snippet children()}
+			<p class="govuk-body">{error}</p>
+		{/snippet}
+	</GovUKPage>
+{:else if isCompleted}
 	<GovUKPage title="Application complete">
 		{#snippet children()}
 			<Panel

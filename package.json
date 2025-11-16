@@ -33,6 +33,7 @@
 		"vite": "^7.1.10"
 	},
 	"dependencies": {
-		"govuk-frontend": "^5.13.0"
+		"govuk-frontend": "^5.13.0",
+		"zod": "^4.1.12"
 	}
 }
