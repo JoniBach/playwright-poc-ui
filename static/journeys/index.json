@@ -168,7 +168,7 @@
       "department": "Driver and Vehicle Licensing Agency (DVLA)",
       "departmentSlug": "dvla",
       "type": "data-entry",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "mot-history",
@@ -178,7 +178,7 @@
       "department": "Driver and Vehicle Licensing Agency (DVLA)",
       "departmentSlug": "dvla",
       "type": "data-lookup",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "money-claim",

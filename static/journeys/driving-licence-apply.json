@@ -1,0 +1,323 @@
+{
+  "id": "driving-licence-apply",
+  "name": "Apply for a driving licence",
+  "landingPage": {
+    "title": "Apply for your first provisional driving licence",
+    "lead": "You need a provisional driving licence to take lessons or practice.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "your UK passport or other form of identity",
+          "addresses where you've lived for the last 3 years",
+          "your National Insurance number (if you know it)",
+          "a debit or credit card"
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Cost",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "It costs £34 to apply online for a provisional driving licence."
+      },
+      {
+        "type": "insetText",
+        "content": "This service takes around 15 minutes to complete. You'll get your licence within a week."
+      },
+      {
+        "type": "warningText",
+        "content": "You can be fined up to £1,000 if you drive without a valid licence."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/dvla/driving-licence-apply/apply"
+  },
+  "startPage": "start",
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "Apply for a provisional driving licence",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Use this service to apply for your first provisional driving licence.",
+            "lead": true
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You must be at least 15 years and 9 months old to apply for a provisional licence to drive a car."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You'll need to provide proof of your identity and address."
+          }
+        }
+      ],
+      "nextPage": "personal-details"
+    },
+    "personal-details": {
+      "id": "personal-details",
+      "title": "Your personal details",
+      "components": [
+        {
+          "type": "textInput",
+          "props": {
+            "id": "firstName",
+            "name": "firstName",
+            "label": "First name",
+            "autocomplete": "given-name"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "lastName",
+            "name": "lastName",
+            "label": "Last name",
+            "autocomplete": "family-name"
+          }
+        },
+        {
+          "type": "dateInput",
+          "props": {
+            "id": "dateOfBirth",
+            "name": "dateOfBirth",
+            "legend": "Date of birth",
+            "hint": "For example, 31 3 1980"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "nationalInsurance",
+            "name": "nationalInsurance",
+            "label": "National Insurance number",
+            "hint": "It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "address",
+      "previousPage": "start",
+      "validation": "driving-licence-personal"
+    },
+    "address": {
+      "id": "address",
+      "title": "Your address",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We'll send your provisional licence to this address."
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "addressLine1",
+            "name": "addressLine1",
+            "label": "Address line 1",
+            "autocomplete": "address-line1"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "addressLine2",
+            "name": "addressLine2",
+            "label": "Address line 2 (optional)",
+            "autocomplete": "address-line2"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "city",
+            "name": "city",
+            "label": "Town or city",
+            "autocomplete": "address-level2",
+            "width": "20"
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "postcode",
+            "name": "postcode",
+            "label": "Postcode",
+            "autocomplete": "postal-code",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "medical",
+      "previousPage": "personal-details",
+      "validation": "address"
+    },
+    "medical": {
+      "id": "medical",
+      "title": "Medical conditions",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You must tell DVLA if you have certain medical conditions that could affect your driving."
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "hasMedicalConditions",
+            "name": "hasMedicalConditions",
+            "legend": "Do you have any medical conditions that could affect your driving?",
+            "items": [
+              {
+                "value": "yes",
+                "text": "Yes"
+              },
+              {
+                "value": "no",
+                "text": "No"
+              }
+            ]
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "What medical conditions do I need to declare?",
+            "text": "You must tell DVLA if you have conditions including epilepsy, diabetes, heart conditions, or anything that affects your vision."
+          }
+        }
+      ],
+      "nextPage": "photo",
+      "previousPage": "address",
+      "validation": "required"
+    },
+    "photo": {
+      "id": "photo",
+      "title": "Your photo",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You need to provide a digital photo for your licence."
+          }
+        },
+        {
+          "type": "radios",
+          "props": {
+            "id": "photoMethod",
+            "name": "photoMethod",
+            "legend": "How do you want to provide your photo?",
+            "items": [
+              {
+                "value": "passport",
+                "text": "Use my UK passport photo"
+              },
+              {
+                "value": "upload",
+                "text": "Upload a digital photo"
+              },
+              {
+                "value": "post",
+                "text": "Send a photo by post"
+              }
+            ]
+          }
+        },
+        {
+          "type": "insetText",
+          "props": {
+            "text": "If you use your passport photo, we'll get it from your passport records. This is the quickest option."
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "medical",
+      "validation": "required"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers before submitting your application",
+      "components": []
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Application complete",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Application submitted",
+            "content": "Your reference number is HDJ2123F"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Your provisional driving licence should arrive within 1 week. It will be valid for 10 years."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Before you start driving",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "You can start taking driving lessons as soon as you receive your provisional licence."
+          }
+        },
+        {
+          "type": "warningText",
+          "props": {
+            "text": "You must be supervised by a qualified driver when you practice."
+          }
+        }
+      ]
+    }
+  }
+}

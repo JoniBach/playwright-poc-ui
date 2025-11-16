@@ -1,0 +1,187 @@
+{
+  "id": "mot-history",
+  "name": "Check MOT history",
+  "landingPage": {
+    "title": "Check the MOT history of a vehicle",
+    "lead": "Use this service to check the MOT history of a vehicle, including when the MOT is due and the results of previous tests.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you need",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You'll need the vehicle's registration number (number plate)."
+      },
+      {
+        "type": "heading",
+        "content": "What you can check",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "listType": "bullet",
+        "content": [
+          "when the MOT is due",
+          "the results of previous MOT tests",
+          "the mileage recorded at each test",
+          "any advisories or failures from previous tests"
+        ]
+      },
+      {
+        "type": "insetText",
+        "content": "This service is free and takes less than a minute to use."
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/dvla/mot-history/apply"
+  },
+  "startPage": "search",
+  "pages": {
+    "search": {
+      "id": "search",
+      "title": "Check MOT history",
+      "components": [
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Enter the vehicle registration number to check its MOT history.",
+            "lead": true
+          }
+        },
+        {
+          "type": "textInput",
+          "props": {
+            "id": "registration",
+            "name": "registration",
+            "label": "Vehicle registration number",
+            "hint": "For example, CU57ABC",
+            "width": "10"
+          }
+        }
+      ],
+      "nextPage": "results",
+      "validation": "mot-search"
+    },
+    "results": {
+      "id": "results",
+      "title": "MOT history",
+      "components": [
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Vehicle details",
+            "rows": [
+              {
+                "key": "Registration",
+                "value": "CU57ABC"
+              },
+              {
+                "key": "Make",
+                "value": "Volkswagen"
+              },
+              {
+                "key": "Model",
+                "value": "Golf"
+              },
+              {
+                "key": "Colour",
+                "value": "Silver"
+              },
+              {
+                "key": "Year",
+                "value": "2007"
+              },
+              {
+                "key": "MOT status",
+                "value": "Valid until 15 April 2025",
+                "tag": {
+                  "text": "Valid",
+                  "colour": "success"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "MOT test history",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "table",
+          "props": {
+            "caption": "Previous MOT tests",
+            "headers": ["Test date", "Result", "Mileage", "Expiry date"],
+            "rows": [
+              {
+                "date": "15 April 2024",
+                "result": {
+                  "tag": {
+                    "text": "Pass",
+                    "colour": "success"
+                  }
+                },
+                "mileage": "87,432",
+                "expiry": "15 April 2025"
+              },
+              {
+                "date": "12 April 2023",
+                "result": {
+                  "tag": {
+                    "text": "Pass",
+                    "colour": "success"
+                  }
+                },
+                "mileage": "79,821",
+                "expiry": "15 April 2024"
+              },
+              {
+                "date": "8 April 2022",
+                "result": {
+                  "tag": {
+                    "text": "Fail",
+                    "colour": "error"
+                  }
+                },
+                "mileage": "72,105",
+                "expiry": "N/A"
+              },
+              {
+                "date": "5 April 2022",
+                "result": {
+                  "tag": {
+                    "text": "Pass",
+                    "colour": "success"
+                  }
+                },
+                "mileage": "72,089",
+                "expiry": "8 April 2023"
+              }
+            ]
+          }
+        },
+        {
+          "type": "details",
+          "props": {
+            "summary": "What does this information mean?",
+            "text": "The MOT test checks that your vehicle meets road safety and environmental standards. A pass means your vehicle is roadworthy. A fail means it needs repairs before it can be used on the road."
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "text": "Check another vehicle",
+            "href": "/dvla/mot-history/apply",
+            "secondary": true
+          }
+        }
+      ]
+    }
+  }
+}

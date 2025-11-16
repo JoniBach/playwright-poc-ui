@@ -77,6 +77,36 @@ export const validationRules: Record<string, ValidationRule> = {
 		}
 
 		return Object.keys(errors).length > 0 ? errors : null;
+	},
+
+	// Driving licence personal details validation
+	'driving-licence-personal': (data) => {
+		const errors: Record<string, string> = {};
+
+		if (!data.firstName) {
+			errors.firstName = 'Enter your first name';
+		}
+		if (!data.lastName) {
+			errors.lastName = 'Enter your last name';
+		}
+		if (!data.dateOfBirth) {
+			errors.dateOfBirth = 'Enter your date of birth';
+		}
+
+		return Object.keys(errors).length > 0 ? errors : null;
+	},
+
+	// MOT search validation
+	'mot-search': (data) => {
+		const errors: Record<string, string> = {};
+
+		if (!data.registration) {
+			errors.registration = 'Enter a vehicle registration number';
+		} else if (!/^[A-Z]{2}\d{2}\s?[A-Z]{3}$/i.test(data.registration) && !/^[A-Z]\d{1,3}\s?[A-Z]{3}$/i.test(data.registration)) {
+			errors.registration = 'Enter a valid registration number, like CU57ABC';
+		}
+
+		return Object.keys(errors).length > 0 ? errors : null;
 	}
 };
 
