@@ -6,6 +6,7 @@
       "description": "Apply for, renew, replace or update your UK passport online",
       "slug": "passport",
       "department": "HM Passport Office",
+      "departmentSlug": "hm-passport-office",
       "enabled": true
     }
   ]

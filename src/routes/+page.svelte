@@ -48,10 +48,9 @@
 					
 					{#each deptJourneys as journey}
 						<div class="govuk-!-margin-bottom-6">
-							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">
-								<a href="/service/{journey.slug}" class="govuk-link">{journey.name}</a>
-							</h3>
-							<p class="govuk-body govuk-!-margin-bottom-2">{journey.description}</p>
+							<Heading text={journey.name} level="s" tag="h3" />
+							<p class="govuk-body">{journey.description}</p>
+							<Button text="Start now" href="/{journey.departmentSlug}/{journey.slug}" startButton={true} />
 						</div>
 					{/each}
 				</div>
