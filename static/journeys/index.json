@@ -8,6 +8,177 @@
       "department": "HM Passport Office",
       "departmentSlug": "hm-passport-office",
       "enabled": true
+    },
+    {
+      "id": "report-lost-stolen-passport",
+      "name": "Report a lost or stolen passport",
+      "description": "Report your passport as lost or stolen and cancel it to protect your identity",
+      "slug": "report-lost-stolen-passport",
+      "department": "HM Passport Office",
+      "departmentSlug": "hm-passport-office",
+      "enabled": false
+    },
+    {
+      "id": "self-assessment",
+      "name": "Self Assessment tax return",
+      "description": "File your annual tax return online",
+      "slug": "self-assessment",
+      "department": "HM Revenue and Customs (HMRC)",
+      "departmentSlug": "hm-revenue-customs",
+      "enabled": false
+    },
+    {
+      "id": "tax-credits",
+      "name": "Apply for tax credits",
+      "description": "Apply for Working Tax Credit or Child Tax Credit",
+      "slug": "tax-credits",
+      "department": "HM Revenue and Customs (HMRC)",
+      "departmentSlug": "hm-revenue-customs",
+      "enabled": false
+    },
+    {
+      "id": "universal-credit",
+      "name": "Apply for Universal Credit",
+      "description": "Universal Credit is a payment to help with your living costs",
+      "slug": "universal-credit",
+      "department": "Department for Work and Pensions (DWP)",
+      "departmentSlug": "dwp",
+      "enabled": false
+    },
+    {
+      "id": "state-pension",
+      "name": "Apply for State Pension",
+      "description": "Claim your State Pension online if you're eligible",
+      "slug": "state-pension",
+      "department": "Department for Work and Pensions (DWP)",
+      "departmentSlug": "dwp",
+      "enabled": false
+    },
+    {
+      "id": "register-gp",
+      "name": "Register with a GP",
+      "description": "Register with a doctor's surgery to access NHS services",
+      "slug": "register-gp",
+      "department": "National Health Service (NHS)",
+      "departmentSlug": "nhs",
+      "enabled": false
+    },
+    {
+      "id": "covid-vaccination",
+      "name": "Book a COVID-19 vaccination",
+      "description": "Book or manage your coronavirus vaccination appointments",
+      "slug": "covid-vaccination",
+      "department": "National Health Service (NHS)",
+      "departmentSlug": "nhs",
+      "enabled": false
+    },
+    {
+      "id": "join-armed-forces",
+      "name": "Apply to join the Armed Forces",
+      "description": "Apply to become a soldier, sailor or airman",
+      "slug": "join-armed-forces",
+      "department": "Ministry of Defence (MOD)",
+      "departmentSlug": "ministry-of-defence",
+      "enabled": false
+    },
+    {
+      "id": "apply-medal",
+      "name": "Apply for a medal",
+      "description": "Apply for or replace military medals and awards",
+      "slug": "apply-medal",
+      "department": "Ministry of Defence (MOD)",
+      "departmentSlug": "ministry-of-defence",
+      "enabled": false
+    },
+    {
+      "id": "student-finance",
+      "name": "Apply for student finance",
+      "description": "Apply for student loans and grants for university or college",
+      "slug": "student-finance",
+      "department": "Department for Education (DfE)",
+      "departmentSlug": "department-for-education",
+      "enabled": false
+    },
+    {
+      "id": "find-school",
+      "name": "Find a school",
+      "description": "Search for and compare schools in England",
+      "slug": "find-school",
+      "department": "Department for Education (DfE)",
+      "departmentSlug": "department-for-education",
+      "enabled": false
+    },
+    {
+      "id": "visa-visit",
+      "name": "Apply for a UK visa",
+      "description": "Apply online for a visa to visit, work, study or settle in the UK",
+      "slug": "visa-visit",
+      "department": "Home Office",
+      "departmentSlug": "home-office",
+      "enabled": false
+    },
+    {
+      "id": "settled-status",
+      "name": "Apply to the EU Settlement Scheme",
+      "description": "Apply for settled or pre-settled status under the EU Settlement Scheme",
+      "slug": "settled-status",
+      "department": "Home Office",
+      "departmentSlug": "home-office",
+      "enabled": false
+    },
+    {
+      "id": "probate",
+      "name": "Apply for probate",
+      "description": "Apply for the legal right to deal with someone's property, money and possessions when they die",
+      "slug": "probate",
+      "department": "Ministry of Justice (MOJ)",
+      "departmentSlug": "ministry-of-justice",
+      "enabled": false
+    },
+    {
+      "id": "employment-tribunal",
+      "name": "Make a claim to an employment tribunal",
+      "description": "Resolve a dispute with your employer",
+      "slug": "employment-tribunal",
+      "department": "Ministry of Justice (MOJ)",
+      "departmentSlug": "ministry-of-justice",
+      "enabled": false
+    },
+    {
+      "id": "driving-licence",
+      "name": "Apply for a driving licence",
+      "description": "Apply for your first provisional driving licence or renew your existing licence",
+      "slug": "driving-licence",
+      "department": "Driver and Vehicle Licensing Agency (DVLA)",
+      "departmentSlug": "driver-and-vehicle-licensing-agency",
+      "enabled": false
+    },
+    {
+      "id": "vehicle-log-book",
+      "name": "Get a vehicle log book (V5C)",
+      "description": "Get a new or replacement vehicle log book",
+      "slug": "vehicle-log-book",
+      "department": "Driver and Vehicle Licensing Agency (DVLA)",
+      "departmentSlug": "driver-and-vehicle-licensing-agency",
+      "enabled": false
+    },
+    {
+      "id": "money-claim",
+      "name": "Make a money claim",
+      "description": "Claim money you're owed by a person or business",
+      "slug": "money-claim",
+      "department": "HM Courts & Tribunals Service (HMCTS)",
+      "departmentSlug": "hm-courts-tribunals-service",
+      "enabled": false
+    },
+    {
+      "id": "apply-divorce",
+      "name": "Apply for divorce",
+      "description": "Apply for a divorce online in England and Wales",
+      "slug": "apply-divorce",
+      "department": "HM Courts & Tribunals Service (HMCTS)",
+      "departmentSlug": "hm-courts-tribunals-service",
+      "enabled": false
     }
   ]
 }
