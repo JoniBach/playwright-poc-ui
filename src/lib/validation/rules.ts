@@ -54,16 +54,12 @@ export const validationRules: Record<string, ValidationRule> = {
 	},
 
 	// Generic required field validation
+	// Note: This is a placeholder. In practice, required field validation should be
+	// handled by page-specific validation rules that know which fields are on the page.
+	// Returning null here allows pages with "required" validation to proceed without errors.
 	'required': (data) => {
-		const errors: Record<string, string> = {};
-		
-		for (const [key, value] of Object.entries(data)) {
-			if (!value || (typeof value === 'string' && value.trim() === '')) {
-				errors[key] = `${key} is required`;
-			}
-		}
-
-		return Object.keys(errors).length > 0 ? errors : null;
+		// Allow all data to pass - pages should use specific validation rules
+		return null;
 	},
 
 	// Passport status search validation

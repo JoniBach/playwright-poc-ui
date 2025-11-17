@@ -57,6 +57,13 @@
 			}
 		};
 	}
+
+	function createDateInputHandler(fieldId: string) {
+		return (e: CustomEvent<{day: string, month: string, year: string}>) => {
+			const { day, month, year } = e.detail;
+			handleFieldChange(fieldId, { day, month, year });
+		};
+	}
 </script>
 
 {#if currentPage}
@@ -65,7 +72,7 @@
 			{#if breadcrumbs().length > 0}
 				<Breadcrumbs items={breadcrumbs()} />
 			{/if}
-			<form on:submit|preventDefault={handleNext}>
+			<form onsubmit={(e) => { e.preventDefault(); handleNext(); }}>
 				{#each currentPage.components as config}
 					{@const Component = componentMap[config.type]}
 					{@const fieldId = config.props.id || config.props.name}
@@ -79,6 +86,15 @@
 								value={currentValue || ''}
 								error={currentError}
 								oninput={createInputHandler(fieldId)}
+							/>
+						{:else if fieldId && config.type === 'dateInput'}
+							<Component
+								{...config.props}
+								dayValue={currentValue?.day || ''}
+								monthValue={currentValue?.month || ''}
+								yearValue={currentValue?.year || ''}
+								errorMessage={currentError}
+								oninput={createDateInputHandler(fieldId)}
 							/>
 						{:else if fieldId && config.type === 'radios'}
 							<Component

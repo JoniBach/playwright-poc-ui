@@ -41,6 +41,10 @@
 		if (typeof value === 'boolean') {
 			return value ? 'Yes' : 'No';
 		}
+		// Handle date objects from DateInput component
+		if (typeof value === 'object' && value !== null && 'day' in value && 'month' in value && 'year' in value) {
+			return `${value.day} ${value.month} ${value.year}`;
+		}
 		return String(value);
 	}
 

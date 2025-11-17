@@ -94,6 +94,7 @@ class JourneyStore {
 		}
 
 		this.state.currentPageId = nextPageId;
+		this.state.errors = {}; // Clear errors when navigating to new page
 
 		// Track visited pages
 		if (!this.state.visitedPages.includes(nextPageId)) {

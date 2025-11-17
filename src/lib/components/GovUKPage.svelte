@@ -9,16 +9,28 @@
 	let { title = 'GOV.UK Page', children }: Props = $props();
 
 	onMount(() => {
-		// Initialize GOV.UK Frontend components
-		if (typeof window !== 'undefined' && (window as any).GOVUKFrontend) {
-			(window as any).GOVUKFrontend.initAll();
+		// Initialize GOV.UK Frontend after the page loads
+		if (typeof window !== 'undefined') {
+			// Wait for the script to load
+			const checkAndInit = () => {
+				if ((window as any).GOVUKFrontend) {
+					(window as any).GOVUKFrontend.initAll();
+				} else {
+					// Retry after a short delay if not loaded yet
+					setTimeout(checkAndInit, 100);
+				}
+			};
+			checkAndInit();
 		}
 	});
 </script>
 
 <svelte:head>
 	<link rel="stylesheet" href="/stylesheets/govuk-frontend.min.css" />
-	<script src="/javascripts/govuk-frontend.min.js"></script>
+	<script type="module">
+		import { initAll } from '/javascripts/govuk-frontend.min.js';
+		window.GOVUKFrontend = { initAll };
+	</script>
 	<meta name="theme-color" content="#1d70b8" />
 </svelte:head>
 

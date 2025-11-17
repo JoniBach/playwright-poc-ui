@@ -51,6 +51,11 @@
 	function handleSubmit() {
 		goto('/');
 	}
+
+	function handleCheckAnswersSubmit() {
+		// Navigate to next page (which will mark journey as completed if no next page)
+		journeyStore.goToNextPage();
+	}
 </script>
 
 {#if loading}
@@ -86,7 +91,7 @@
 		{/snippet}
 	</GovUKPage>
 {:else if isCheckAnswersPage}
-	<CheckYourAnswers />
+	<CheckYourAnswers onSubmit={handleCheckAnswersSubmit} />
 {:else}
 	<JourneyPage />
 {/if}

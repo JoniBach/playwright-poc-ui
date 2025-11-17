@@ -11,6 +11,7 @@
 		dayError?: boolean;
 		monthError?: boolean;
 		yearError?: boolean;
+		oninput?: (e: CustomEvent<{day: string, month: string, year: string}>) => void;
 	}
 
 	let {
@@ -24,10 +25,24 @@
 		yearValue = '',
 		dayError = false,
 		monthError = false,
-		yearError = false
+		yearError = false,
+		oninput
 	}: Props = $props();
 
 	const hasError = $derived(!!errorMessage);
+	
+	let day = $state(dayValue);
+	let month = $state(monthValue);
+	let year = $state(yearValue);
+	
+	function handleInput() {
+		if (oninput) {
+			const event = new CustomEvent('input', {
+				detail: { day, month, year }
+			});
+			oninput(event as any);
+		}
+	}
 </script>
 
 <div class="govuk-form-group {hasError ? 'govuk-form-group--error' : ''}">
@@ -59,7 +74,8 @@
 						name="{name}-day"
 						type="text"
 						inputmode="numeric"
-						value={dayValue}
+						bind:value={day}
+						oninput={handleInput}
 					/>
 				</div>
 			</div>
@@ -74,7 +90,8 @@
 						name="{name}-month"
 						type="text"
 						inputmode="numeric"
-						value={monthValue}
+						bind:value={month}
+						oninput={handleInput}
 					/>
 				</div>
 			</div>
@@ -89,7 +106,8 @@
 						name="{name}-year"
 						type="text"
 						inputmode="numeric"
-						value={yearValue}
+						bind:value={year}
+						oninput={handleInput}
 					/>
 				</div>
 			</div>
