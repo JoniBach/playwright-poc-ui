@@ -19,13 +19,7 @@
 	});
 
 	function handleNext() {
-		console.log('handleNext called');
-		console.log('Current errors before validation:', journeyStore.currentState.errors);
-		const result = journeyStore.goToNextPage();
-		console.log('goToNextPage result:', result);
-		if (!result) {
-			console.log('Validation failed. Errors:', journeyStore.currentState.errors);
-		}
+		journeyStore.goToNextPage();
 	}
 
 	function handleBack() {

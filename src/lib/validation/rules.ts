@@ -36,35 +36,29 @@ export const validationRules: Record<string, ValidationRule> = {
 		return Object.keys(errors).length > 0 ? errors : null;
 	},
 
-	// Address validation
+	// Address validation - flexible to handle different field naming conventions
 	'address': (data) => {
 		const errors: Record<string, string> = {};
 
-		// Check for either addressLine1 or ukAddressLine1
-		if (!data.addressLine1 && !data.ukAddressLine1) {
-			if ('addressLine1' in data || (!('ukAddressLine1' in data))) {
-				errors.addressLine1 = 'Enter address line 1';
-			} else {
-				errors.ukAddressLine1 = 'Enter address line 1';
-			}
+		// Check for address line 1 (various naming conventions)
+		const addressLine1Field = data.addressLine1 !== undefined ? 'addressLine1' : 
+		                          data.ukAddressLine1 !== undefined ? 'ukAddressLine1' : null;
+		if (addressLine1Field && !data[addressLine1Field]) {
+			errors[addressLine1Field] = 'Enter address line 1';
 		}
 		
-		// Check for either city or ukCity
-		if (!data.city && !data.ukCity) {
-			if ('city' in data || (!('ukCity' in data))) {
-				errors.city = 'Enter a town or city';
-			} else {
-				errors.ukCity = 'Enter a town or city';
-			}
+		// Check for city (various naming conventions)
+		const cityField = data.city !== undefined ? 'city' : 
+		                  data.ukCity !== undefined ? 'ukCity' : null;
+		if (cityField && !data[cityField]) {
+			errors[cityField] = 'Enter a town or city';
 		}
 		
-		// Check for either postcode or ukPostcode
-		if (!data.postcode && !data.ukPostcode) {
-			if ('postcode' in data || (!('ukPostcode' in data))) {
-				errors.postcode = 'Enter a postcode';
-			} else {
-				errors.ukPostcode = 'Enter a postcode';
-			}
+		// Check for postcode (various naming conventions)
+		const postcodeField = data.postcode !== undefined ? 'postcode' : 
+		                      data.ukPostcode !== undefined ? 'ukPostcode' : null;
+		if (postcodeField && !data[postcodeField]) {
+			errors[postcodeField] = 'Enter a postcode';
 		}
 
 		return Object.keys(errors).length > 0 ? errors : null;

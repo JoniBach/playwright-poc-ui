@@ -1,4 +1,6 @@
 import type { Journey, JourneyState, JourneyPage } from '$lib/types/journey';
+import { buildPageValidationSchema, validateWithSchema } from '$lib/validation/schema-builder';
+import { getValidationRule } from '$lib/validation/rules';
 
 class JourneyStore {
 	private journey = $state<Journey | null>(null);
@@ -60,14 +62,32 @@ class JourneyStore {
 		}
 	}
 
-	// Validate current page
+	// Validate current page using Zod schemas
 	validateCurrentPage(): boolean {
-		if (!this.currentPage?.validation) return true;
+		if (!this.currentPage) return true;
 
-		const errors = this.currentPage.validation(this.state.data);
+		// Build validation schema dynamically from page components
+		const schema = buildPageValidationSchema(this.currentPage);
+		
+		// Validate data using the schema
+		const errors = validateWithSchema(schema, this.state.data);
+		
 		if (errors) {
 			this.state.errors = errors;
 			return false;
+		}
+
+		// If page has a legacy validation rule, run it as a fallback
+		// This allows gradual migration from old validation to new Zod-based validation
+		if (this.currentPage.validation && typeof this.currentPage.validation === 'string') {
+			const legacyRule = getValidationRule(this.currentPage.validation);
+			if (legacyRule) {
+				const legacyErrors = legacyRule(this.state.data);
+				if (legacyErrors) {
+					this.state.errors = legacyErrors;
+					return false;
+				}
+			}
 		}
 
 		this.state.errors = {};
