@@ -40,14 +40,31 @@ export const validationRules: Record<string, ValidationRule> = {
 	'address': (data) => {
 		const errors: Record<string, string> = {};
 
-		if (!data.addressLine1) {
-			errors.addressLine1 = 'Enter address line 1';
+		// Check for either addressLine1 or ukAddressLine1
+		if (!data.addressLine1 && !data.ukAddressLine1) {
+			if ('addressLine1' in data || (!('ukAddressLine1' in data))) {
+				errors.addressLine1 = 'Enter address line 1';
+			} else {
+				errors.ukAddressLine1 = 'Enter address line 1';
+			}
 		}
-		if (!data.city) {
-			errors.city = 'Enter a town or city';
+		
+		// Check for either city or ukCity
+		if (!data.city && !data.ukCity) {
+			if ('city' in data || (!('ukCity' in data))) {
+				errors.city = 'Enter a town or city';
+			} else {
+				errors.ukCity = 'Enter a town or city';
+			}
 		}
-		if (!data.postcode) {
-			errors.postcode = 'Enter a postcode';
+		
+		// Check for either postcode or ukPostcode
+		if (!data.postcode && !data.ukPostcode) {
+			if ('postcode' in data || (!('ukPostcode' in data))) {
+				errors.postcode = 'Enter a postcode';
+			} else {
+				errors.ukPostcode = 'Enter a postcode';
+			}
 		}
 
 		return Object.keys(errors).length > 0 ? errors : null;
