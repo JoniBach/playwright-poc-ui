@@ -35,6 +35,13 @@
 	let month = $state(monthValue);
 	let year = $state(yearValue);
 	
+	// Sync internal state with prop changes
+	$effect(() => {
+		day = dayValue || '';
+		month = monthValue || '';
+		year = yearValue || '';
+	});
+	
 	function handleInput() {
 		if (oninput) {
 			const event = new CustomEvent('input', {

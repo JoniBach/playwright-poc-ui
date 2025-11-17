@@ -55,7 +55,7 @@
 		class={classes()}
 		{disabled}
 		data-module="govuk-button"
-		{onclick}
+		onclick={onclick ? () => onclick() : undefined}
 	>
 		{text}
 	</button>

@@ -19,11 +19,22 @@
 	});
 
 	function handleNext() {
-		journeyStore.goToNextPage();
+		console.log('handleNext called');
+		console.log('Current errors before validation:', journeyStore.currentState.errors);
+		const result = journeyStore.goToNextPage();
+		console.log('goToNextPage result:', result);
+		if (!result) {
+			console.log('Validation failed. Errors:', journeyStore.currentState.errors);
+		}
 	}
 
 	function handleBack() {
 		journeyStore.goToPreviousPage();
+	}
+
+	function handleFormSubmit(e: Event) {
+		e.preventDefault();
+		handleNext();
 	}
 
 	function handleFieldChange(fieldId: string, value: any) {
@@ -72,7 +83,7 @@
 			{#if breadcrumbs().length > 0}
 				<Breadcrumbs items={breadcrumbs()} />
 			{/if}
-			<form onsubmit={(e) => { e.preventDefault(); handleNext(); }}>
+			<form onsubmit={handleFormSubmit}>
 				{#each currentPage.components as config}
 					{@const Component = componentMap[config.type]}
 					{@const fieldId = config.props.id || config.props.name}
@@ -117,7 +128,7 @@
 				{/each}
 
 				<div style="display: flex; gap: 1rem; margin-top: 2rem;">
-					<Button text="Continue" type="submit" />
+					<Button text="Continue" type="button" onclick={handleNext} />
 					{#if canGoBack}
 						<Button text="Back" variant="secondary" type="button" onclick={handleBack} />
 					{/if}

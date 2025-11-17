@@ -14,16 +14,7 @@
 	const summaryRows = $derived(
 		summary.map((item) => ({
 			key: formatKey(item.key),
-			value: formatValue(item.value),
-			actions: item.changeLink
-				? [
-						{
-							href: `#`,
-							text: 'Change',
-							visuallyHiddenText: formatKey(item.key)
-						}
-					]
-				: undefined
+			value: formatValue(item.value)
 		}))
 	);
 
@@ -46,10 +37,6 @@
 			return `${value.day} ${value.month} ${value.year}`;
 		}
 		return String(value);
-	}
-
-	function handleChange(pageId: string) {
-		journeyStore.goToPage(pageId);
 	}
 </script>
 

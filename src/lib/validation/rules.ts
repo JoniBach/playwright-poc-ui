@@ -29,8 +29,8 @@ export const validationRules: Record<string, ValidationRule> = {
 			errors.email = 'Enter a valid email address';
 		}
 
-		if (!data.contactPreference) {
-			errors.contactPreference = 'Select how you would prefer to be contacted';
+		if (!data.phone) {
+			errors.phone = 'Enter your phone number';
 		}
 
 		return Object.keys(errors).length > 0 ? errors : null;

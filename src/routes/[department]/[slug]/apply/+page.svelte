@@ -11,9 +11,9 @@
 
 	const departmentSlug = $derived($page.params.department);
 	const slug = $derived($page.params.slug);
-	const state = $derived(journeyStore.currentState);
-	const isCheckAnswersPage = $derived(state.currentPageId === 'check-answers');
-	const isCompleted = $derived(state.completed);
+	const currentPageId = $derived(journeyStore.currentPageId);
+	const isCheckAnswersPage = $derived(currentPageId === 'check-answers');
+	const isCompleted = $derived(journeyStore.currentState.completed);
 
 	let loading = $state(true);
 	let error = $state<string | null>(null);

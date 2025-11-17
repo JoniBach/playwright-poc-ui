@@ -13,6 +13,7 @@
 			href: string;
 			text: string;
 			visuallyHiddenText?: string;
+			onclick?: (e: Event) => void;
 		}[];
 	}
 
@@ -53,12 +54,21 @@
 						{#if row.actions}
 							<dd class="govuk-summary-list__actions">
 								{#each row.actions as action, index}
-									<a class="govuk-link" href={action.href}>
-										{action.text}
-										{#if action.visuallyHiddenText}
-											<span class="govuk-visually-hidden">{action.visuallyHiddenText}</span>
-										{/if}
-									</a>
+									{#if action.onclick}
+										<a class="govuk-link" href={action.href} onclick={(e) => action.onclick?.(e)}>
+											{action.text}
+											{#if action.visuallyHiddenText}
+												<span class="govuk-visually-hidden">{action.visuallyHiddenText}</span>
+											{/if}
+										</a>
+									{:else}
+										<a class="govuk-link" href={action.href}>
+											{action.text}
+											{#if action.visuallyHiddenText}
+												<span class="govuk-visually-hidden">{action.visuallyHiddenText}</span>
+											{/if}
+										</a>
+									{/if}
 									{#if index < row.actions.length - 1}
 										<br />
 									{/if}

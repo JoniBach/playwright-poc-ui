@@ -11,11 +11,11 @@
 		label: string;
 		hint?: string;
 		error?: string;
-		options: SelectOption[];
+		items: SelectOption[];
 		value?: string;
 	}
 
-	let { id, name, label, hint, error, options, value = $bindable('') }: Props = $props();
+	let { id, name, label, hint, error, items, value = $bindable('') }: Props = $props();
 </script>
 
 <div class="govuk-form-group {error ? 'govuk-form-group--error' : ''}">
@@ -42,7 +42,7 @@
 			.filter(Boolean)
 			.join(' ') || undefined}
 	>
-		{#each options as option}
+		{#each items as option}
 			<option value={option.value} selected={option.selected}>
 				{option.text}
 			</option>

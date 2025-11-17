@@ -19,6 +19,10 @@ class JourneyStore {
 		return this.state;
 	}
 
+	get currentPageId(): string {
+		return this.state.currentPageId;
+	}
+
 	get currentPage(): JourneyPage | null {
 		if (!this.journey || !this.state.currentPageId) return null;
 		return this.journey.pages[this.state.currentPageId] || null;
@@ -128,30 +132,11 @@ class JourneyStore {
 	}
 
 	// Get all collected data as summary
-	getSummary(): Array<{ key: string; value: any; changeLink?: string }> {
+	getSummary(): Array<{ key: string; value: any }> {
 		return Object.entries(this.state.data).map(([key, value]) => ({
 			key,
-			value,
-			changeLink: this.findPageForField(key)
+			value
 		}));
-	}
-
-	// Find which page contains a specific field
-	private findPageForField(fieldKey: string): string | undefined {
-		if (!this.journey) return undefined;
-
-		for (const [pageId, page] of Object.entries(this.journey.pages)) {
-			const hasField = page.components.some((component) => {
-				return (
-					component.props.id === fieldKey ||
-					component.props.name === fieldKey
-				);
-			});
-
-			if (hasField) return pageId;
-		}
-
-		return undefined;
 	}
 
 	// Reset journey

@@ -300,7 +300,9 @@
     "check-answers": {
       "id": "check-answers",
       "title": "Check your answers before submitting your registration",
-      "components": []
+      "components": [],
+      "nextPage": "confirmation",
+      "previousPage": "medical-conditions"
     },
     "confirmation": {
       "id": "confirmation",
