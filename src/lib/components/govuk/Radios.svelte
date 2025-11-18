@@ -11,7 +11,7 @@
 		legend: string;
 		hint?: string;
 		error?: string;
-		options: RadioOption[];
+		items: RadioOption[];
 		value?: string;
 		inline?: boolean;
 		onchange?: (e: Event) => void;
@@ -23,7 +23,7 @@
 		legend,
 		hint,
 		error,
-		options,
+		items,
 		value = '',
 		inline = false,
 		onchange
@@ -49,7 +49,7 @@
 			</p>
 		{/if}
 		<div class="govuk-radios {inline ? 'govuk-radios--inline' : ''}" data-module="govuk-radios">
-			{#each options as option, index}
+			{#each items as option, index}
 				<div class="govuk-radios__item">
 					<input
 						class="govuk-radios__input"

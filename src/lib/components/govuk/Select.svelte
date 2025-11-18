@@ -13,9 +13,16 @@
 		error?: string;
 		items: SelectOption[];
 		value?: string;
+		onchange?: (e: Event) => void;
 	}
 
-	let { id, name, label, hint, error, items, value = $bindable('') }: Props = $props();
+	let { id, name, label, hint, error, items, value = $bindable(''), onchange }: Props = $props();
+	
+	function handleChange(e: Event) {
+		if (onchange) {
+			onchange(e);
+		}
+	}
 </script>
 
 <div class="govuk-form-group {error ? 'govuk-form-group--error' : ''}">
@@ -38,6 +45,7 @@
 		{id}
 		{name}
 		bind:value
+		onchange={handleChange}
 		aria-describedby={[hint ? `${id}-hint` : '', error ? `${id}-error` : '']
 			.filter(Boolean)
 			.join(' ') || undefined}

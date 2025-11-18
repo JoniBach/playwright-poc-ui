@@ -19,7 +19,13 @@
 	});
 
 	function handleNext() {
-		journeyStore.goToNextPage();
+		console.log('handleNext called');
+		console.log('Current data:', journeyStore.currentState.data);
+		const result = journeyStore.goToNextPage();
+		console.log('goToNextPage result:', result);
+		if (!result) {
+			console.log('Validation failed. Errors:', journeyStore.currentState.errors);
+		}
 	}
 
 	function handleBack() {
@@ -85,12 +91,19 @@
 					{@const currentError = fieldId ? journeyStore.getError(fieldId) : undefined}
 
 					<div style="margin-bottom: 1.5rem;">
-						{#if fieldId && (config.type === 'textInput' || config.type === 'textarea' || config.type === 'select')}
+						{#if fieldId && (config.type === 'textInput' || config.type === 'textarea')}
 							<Component
 								{...config.props}
 								value={currentValue || ''}
 								error={currentError}
 								oninput={createInputHandler(fieldId)}
+							/>
+						{:else if fieldId && config.type === 'select'}
+							<Component
+								{...config.props}
+								value={currentValue || ''}
+								error={currentError}
+								onchange={createInputHandler(fieldId)}
 							/>
 						{:else if fieldId && config.type === 'dateInput'}
 							<Component

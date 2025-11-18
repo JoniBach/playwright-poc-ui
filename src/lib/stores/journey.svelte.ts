@@ -172,9 +172,20 @@ class JourneyStore {
 		}
 	}
 
-	// Get error for a field
+	// Get error for a field (handles nested paths like dateOfBirth.year)
 	getError(fieldKey: string): string | undefined {
-		return this.state.errors[fieldKey];
+		// First check for direct error
+		if (this.state.errors[fieldKey]) {
+			return this.state.errors[fieldKey];
+		}
+		
+		// Check for nested errors (e.g., dateOfBirth.day, dateOfBirth.month, dateOfBirth.year)
+		const nestedErrors = Object.keys(this.state.errors)
+			.filter(key => key.startsWith(fieldKey + '.'))
+			.map(key => this.state.errors[key]);
+		
+		// Return the first nested error if any exist
+		return nestedErrors.length > 0 ? nestedErrors[0] : undefined;
 	}
 
 	// Get value for a field

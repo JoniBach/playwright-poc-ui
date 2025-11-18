@@ -1,9 +1,10 @@
 import { z } from 'zod';
 import type { JourneyPage } from '$lib/types/journey';
+import { getFieldSchema } from './field-schemas';
 
 /**
  * Builds a Zod validation schema dynamically from a journey page's components.
- * This ensures validation is always in sync with the actual form fields.
+ * First checks for common field schemas, then falls back to generic validation.
  */
 export function buildPageValidationSchema(page: JourneyPage): z.ZodObject<any> {
 	const fields: Record<string, z.ZodType> = {};
@@ -18,28 +19,51 @@ export function buildPageValidationSchema(page: JourneyPage): z.ZodObject<any> {
 		const isOptional =
 			label.toLowerCase().includes('optional') || hint.toLowerCase().includes('optional');
 
+		// First, try to get a common field schema by field ID
+		const commonSchema = getFieldSchema(fieldId);
+		if (commonSchema) {
+			// Use the common schema if it exists
+			fields[fieldId] = commonSchema;
+			return;
+		}
+
+		// If optional and no common schema, check for optional version
+		if (isOptional) {
+			const optionalSchema = getFieldSchema(`${fieldId}Optional`);
+			if (optionalSchema) {
+				fields[fieldId] = optionalSchema;
+				return;
+			}
+		}
+
 		// Build schema based on component type
 		switch (component.type) {
 			case 'textInput':
 			case 'textarea':
 				if (component.props.type === 'email') {
-					// Email validation
+					// Email validation - preprocess to handle undefined/empty
 					fields[fieldId] = isOptional
-						? z.string().email({ message: 'Enter a valid email address' }).optional().or(z.literal(''))
-						: z.string().min(1, { message: 'Enter your email address' }).email({
-								message: 'Enter a valid email address'
-							});
+						? z.preprocess((val) => val || '', z.string().email().optional().or(z.literal('')))
+						: z.preprocess(
+								(val) => val || '',
+								z.string().min(1, { message: 'Enter your email address' }).email({
+									message: 'Enter a valid email address'
+								})
+							);
 				} else if (component.props.type === 'tel') {
-					// Phone number validation
+					// Phone number validation - preprocess to handle undefined/empty
 					fields[fieldId] = isOptional
-						? z.string().optional().or(z.literal(''))
-						: z.string().min(1, { message: `Enter ${label.toLowerCase() || 'your phone number'}` });
+						? z.preprocess((val) => val || '', z.string().optional().or(z.literal('')))
+						: z.preprocess(
+								(val) => val || '',
+								z.string().min(1, { message: `Enter ${label.toLowerCase() || 'your phone number'}` })
+							);
 				} else {
-					// Generic text input
+					// Generic text input - preprocess to handle undefined/empty
 					const fieldName = label.toLowerCase() || 'this field';
 					fields[fieldId] = isOptional
-						? z.string().optional().or(z.literal(''))
-						: z.string().min(1, { message: `Enter ${fieldName}` });
+						? z.preprocess((val) => val || '', z.string().optional().or(z.literal('')))
+						: z.preprocess((val) => val || '', z.string().min(1, { message: `Enter ${fieldName}` }));
 				}
 				break;
 
