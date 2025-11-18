@@ -7,7 +7,6 @@
       "slug": "passport-apply",
       "department": "HM Passport Office",
       "departmentSlug": "hm-passport-office",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -17,7 +16,6 @@
       "slug": "passport-status",
       "department": "HM Passport Office",
       "departmentSlug": "hm-passport-office",
-      "type": "data-lookup",
       "enabled": true
     },
     {
@@ -27,7 +25,6 @@
       "slug": "self-assessment",
       "department": "HM Revenue and Customs (HMRC)",
       "departmentSlug": "hmrc",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -37,7 +34,6 @@
       "slug": "tax-summary",
       "department": "HM Revenue and Customs (HMRC)",
       "departmentSlug": "hmrc",
-      "type": "data-lookup",
       "enabled": true
     },
     {
@@ -47,7 +43,6 @@
       "slug": "universal-credit",
       "department": "Department for Work and Pensions (DWP)",
       "departmentSlug": "dwp",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -57,7 +52,6 @@
       "slug": "state-pension-forecast",
       "department": "Department for Work and Pensions (DWP)",
       "departmentSlug": "dwp",
-      "type": "data-lookup",
       "enabled": true
     },
     {
@@ -67,7 +61,6 @@
       "slug": "register-gp",
       "department": "National Health Service (NHS)",
       "departmentSlug": "nhs",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -77,7 +70,6 @@
       "slug": "nhs-medical-records",
       "department": "National Health Service (NHS)",
       "departmentSlug": "nhs",
-      "type": "data-lookup",
       "enabled": true
     },
     {
@@ -87,7 +79,6 @@
       "slug": "join-armed-forces",
       "department": "Ministry of Defence (MOD)",
       "departmentSlug": "mod",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -97,7 +88,6 @@
       "slug": "service-records",
       "department": "Ministry of Defence (MOD)",
       "departmentSlug": "mod",
-      "type": "data-lookup",
       "enabled": true
     },
     {
@@ -107,7 +97,6 @@
       "slug": "student-finance",
       "department": "Department for Education (DfE)",
       "departmentSlug": "dfe",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -117,7 +106,6 @@
       "slug": "student-loan-balance",
       "department": "Department for Education (DfE)",
       "departmentSlug": "dfe",
-      "type": "data-lookup",
       "enabled": true
     },
     {
@@ -127,7 +115,6 @@
       "slug": "visa-apply",
       "department": "Home Office",
       "departmentSlug": "home-office",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -137,7 +124,6 @@
       "slug": "visa-status",
       "department": "Home Office",
       "departmentSlug": "home-office",
-      "type": "data-lookup",
       "enabled": true
     },
     {
@@ -147,7 +133,6 @@
       "slug": "probate-apply",
       "department": "Ministry of Justice (MOJ)",
       "departmentSlug": "moj",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -157,7 +142,6 @@
       "slug": "probate-search",
       "department": "Ministry of Justice (MOJ)",
       "departmentSlug": "moj",
-      "type": "data-lookup",
       "enabled": true
     },
     {
@@ -167,7 +151,6 @@
       "slug": "driving-licence-apply",
       "department": "Driver and Vehicle Licensing Agency (DVLA)",
       "departmentSlug": "dvla",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -177,7 +160,6 @@
       "slug": "mot-history",
       "department": "Driver and Vehicle Licensing Agency (DVLA)",
       "departmentSlug": "dvla",
-      "type": "data-lookup",
       "enabled": true
     },
     {
@@ -187,7 +169,6 @@
       "slug": "money-claim",
       "department": "HM Courts & Tribunals Service (HMCTS)",
       "departmentSlug": "hmcts",
-      "type": "data-entry",
       "enabled": true
     },
     {
@@ -197,7 +178,6 @@
       "slug": "track-court-case",
       "department": "HM Courts & Tribunals Service (HMCTS)",
       "departmentSlug": "hmcts",
-      "type": "data-lookup",
       "enabled": true
     }
   ]
