@@ -17,9 +17,22 @@ export const lastName = z.preprocess(
 );
 
 export const dateOfBirth = z.object({
-	day: z.string().min(1, { message: 'Enter a day' }).regex(/^\d{1,2}$/, { message: 'Day must be a number' }),
-	month: z.string().min(1, { message: 'Enter a month' }).regex(/^\d{1,2}$/, { message: 'Month must be a number' }),
+	day: z.string().min(1, { message: 'Enter a day' }).regex(/^\d{1,2}$/, { message: 'Day must be a number' })
+		.refine((val) => {
+			const day = parseInt(val);
+			return day >= 1 && day <= 31;
+		}, { message: 'Day must be between 1 and 31' }),
+	month: z.string().min(1, { message: 'Enter a month' }).regex(/^\d{1,2}$/, { message: 'Month must be a number' })
+		.refine((val) => {
+			const month = parseInt(val);
+			return month >= 1 && month <= 12;
+		}, { message: 'Month must be between 1 and 12' }),
 	year: z.string().min(1, { message: 'Enter a year' }).regex(/^\d{4}$/, { message: 'Year must be 4 digits' })
+		.refine((val) => {
+			const year = parseInt(val);
+			const currentYear = new Date().getFullYear();
+			return year >= 1900 && year <= currentYear;
+		}, { message: 'Enter a valid year between 1900 and current year' })
 });
 
 // Contact Information
@@ -120,6 +133,43 @@ export const serviceNumber = z.string().min(1, { message: 'Enter your service nu
 // Other Common Fields
 export const nationality = z.string().min(1, { message: 'Enter your nationality' });
 
+// Financial/Banking Fields
+export const householdIncome = z.preprocess(
+	(val) => val || '',
+	z
+		.string()
+		.min(1, { message: 'Enter your household income' })
+		.regex(/^\d+(\.\d{1,2})?$/, { message: 'Enter a valid amount, like 25000 or 25000.50' })
+);
+
+export const accountNumber = z.preprocess(
+	(val) => val || '',
+	z
+		.string()
+		.min(1, { message: 'Enter your account number' })
+		.regex(/^\d{8}$/, { message: 'Enter a valid 8-digit UK account number' })
+);
+
+export const sortCode = z.preprocess(
+	(val) => val || '',
+	z
+		.string()
+		.min(1, { message: 'Enter your sort code' })
+		.regex(/^\d{2}-?\d{2}-?\d{2}$/, { message: 'Enter a valid sort code, like 12-34-56' })
+);
+
+export const accountName = z.preprocess(
+	(val) => val || '',
+	z.string().min(1, { message: 'Enter the account holder name' })
+);
+
+// Course/Education Fields
+export const courseStartDate = dateOfBirth; // Reuse date validation
+export const courseLength = z.preprocess(
+	(val) => val || '',
+	z.string().min(1, { message: 'Select course length' })
+);
+
 // Optional versions of common fields
 export const firstNameOptional = firstName.optional().or(z.literal(''));
 export const lastNameOptional = lastName.optional().or(z.literal(''));
@@ -167,6 +217,16 @@ export const fieldSchemas: Record<string, z.ZodType> = {
 	
 	// Other
 	nationality,
+	
+	// Financial/Banking
+	householdIncome,
+	accountNumber,
+	sortCode,
+	accountName,
+	
+	// Course/Education
+	courseStartDate,
+	courseLength,
 	
 	// Optional versions
 	firstNameOptional,
