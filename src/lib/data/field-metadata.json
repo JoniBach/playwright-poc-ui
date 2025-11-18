@@ -1,0 +1,158 @@
+{
+  "firstName": {
+    "schema": "firstName",
+    "autocomplete": "given-name"
+  },
+  "lastName": {
+    "schema": "lastName",
+    "autocomplete": "family-name"
+  },
+  "dateOfBirth": {
+    "schema": "dateOfBirth",
+    "example": "27 3 1990",
+    "hint": "For example, 27 3 1990"
+  },
+  "email": {
+    "schema": "email",
+    "example": "name@example.com",
+    "hint": "We'll only use this to send you a confirmation",
+    "autocomplete": "email",
+    "width": "20"
+  },
+  "phone": {
+    "schema": "phone",
+    "example": "07700 900000",
+    "hint": "For example, 07700 900000",
+    "autocomplete": "tel",
+    "width": "20"
+  },
+  "addressLine1": {
+    "schema": "addressLine1",
+    "autocomplete": "address-line1",
+    "width": "20"
+  },
+  "addressLine2": {
+    "schema": "addressLine2",
+    "autocomplete": "address-line2",
+    "width": "20"
+  },
+  "city": {
+    "schema": "city",
+    "autocomplete": "address-level2",
+    "width": "20"
+  },
+  "postcode": {
+    "schema": "postcode",
+    "example": "SW1A 1AA",
+    "hint": "For example, SW1A 1AA",
+    "autocomplete": "postal-code",
+    "width": "10"
+  },
+  "ukAddressLine1": {
+    "schema": "ukAddressLine1",
+    "autocomplete": "address-line1",
+    "width": "20"
+  },
+  "ukAddressLine2": {
+    "schema": "ukAddressLine2",
+    "autocomplete": "address-line2",
+    "width": "20"
+  },
+  "ukCity": {
+    "schema": "ukCity",
+    "autocomplete": "address-level2",
+    "width": "20"
+  },
+  "ukPostcode": {
+    "schema": "ukPostcode",
+    "example": "SW1A 1AA",
+    "hint": "For example, SW1A 1AA",
+    "autocomplete": "postal-code",
+    "width": "10"
+  },
+  "nhsNumber": {
+    "schema": "nhsNumber",
+    "example": "485 777 3456",
+    "hint": "It's a 10 digit number, like 485 777 3456. You can find it on any letter the NHS has sent you.",
+    "width": "10"
+  },
+  "nationalInsurance": {
+    "schema": "nationalInsurance",
+    "example": "QQ 12 34 56 C",
+    "hint": "It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.",
+    "autocomplete": "off"
+  },
+  "passportNumber": {
+    "schema": "passportNumber",
+    "example": "502135326",
+    "hint": "You can find it on your passport, for example 502135326",
+    "autocomplete": "off"
+  },
+  "drivingLicence": {
+    "schema": "drivingLicence",
+    "example": "MORGA657054SM9IJ",
+    "hint": "It's a 16 character code on your driving licence, like MORGA657054SM9IJ",
+    "autocomplete": "off"
+  },
+  "registration": {
+    "schema": "registration",
+    "example": "CU57ABC",
+    "hint": "For example, CU57ABC or AB12CDE",
+    "autocomplete": "off",
+    "width": "10"
+  },
+  "reference": {
+    "schema": "reference",
+    "example": "ABC123456",
+    "hint": "For example, ABC123456",
+    "autocomplete": "off"
+  },
+  "caseNumber": {
+    "schema": "caseNumber",
+    "autocomplete": "off"
+  },
+  "serviceNumber": {
+    "schema": "serviceNumber",
+    "hint": "You can find this on your service record",
+    "autocomplete": "off"
+  },
+  "householdIncome": {
+    "schema": "householdIncome",
+    "example": "25000",
+    "hint": "Combined income before tax. For example, 25000",
+    "width": "10"
+  },
+  "accountNumber": {
+    "schema": "accountNumber",
+    "example": "12345678",
+    "hint": "Must be 8 digits long, like 12345678",
+    "autocomplete": "off",
+    "width": "10"
+  },
+  "sortCode": {
+    "schema": "sortCode",
+    "example": "12-34-56",
+    "hint": "Must be 6 digits long, like 12-34-56",
+    "autocomplete": "off",
+    "width": "5"
+  },
+  "accountName": {
+    "schema": "accountName",
+    "hint": "Enter the name on the account",
+    "autocomplete": "name",
+    "width": "20"
+  },
+  "courseStartDate": {
+    "schema": "courseStartDate",
+    "example": "1 9 2024",
+    "hint": "For example, 1 9 2024"
+  },
+  "courseLength": {
+    "schema": "courseLength",
+    "hint": "Select how long your course will last"
+  },
+  "nationality": {
+    "schema": "nationality",
+    "autocomplete": "country-name"
+  }
+}

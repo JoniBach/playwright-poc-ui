@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import type { JourneyPage } from '$lib/types/journey';
-import { getFieldSchema } from './field-schemas';
+import { getFieldMetadata } from './field-metadata';
 
 /**
  * Builds a Zod validation schema dynamically from a journey page's components.
- * First checks for common field schemas, then falls back to generic validation.
+ * Uses field metadata for common fields, falls back to generic validation.
  */
 export function buildPageValidationSchema(page: JourneyPage): z.ZodObject<any> {
 	const fields: Record<string, z.ZodType> = {};
@@ -19,19 +19,19 @@ export function buildPageValidationSchema(page: JourneyPage): z.ZodObject<any> {
 		const isOptional =
 			label.toLowerCase().includes('optional') || hint.toLowerCase().includes('optional');
 
-		// First, try to get a common field schema by field ID
-		const commonSchema = getFieldSchema(fieldId);
-		if (commonSchema) {
-			// Use the common schema if it exists
-			fields[fieldId] = commonSchema;
+		// First, try to get field metadata by field ID
+		const metadata = getFieldMetadata(fieldId);
+		if (metadata) {
+			// Use the schema from metadata
+			fields[fieldId] = metadata.schema;
 			return;
 		}
 
-		// If optional and no common schema, check for optional version
+		// If optional and no metadata, check for optional version
 		if (isOptional) {
-			const optionalSchema = getFieldSchema(`${fieldId}Optional`);
-			if (optionalSchema) {
-				fields[fieldId] = optionalSchema;
+			const optionalMetadata = getFieldMetadata(`${fieldId}Optional`);
+			if (optionalMetadata) {
+				fields[fieldId] = optionalMetadata.schema;
 				return;
 			}
 		}

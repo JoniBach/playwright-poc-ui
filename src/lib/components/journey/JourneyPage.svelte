@@ -3,6 +3,7 @@
 	import { componentMap, Breadcrumbs } from '$lib/components/govuk';
 	import { Button } from '$lib/components/govuk';
 	import { journeyStore } from '$lib/stores/journey.svelte';
+	import { generateTestData } from '$lib/utils/auto-fill';
 
 	const currentPage = $derived(journeyStore.currentPage);
 	const canGoBack = $derived(journeyStore.canGoBack);
@@ -30,6 +31,20 @@
 
 	function handleBack() {
 		journeyStore.goToPreviousPage();
+	}
+
+	function handleAutoFill() {
+		if (!currentPage) return;
+		
+		// Generate test data for all fields on the current page
+		const testData = generateTestData(currentPage);
+		
+		// Update the journey store with the test data
+		Object.entries(testData).forEach(([fieldId, value]) => {
+			journeyStore.updateData(fieldId, value);
+		});
+		
+		console.log('Auto-filled page with test data:', testData);
 	}
 
 	function handleFormSubmit(e: Event) {
@@ -80,9 +95,33 @@
 {#if currentPage}
 	<GovUKPage title={currentPage.title}>
 		{#snippet children()}
+			<!-- Breadcrumbs with auto-fill link -->
 			{#if breadcrumbs().length > 0}
-				<Breadcrumbs items={breadcrumbs()} />
+				<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+					<div style="flex: 1;">
+						<Breadcrumbs items={breadcrumbs()} />
+					</div>
+					<a 
+						href="javascript:void(0)" 
+						onclick={handleAutoFill}
+						style="font-size: 0.875rem; color: #505a5f; text-decoration: underline; white-space: nowrap; margin-left: 1rem;"
+					>
+						Auto-fill
+					</a>
+				</div>
+			{:else}
+				<!-- Auto-fill link when no breadcrumbs -->
+				<div style="margin-bottom: 1rem; text-align: right;">
+					<a 
+						href="javascript:void(0)" 
+						onclick={handleAutoFill}
+						style="font-size: 0.875rem; color: #505a5f; text-decoration: underline;"
+					>
+						Auto-fill
+					</a>
+				</div>
 			{/if}
+
 			<form onsubmit={handleFormSubmit}>
 				{#each currentPage.components as config}
 					{@const Component = componentMap[config.type]}

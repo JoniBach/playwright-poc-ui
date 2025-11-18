@@ -89,12 +89,19 @@ export const nhsNumber = z
 		message: 'Enter a valid NHS number, like 485 777 3456'
 	});
 
-export const nationalInsurance = z
-	.string()
-	.min(1, { message: 'Enter your National Insurance number' })
-	.regex(/^[A-Z]{2}\d{6}[A-Z]$/i, {
-		message: 'Enter a valid National Insurance number, like QQ123456C'
-	});
+export const nationalInsurance = z.preprocess(
+	(val) => {
+		// Remove spaces to allow both "QQ 12 34 56 C" and "QQ123456C" formats
+		const str = String(val || '').replace(/\s/g, '');
+		return str;
+	},
+	z
+		.string()
+		.min(1, { message: 'Enter your National Insurance number' })
+		.regex(/^[A-Z]{2}\d{6}[A-Z]$/i, {
+			message: 'Enter a valid National Insurance number, like QQ123456C'
+		})
+);
 
 export const passportNumber = z
 	.string()
