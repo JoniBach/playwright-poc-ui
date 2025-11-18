@@ -171,7 +171,7 @@
             "id": "contactPreference",
             "name": "contactPreference",
             "legend": "How would you prefer to be contacted?",
-            "options": [
+            "items": [
               { "value": "email", "text": "Email" },
               { "value": "phone", "text": "Phone" },
               { "value": "text", "text": "Text message" }

@@ -1,19 +1,18 @@
 import { z } from 'zod';
+import { ComponentSchema } from './component.schema.js';
 
-// Component configuration schema
-export const ComponentConfigSchema = z.object({
-	type: z.string(),
-	props: z.record(z.string(), z.any())
-});
+// Use the strict component schema instead of loose configuration
+export const ComponentConfigSchema = ComponentSchema;
 
 // Journey page schema
 export const JourneyPageSchema = z.object({
 	id: z.string(),
 	title: z.string(),
-	components: z.array(ComponentConfigSchema),
+	components: z.array(ComponentSchema),
 	nextPage: z.string().optional(),
 	previousPage: z.string().optional(),
-	validation: z.string().optional() // Validation rule ID
+	validation: z.string().optional(), // Validation rule ID
+	conditionalRouting: z.record(z.string(), z.string()).optional() // field_value -> next_page mapping
 });
 
 // Landing page section schema
