@@ -83,6 +83,12 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": true
+          },
+          "validation": {
+            "required": true,
+            "errorMessages": {
+              "required": "Enter the helicopter manufacturer"
+            }
           }
         },
         {
@@ -99,6 +105,12 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": true
+          },
+          "validation": {
+            "required": true,
+            "errorMessages": {
+              "required": "Enter the helicopter model"
+            }
           }
         },
         {
@@ -115,6 +127,12 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": false
+          },
+          "validation": {
+            "required": true,
+            "errorMessages": {
+              "required": "Enter the helicopter serial number"
+            }
           }
         }
       ],
@@ -147,6 +165,12 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": true
+          },
+          "validation": {
+            "required": true,
+            "errorMessages": {
+              "required": "Enter the owner's full name"
+            }
           }
         },
         {
@@ -163,6 +187,14 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": false
+          },
+          "validation": {
+            "required": true,
+            "pattern": "email",
+            "errorMessages": {
+              "required": "Enter an email address",
+              "pattern": "Enter an email address in the correct format, like name@example.com"
+            }
           }
         },
         {
@@ -179,6 +211,14 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": false
+          },
+          "validation": {
+            "required": true,
+            "pattern": "phone",
+            "errorMessages": {
+              "required": "Enter a telephone number",
+              "pattern": "Enter a telephone number in the correct format"
+            }
           }
         }
       ],

@@ -126,7 +126,7 @@
 			<form onsubmit={handleFormSubmit}>
 				{#each currentPage.components as config}
 					{@const Component = componentMap[config.type]}
-					{@const fieldId = config.props.id || config.props.name}
+					{@const fieldId = config.props.name || config.props.id}
 					{@const currentValue = fieldId ? journeyStore.getValue(fieldId) : undefined}
 					{@const currentError = fieldId ? journeyStore.getError(fieldId) : undefined}
 

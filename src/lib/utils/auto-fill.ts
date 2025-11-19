@@ -12,7 +12,7 @@ export function generateTestData(page: JourneyPage): Record<string, any> {
 	const testData: Record<string, any> = {};
 
 	page.components.forEach((component) => {
-		const fieldId = component.props.id || component.props.name;
+		const fieldId = component.props.name || component.props.id;
 		if (!fieldId) return;
 
 		// Get field metadata

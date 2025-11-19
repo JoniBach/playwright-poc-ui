@@ -1,7 +1,7 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { loadJourneyServer } from '$lib/loaders/journey-loader.server';
-import { validateSpecificPage } from '$lib/validation/journey-data-validator';
+import { validateSpecificPage, validateAllJourneyData } from '$lib/validation/journey-data-validator';
 
 /**
  * Dynamic server endpoint for journey form submissions
@@ -45,14 +45,26 @@ export const POST: RequestHandler = async ({ params, request, url }) => {
 		console.log('Form Data:', data);
 
 		// Validate the submission using dynamic Zod schema
-		const validation = validateSpecificPage(journey, currentPage, data);
+		// For check-your-answers, validate ALL collected data from all pages
+		// For other pages, validate only the current page
+		const validation = currentPage === 'check-your-answers' 
+			? validateAllJourneyData(journey, data)
+			: validateSpecificPage(journey, currentPage, data);
 		const validationErrors = validation.success ? [] : (validation.errors || []);
 		
 		if (validationErrors.length > 0) {
+			// Convert error array to object format for API compatibility
+			// From: [{ field: 'email-address', message: '...' }]
+			// To: { 'email-address': '...' }
+			const errorsObject: Record<string, string> = {};
+			for (const error of validationErrors) {
+				errorsObject[error.field] = error.message;
+			}
+			
 			return json(
 				{
 					success: false,
-					errors: validationErrors,
+					errors: errorsObject,
 					page: currentPage
 				},
 				{ status: 400 }

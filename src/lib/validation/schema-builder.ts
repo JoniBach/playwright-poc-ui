@@ -10,7 +10,7 @@ export function buildPageValidationSchema(page: JourneyPage): z.ZodObject<any> {
 	const fields: Record<string, z.ZodType> = {};
 
 	page.components.forEach((component) => {
-		const fieldId = component.props.id || component.props.name;
+		const fieldId = component.props.name || component.props.id;
 		if (!fieldId) return;
 
 		// Check if field is optional (based on label or hint text)

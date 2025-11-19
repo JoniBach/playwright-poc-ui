@@ -21,12 +21,16 @@ export function generateComponentSchema(component: any): z.ZodTypeAny {
 		case 'email':
 		case 'tel':
 		case 'textarea': {
-			let schema: z.ZodString = z.string();
+			// Start with string schema that trims whitespace
+			let schema: z.ZodString = z.string().trim();
 
 			// Apply validation rules
 			if (validation) {
 				if (validation.required) {
-					schema = schema.min(1, validation.errorMessages?.required || 'This field is required');
+					// Use custom error message or generate user-friendly message from field name
+					const fieldLabel = component.props?.label || fieldName;
+					const defaultMessage = `Enter ${fieldLabel.toLowerCase()}`;
+					schema = schema.min(1, validation.errorMessages?.required || defaultMessage);
 				} else {
 					schema = schema.optional() as any;
 				}
@@ -260,6 +264,43 @@ export function validateSpecificPage(
 		return { success: false, errors: [{ field: '_page', message: 'Page not found' }] };
 	}
 
+	const result = schema.safeParse(data);
+
+	if (result.success) {
+		return { success: true };
+	}
+
+	// Convert Zod errors to our error format
+	const errors = result.error.issues.map((err: any) => ({
+		field: err.path.join('.'),
+		message: err.message
+	}));
+
+	return { success: false, errors };
+}
+
+/**
+ * Validate all journey data against all form pages
+ * Used for final submission validation (e.g., check-your-answers page)
+ */
+export function validateAllJourneyData(
+	journey: any,
+	data: Record<string, any>
+): { success: boolean; errors?: Array<{ field: string; message: string }> } {
+	// Collect all components from all pages
+	const allComponents: any[] = [];
+	
+	if (journey.pages) {
+		for (const page of Object.values(journey.pages)) {
+			const pageData = page as any;
+			if (pageData.components) {
+				allComponents.push(...pageData.components);
+			}
+		}
+	}
+
+	// Generate schema from all components
+	const schema = generatePageSchema(allComponents);
 	const result = schema.safeParse(data);
 
 	if (result.success) {
