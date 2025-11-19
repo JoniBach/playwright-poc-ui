@@ -20,7 +20,7 @@ export const TextInputSchema = z.object({
 		label: z.string(),
 		hint: z.string().optional(),
 		value: z.string().optional(),
-		width: z.enum(['5', '10', '20', '30', 'full']).optional(),
+		width: z.enum(['2', '5', '10', '20', '30', 'full']).optional(),
 		autocomplete: z.string().optional(),
 		spellcheck: z.boolean().optional(),
 		disabled: z.boolean().optional(),
@@ -36,7 +36,7 @@ export const EmailInputSchema = z.object({
 		label: z.string(),
 		hint: z.string().optional(),
 		value: z.string().optional(),
-		width: z.enum(['5', '10', '20', '30', 'full']).optional(),
+		width: z.enum(['2', '5', '10', '20', '30', 'full']).optional(),
 		autocomplete: z.string().optional(),
 		spellcheck: z.boolean().optional()
 	})
@@ -50,7 +50,7 @@ export const TelInputSchema = z.object({
 		label: z.string(),
 		hint: z.string().optional(),
 		value: z.string().optional(),
-		width: z.enum(['5', '10', '20', '30', 'full']).optional(),
+		width: z.enum(['2', '5', '10', '20', '30', 'full']).optional(),
 		autocomplete: z.string().optional()
 	})
 });
@@ -188,8 +188,12 @@ export const InsetTextSchema = z.object({
 export const WarningTextSchema = z.object({
 	type: z.literal('warningText'),
 	props: BaseComponentProps.extend({
-		content: z.string(),
+		// Support both text and content properties
+		text: z.string().optional(),
+		content: z.string().optional(),
 		iconFallbackText: z.string().optional()
+	}).refine(data => data.text || data.content, {
+		message: "WarningText must have either 'text' or 'content' property"
 	})
 });
 
@@ -197,8 +201,12 @@ export const DetailsSchema = z.object({
 	type: z.literal('details'),
 	props: BaseComponentProps.extend({
 		summary: z.string(),
-		content: z.string(),
+		// Support both text and content properties
+		text: z.string().optional(),
+		content: z.string().optional(),
 		open: z.boolean().optional()
+	}).refine(data => data.text || data.content, {
+		message: "Details must have either 'text' or 'content' property"
 	})
 });
 
@@ -238,19 +246,32 @@ export const SummaryListSchema = z.object({
 					text: z.string(),
 					visuallyHiddenText: z.string().optional()
 				}))
+			}).optional(),
+			tag: z.object({
+				text: z.string(),
+				colour: z.string().optional()
 			}).optional()
 		})),
-		card: z.object({
-			title: z.object({
-				text: z.string()
-			}).optional(),
-			actions: z.object({
-				items: z.array(z.object({
-					href: z.string(),
-					text: z.string()
-				}))
-			}).optional()
-		}).optional()
+		// Support simple title string for card-style summaryLists
+		title: z.string().optional(),
+		// Support both boolean (simple) and object (complex) card formats
+		card: z.union([
+			z.boolean(), // Simple format: card: true
+			z.object({
+				title: z.union([
+					z.string(), // Simple format: "Card Title"
+					z.object({
+						text: z.string()
+					})
+				]).optional(),
+				actions: z.object({
+					items: z.array(z.object({
+						href: z.string(),
+						text: z.string()
+					}))
+				}).optional()
+			})
+		]).optional()
 	})
 });
 
@@ -260,19 +281,28 @@ export const TableSchema = z.object({
 		caption: z.string().optional(),
 		captionClasses: z.string().optional(),
 		firstCellIsHeader: z.boolean().optional(),
+		// Support simple headers format (array of strings)
+		headers: z.array(z.string()).optional(),
+		// Support complex head format (GOV.UK Design System format)
 		head: z.array(z.object({
 			text: z.string(),
 			classes: z.string().optional(),
 			colspan: z.number().optional(),
 			rowspan: z.number().optional()
 		})).optional(),
-		rows: z.array(z.array(z.object({
-			text: z.string(),
-			html: z.string().optional(),
-			classes: z.string().optional(),
-			colspan: z.number().optional(),
-			rowspan: z.number().optional()
-		})))
+		// Support both simple (array of objects) and complex (array of arrays) row formats
+		rows: z.union([
+			// Simple format: array of objects with any properties
+			z.array(z.record(z.string(), z.any())),
+			// Complex format: array of arrays of cell objects (GOV.UK Design System)
+			z.array(z.array(z.object({
+				text: z.string(),
+				html: z.string().optional(),
+				classes: z.string().optional(),
+				colspan: z.number().optional(),
+				rowspan: z.number().optional()
+			})))
+		])
 	})
 });
 
@@ -280,10 +310,14 @@ export const NotificationBannerSchema = z.object({
 	type: z.literal('notificationBanner'),
 	props: BaseComponentProps.extend({
 		title: z.string(),
-		content: z.string(),
+		// Support both text and content properties
+		text: z.string().optional(),
+		content: z.string().optional(),
 		type: z.enum(['success', 'important']).optional(),
 		role: z.string().optional(),
 		titleHeadingLevel: z.enum(['1', '2', '3', '4', '5', '6']).optional()
+	}).refine(data => data.text || data.content, {
+		message: "NotificationBanner must have either 'text' or 'content' property"
 	})
 });
 
