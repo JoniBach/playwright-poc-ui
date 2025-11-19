@@ -1,0 +1,269 @@
+{
+  "id": "register-a-plane",
+  "name": "Register a plane",
+  "landingPage": {
+    "title": "Register a plane",
+    "lead": "Use this service to register a civil aircraft on the UK register.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you can do",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "content": [
+          "register a new or imported aircraft",
+          "update ownership details for an unregistered aircraft before flight",
+          "get a registration mark"
+        ],
+        "listType": "bullet"
+      },
+      {
+        "type": "heading",
+        "content": "Who can use this service",
+        "level": "m"
+      },
+      {
+        "type": "paragraph",
+        "content": "You can use this service if you are the person or organisation that will be responsible for the aircraft in the UK."
+      },
+      {
+        "type": "heading",
+        "content": "Before you start",
+        "level": "m"
+      },
+      {
+        "type": "list",
+        "content": [
+          "the aircraft manufacturer and model",
+          "the aircraft serial number",
+          "your contact details"
+        ],
+        "listType": "bullet"
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/civil-aviation-authority/register-a-plane/apply"
+  },
+  "startPage": "applicant-type",
+  "pages": {
+    "applicant-type": {
+      "id": "applicant-type",
+      "title": "Who is registering the aircraft?",
+      "components": [
+        {
+          "type": "heading",
+          "id": "applicant-type-heading",
+          "props": {
+            "text": "Who is registering the aircraft?",
+            "size": "l"
+          }
+        },
+        {
+          "type": "radios",
+          "id": "applicant-type-field",
+          "props": {
+            "id": "applicant-type-field",
+            "name": "applicant-type",
+            "legend": "Select one option.",
+            "items": [
+              {
+                "value": "individual",
+                "text": "An individual",
+                "checked": false,
+                "disabled": false
+              },
+              {
+                "value": "organisation",
+                "text": "A company or organisation",
+                "checked": false,
+                "disabled": false
+              }
+            ]
+          }
+        }
+      ],
+      "nextPage": "aircraft-details"
+    },
+    "aircraft-details": {
+      "id": "aircraft-details",
+      "title": "Enter aircraft details",
+      "components": [
+        {
+          "type": "heading",
+          "id": "aircraft-details-heading",
+          "props": {
+            "text": "Enter aircraft details",
+            "size": "l"
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "aircraft-manufacturer",
+          "props": {
+            "id": "aircraft-manufacturer",
+            "name": "aircraft-manufacturer",
+            "label": "Manufacturer",
+            "hint": "For example, Cessna, Piper, Airbus",
+            "type": "text",
+            "autocomplete": "organization",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": true
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "aircraft-model",
+          "props": {
+            "id": "aircraft-model",
+            "name": "aircraft-model",
+            "label": "Model",
+            "hint": "For example, 172S, PA-28-161",
+            "type": "text",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": true
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "aircraft-serial-number",
+          "props": {
+            "id": "aircraft-serial-number",
+            "name": "aircraft-serial-number",
+            "label": "Serial number",
+            "hint": "You can find this on the aircraft data plate or documents",
+            "type": "text",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        }
+      ],
+      "nextPage": "contact-details",
+      "previousPage": "applicant-type"
+    },
+    "contact-details": {
+      "id": "contact-details",
+      "title": "Your contact details",
+      "components": [
+        {
+          "type": "heading",
+          "id": "contact-details-heading",
+          "props": {
+            "text": "Your contact details",
+            "size": "l"
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "full-name",
+          "props": {
+            "id": "full-name",
+            "name": "full-name",
+            "label": "Full name",
+            "type": "text",
+            "autocomplete": "name",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": true
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "email-address",
+          "props": {
+            "id": "email-address",
+            "name": "email-address",
+            "label": "Email address",
+            "hint": "We will send your confirmation to this email",
+            "type": "email",
+            "autocomplete": "email",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "telephone-number",
+          "props": {
+            "id": "telephone-number",
+            "name": "telephone-number",
+            "label": "Telephone number",
+            "hint": "Include the country code if outside the UK",
+            "type": "tel",
+            "autocomplete": "tel",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        }
+      ],
+      "nextPage": "check-your-answers",
+      "previousPage": "aircraft-details"
+    },
+    "check-your-answers": {
+      "id": "check-your-answers",
+      "title": "Check your answers",
+      "components": [
+        {
+          "type": "heading",
+          "id": "cya-heading",
+          "props": {
+            "text": "Check your answers before submitting",
+            "size": "l"
+          }
+        },
+        {
+          "type": "paragraph",
+          "id": "cya-intro",
+          "props": {
+            "text": "Make sure the details you have given are correct. You will not be able to change them after you submit."
+          }
+        }
+      ],
+      "nextPage": "confirmation",
+      "previousPage": "contact-details"
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Application submitted",
+      "components": [
+        {
+          "type": "heading",
+          "id": "confirmation-heading",
+          "props": {
+            "text": "Application submitted",
+            "size": "l"
+          }
+        },
+        {
+          "type": "insetText",
+          "id": "confirmation-inset",
+          "props": {
+            "text": "We have received your application to register an aircraft. Your reference number is ABC12345."
+          }
+        },
+        {
+          "type": "paragraph",
+          "id": "confirmation-next",
+          "props": {
+            "text": "We will email you within 10 working days with the outcome and, if approved, your UK registration mark."
+          }
+        }
+      ],
+      "previousPage": "check-your-answers"
+    }
+  },
+  "checkYourAnswersPage": "check-your-answers",
+  "completionPage": "confirmation"
+}

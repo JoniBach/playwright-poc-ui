@@ -179,6 +179,15 @@
       "department": "HM Courts & Tribunals Service (HMCTS)",
       "departmentSlug": "hmcts",
       "enabled": true
+    },
+    {
+      "id": "register-a-plane",
+      "name": "Register a plane",
+      "description": "Register an aircraft with the UK civil aircraft registry to obtain an official registration mark.",
+      "slug": "register-a-plane",
+      "department": "Civil Aviation Authority",
+      "departmentSlug": "civil-aviation-authority",
+      "enabled": true
     }
   ]
 }
