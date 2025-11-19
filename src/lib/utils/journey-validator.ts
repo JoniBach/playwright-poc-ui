@@ -71,6 +71,23 @@ export function validateJourney(journey: unknown, journeyId?: string): Validatio
 					suggestion: 'Check component props match the expected schema for this component type'
 				});
 			}
+			
+			// Check for duplicate title in heading components
+			if (component.type === 'heading' && page.title) {
+				const props = component.props as any;
+				const headingText = props?.text || props?.content;
+				if (headingText && headingText === page.title) {
+					errors.push({
+						type: 'logic',
+						severity: 'error',
+						journeyId,
+						pageId,
+						componentIndex: index,
+						message: `Heading component duplicates the page title "${page.title}". The page title is automatically rendered as an <h1> by GovUKPage, so this heading component creates duplicate <h1> elements.`,
+						suggestion: 'Remove this heading component or change its text to be different from the page title'
+					});
+				}
+			}
 		});
 		
 		// Validate page references

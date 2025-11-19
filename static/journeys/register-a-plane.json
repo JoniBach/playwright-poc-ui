@@ -53,14 +53,6 @@
       "title": "Who is registering the aircraft?",
       "components": [
         {
-          "type": "heading",
-          "id": "applicant-type-heading",
-          "props": {
-            "text": "Who is registering the aircraft?",
-            "size": "l"
-          }
-        },
-        {
           "type": "radios",
           "id": "applicant-type-field",
           "props": {
@@ -90,14 +82,6 @@
       "id": "aircraft-details",
       "title": "Enter aircraft details",
       "components": [
-        {
-          "type": "heading",
-          "id": "aircraft-details-heading",
-          "props": {
-            "text": "Enter aircraft details",
-            "size": "l"
-          }
-        },
         {
           "type": "textInput",
           "id": "aircraft-manufacturer",
@@ -152,14 +136,6 @@
       "id": "contact-details",
       "title": "Your contact details",
       "components": [
-        {
-          "type": "heading",
-          "id": "contact-details-heading",
-          "props": {
-            "text": "Your contact details",
-            "size": "l"
-          }
-        },
         {
           "type": "textInput",
           "id": "full-name",
@@ -238,14 +214,6 @@
       "id": "confirmation",
       "title": "Application submitted",
       "components": [
-        {
-          "type": "heading",
-          "id": "confirmation-heading",
-          "props": {
-            "text": "Application submitted",
-            "size": "l"
-          }
-        },
         {
           "type": "insetText",
           "id": "confirmation-inset",
