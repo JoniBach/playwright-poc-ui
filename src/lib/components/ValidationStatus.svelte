@@ -10,56 +10,46 @@
 
 	onMount(async () => {
 		try {
-			// Load all journey files
-			const journeyFiles = [
-				'passport-apply',
-				'passport-status',
-				'self-assessment',
-				'tax-summary',
-				'universal-credit',
-				'state-pension-forecast',
-				'register-gp',
-				'nhs-medical-records',
-				'join-armed-forces',
-				'service-records',
-				'student-finance',
-				'student-loan-balance',
-				'visa-apply',
-				'visa-status',
-				'probate-apply',
-				'probate-search',
-				'driving-licence-apply',
-				'mot-history',
-				'money-claim',
-				'track-court-case'
-			];
-
-			const journeys: Record<string, unknown> = {};
-
-			// Load each journey file
-			await Promise.all(
-				journeyFiles.map(async (slug) => {
-					try {
-						const response = await fetch(`/journeys/${slug}.json`);
-						if (response.ok) {
-							journeys[slug] = await response.json();
-						}
-					} catch (e) {
-						console.error(`Failed to load ${slug}:`, e);
-					}
-				})
-			);
-
-			// Load journey index
+			// Load journey index first
 			let journeyIndex: unknown = null;
 			try {
 				const response = await fetch('/journeys/index.json');
 				if (response.ok) {
 					journeyIndex = await response.json();
+				} else {
+					throw new Error('Failed to load journey index');
 				}
 			} catch (e) {
 				console.error('Failed to load journey index:', e);
+				error = 'Failed to load journey index';
+				loading = false;
+				return;
 			}
+
+			// Extract journey IDs from the index
+			const journeyIds = (journeyIndex as any).journeys
+				.filter((j: any) => j.enabled)
+				.map((j: any) => j.id);
+
+			console.log(`📋 Loading ${journeyIds.length} journeys from index...`);
+
+			const journeys: Record<string, unknown> = {};
+
+			// Load each journey file dynamically based on index
+			await Promise.all(
+				journeyIds.map(async (id: string) => {
+					try {
+						const response = await fetch(`/journeys/${id}.json`);
+						if (response.ok) {
+							journeys[id] = await response.json();
+						} else {
+							console.warn(`Journey file not found: ${id}.json`);
+						}
+					} catch (e) {
+						console.error(`Failed to load ${id}:`, e);
+					}
+				})
+			);
 
 			// Validate all journeys
 			validationResult = validateAllJourneys(journeys, journeyIndex);

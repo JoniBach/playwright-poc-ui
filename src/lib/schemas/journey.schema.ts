@@ -31,9 +31,27 @@ export const LandingPageSchema = z.object({
 	sections: z.array(LandingPageSectionSchema),
 	startButtonText: z.string().optional(),
 	startButtonHref: z.string()
+		.refine(
+			(href) => {
+				// Must start with /
+				if (!href.startsWith('/')) return false;
+				
+				// Must have format: /{dept}/{journey}/apply
+				const parts = href.split('/').filter(p => p.length > 0);
+				if (parts.length !== 3) return false;
+				
+				// Last part must be 'apply'
+				if (parts[2] !== 'apply') return false;
+				
+				return true;
+			},
+			{
+				message: "startButtonHref must follow format: /{departmentSlug}/{journeySlug}/apply (e.g., '/hmcts/register-a-plea/apply')"
+			}
+		)
 });
 
-// Journey schema
+// Journey schema with cross-validation
 export const JourneySchema = z.object({
 	id: z.string(),
 	name: z.string(),
@@ -42,7 +60,24 @@ export const JourneySchema = z.object({
 	pages: z.record(z.string(), JourneyPageSchema),
 	checkYourAnswersPage: z.string().optional(),
 	completionPage: z.string().optional()
-});
+}).refine(
+	(journey) => {
+		// If landingPage exists, validate that startButtonHref matches journey id
+		if (journey.landingPage) {
+			const href = journey.landingPage.startButtonHref;
+			const parts = href.split('/').filter(p => p.length > 0);
+			
+			// parts[1] should match journey.id (the journey slug)
+			if (parts.length === 3 && parts[1] !== journey.id) {
+				return false;
+			}
+		}
+		return true;
+	},
+	{
+		message: "landingPage.startButtonHref must include the journey id as the slug (second path segment)"
+	}
+);
 
 // Export types inferred from schemas
 export type ComponentConfigJson = z.infer<typeof ComponentConfigSchema>;
