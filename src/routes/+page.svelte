@@ -38,6 +38,11 @@
 			lead={true}
 		/>
 
+		<!-- Validation Status Section -->
+		<ValidationStatus />
+
+		<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+
 		<Heading text="Services" level="l" tag="h2" />
 
 		{#if loading}
@@ -93,8 +98,5 @@
 			<li>Full TypeScript support</li>
 			<li>Svelte 5 with modern runes syntax</li>
 		</ul>
-
-		<!-- Validation Status Section -->
-		<ValidationStatus />
 	{/snippet}
 </GovUKPage>

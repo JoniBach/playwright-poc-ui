@@ -86,9 +86,7 @@
 	}
 </script>
 
-<div class="validation-status govuk-!-margin-top-9">
-	<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
-
+<div class="validation-status govuk-!-margin-top-6 govuk-!-margin-bottom-6">
 	<h2 class="govuk-heading-m">Journey Validation Status</h2>
 
 	{#if loading}
@@ -116,7 +114,7 @@
 			</p>
 		</div>
 
-		<Details summary="View detailed validation results" open={!validationResult.isValid}>
+		<Details summary="View detailed validation results" open={false}>
 			{#snippet children()}
 				<div class="validation-status__details">
 					<!-- Summary Statistics -->
