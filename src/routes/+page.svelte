@@ -3,6 +3,7 @@
 	import GovUKPage from '$lib/components/GovUKPage.svelte';
 	import { Heading, Paragraph, Button } from '$lib/components/govuk';
 	import { loadJourneyIndex } from '$lib/loaders/journey-loader';
+	import ValidationStatus from '$lib/components/ValidationStatus.svelte';
 
 	let journeys = $state<any[]>([]);
 	let loading = $state(true);
@@ -92,5 +93,8 @@
 			<li>Full TypeScript support</li>
 			<li>Svelte 5 with modern runes syntax</li>
 		</ul>
+
+		<!-- Validation Status Section -->
+		<ValidationStatus />
 	{/snippet}
 </GovUKPage>

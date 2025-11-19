@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import GovUKPage from '$lib/components/GovUKPage.svelte';
 	import { componentMap, Breadcrumbs } from '$lib/components/govuk';
 	import { Button } from '$lib/components/govuk';
@@ -21,11 +22,11 @@
 
 	function handleNext() {
 		console.log('handleNext called');
-		console.log('Current data:', journeyStore.currentState.data);
+		console.log('[snapshot] Current data:', untrack(() => journeyStore.currentState.data));
 		const result = journeyStore.goToNextPage();
 		console.log('goToNextPage result:', result);
 		if (!result) {
-			console.log('Validation failed. Errors:', journeyStore.currentState.errors);
+			console.log('[snapshot] Validation failed. Errors:', untrack(() => journeyStore.currentState.errors));
 		}
 	}
 

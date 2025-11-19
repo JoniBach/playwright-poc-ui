@@ -229,6 +229,144 @@
       "nextPage": "check-answers",
       "previousPage": "contact-details",
       "validation": "address"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers",
+      "components": [
+        {
+          "type": "heading",
+          "props": {
+            "text": "Check your answers before submitting your application",
+            "level": "l",
+            "tag": "h1"
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Personal details",
+            "rows": [
+              {
+                "key": "First name",
+                "value": "{{firstName}}"
+              },
+              {
+                "key": "Last name",
+                "value": "{{lastName}}"
+              },
+              {
+                "key": "Date of birth",
+                "value": "{{dateOfBirth}}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Contact details",
+            "rows": [
+              {
+                "key": "Email address",
+                "value": "{{email}}"
+              },
+              {
+                "key": "Phone number",
+                "value": "{{phone}}"
+              },
+              {
+                "key": "Contact preference",
+                "value": "{{contactPreference}}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "summaryList",
+          "props": {
+            "card": true,
+            "title": "Address",
+            "rows": [
+              {
+                "key": "Address",
+                "value": "{{addressLine1}}, {{addressLine2}}, {{city}}, {{postcode}}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "Now submit your application",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct."
+          }
+        }
+      ],
+      "nextPage": "confirmation",
+      "previousPage": "address"
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Application complete",
+      "components": [
+        {
+          "type": "panel",
+          "props": {
+            "title": "Application submitted",
+            "content": "Your reference number is HDJ2123F"
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "What happens next",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "We've sent you a confirmation email."
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Your passport should arrive within 3 weeks. We'll send you an email if we need any more information."
+          }
+        },
+        {
+          "type": "heading",
+          "props": {
+            "text": "If you need to contact us",
+            "level": "m",
+            "tag": "h2"
+          }
+        },
+        {
+          "type": "paragraph",
+          "props": {
+            "text": "Call the Passport Adviceline on 0300 222 0000 if you need help with your application."
+          }
+        },
+        {
+          "type": "insetText",
+          "props": {
+            "text": "Lines are open Monday to Friday, 8am to 8pm, and Saturday, Sunday and public holidays, 9am to 5:30pm."
+          }
+        }
+      ]
     }
   }
 }
