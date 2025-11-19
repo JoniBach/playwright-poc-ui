@@ -192,7 +192,7 @@
     {
       "id": "register-a-helicopter",
       "name": "Register a helicopter",
-      "description": "Register a civil helicopter on the UK aircraft register for legal operation.",
+      "description": "Register a civilian helicopter on the UK aircraft register for legal operation.",
       "slug": "register-a-helicopter",
       "department": "Civil Aviation Authority",
       "departmentSlug": "civil-aviation-authority",

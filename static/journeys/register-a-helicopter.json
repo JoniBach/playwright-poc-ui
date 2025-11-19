@@ -3,20 +3,25 @@
   "name": "Register a helicopter",
   "landingPage": {
     "title": "Register a helicopter",
-    "lead": "Use this service to register a civilian helicopter based in the UK.",
+    "lead": "Use this service to register a civil helicopter for use in the UK.",
     "sections": [
       {
         "type": "heading",
-        "content": "What you can do",
+        "content": "Before you start",
         "level": "m"
       },
       {
         "type": "paragraph",
-        "content": "You can use this service to apply for a new UK registration mark for a civilian helicopter."
+        "content": "You can use this service to register a helicopter that is based in the UK and used for civil (non-military) purposes."
       },
       {
-        "type": "paragraph",
-        "content": "You cannot use this service to register military aircraft or drones."
+        "type": "list",
+        "content": [
+          "you must be the owner or have permission from the owner",
+          "you need basic details about the helicopter",
+          "registration usually takes less than 10 minutes"
+        ],
+        "listType": "bullet"
       },
       {
         "type": "heading",
@@ -26,84 +31,27 @@
       {
         "type": "list",
         "content": [
-          "Helicopter manufacturer and model",
-          "Serial number",
-          "Your name and contact details"
+          "helicopter manufacturer and model",
+          "helicopter serial number (if known)",
+          "your contact details"
         ],
         "listType": "bullet"
-      },
-      {
-        "type": "heading",
-        "content": "How long it takes",
-        "level": "m"
-      },
-      {
-        "type": "paragraph",
-        "content": "The application takes about 5 minutes to complete."
       }
     ],
     "startButtonText": "Start now",
     "startButtonHref": "/civil-aviation-authority/register-a-helicopter/apply"
   },
-  "startPage": "applicant-details",
+  "startPage": "start",
   "pages": {
-    "applicant-details": {
-      "id": "applicant-details",
-      "title": "Your details",
+    "start": {
+      "id": "start",
+      "title": "Register a helicopter",
       "components": [
         {
           "type": "paragraph",
-          "id": "applicant-details-intro",
+          "id": "start-intro",
           "props": {
-            "text": "Tell us who is responsible for this registration."
-          }
-        },
-        {
-          "type": "textInput",
-          "id": "applicant-full-name",
-          "props": {
-            "id": "applicant-full-name",
-            "name": "applicantFullName",
-            "label": "Full name",
-            "hint": "Enter your full legal name.",
-            "type": "text",
-            "autocomplete": "name",
-            "width": "full",
-            "disabled": false,
-            "readonly": false,
-            "spellcheck": true
-          }
-        },
-        {
-          "type": "textInput",
-          "id": "applicant-email",
-          "props": {
-            "id": "applicant-email",
-            "name": "applicantEmail",
-            "label": "Email address",
-            "hint": "We’ll use this to send you confirmation of your registration.",
-            "type": "email",
-            "autocomplete": "email",
-            "width": "full",
-            "disabled": false,
-            "readonly": false,
-            "spellcheck": false
-          }
-        },
-        {
-          "type": "textInput",
-          "id": "applicant-phone",
-          "props": {
-            "id": "applicant-phone",
-            "name": "applicantPhone",
-            "label": "Telephone number",
-            "hint": "Include the country code if outside the UK.",
-            "type": "tel",
-            "autocomplete": "tel",
-            "width": "20",
-            "disabled": false,
-            "readonly": false,
-            "spellcheck": false
+            "text": "Answer a few quick questions to register a helicopter in the UK."
           }
         }
       ],
@@ -114,15 +62,24 @@
       "title": "Helicopter details",
       "components": [
         {
-          "type": "textInput",
-          "id": "helicopter-manufacturer",
+          "type": "heading",
+          "id": "helicopter-details-heading",
           "props": {
-            "id": "helicopter-manufacturer",
-            "name": "helicopterManufacturer",
+            "text": "Enter helicopter details",
+            "size": "l"
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "helicopter-make",
+          "props": {
+            "id": "helicopter-make",
+            "name": "helicopterMake",
             "label": "Manufacturer",
-            "hint": "For example, Airbus, Leonardo, Bell.",
+            "hint": "For example, Airbus, Bell, Leonardo",
             "type": "text",
-            "width": "full",
+            "autocomplete": "off",
+            "width": "20",
             "disabled": false,
             "readonly": false,
             "spellcheck": true
@@ -135,8 +92,57 @@
             "id": "helicopter-model",
             "name": "helicopterModel",
             "label": "Model",
-            "hint": "For example, H145, AW109.",
+            "hint": "For example, H145, 407, AW109",
             "type": "text",
+            "autocomplete": "off",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": true
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "helicopter-serial",
+          "props": {
+            "id": "helicopter-serial",
+            "name": "helicopterSerial",
+            "label": "Serial number (if known)",
+            "hint": "You can leave this blank if you do not know it",
+            "type": "text",
+            "autocomplete": "off",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        }
+      ],
+      "nextPage": "owner-details",
+      "previousPage": "start"
+    },
+    "owner-details": {
+      "id": "owner-details",
+      "title": "Owner details",
+      "components": [
+        {
+          "type": "heading",
+          "id": "owner-details-heading",
+          "props": {
+            "text": "Who owns the helicopter?",
+            "size": "l"
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "owner-full-name",
+          "props": {
+            "id": "owner-full-name",
+            "name": "ownerFullName",
+            "label": "Full name",
+            "hint": "Enter the name of the person or organisation that owns the helicopter",
+            "type": "text",
+            "autocomplete": "name",
             "width": "full",
             "disabled": false,
             "readonly": false,
@@ -145,13 +151,30 @@
         },
         {
           "type": "textInput",
-          "id": "helicopter-serial-number",
+          "id": "owner-email",
           "props": {
-            "id": "helicopter-serial-number",
-            "name": "helicopterSerialNumber",
-            "label": "Serial number",
-            "hint": "You can find this on the helicopter’s data plate or documents.",
-            "type": "text",
+            "id": "owner-email",
+            "name": "ownerEmail",
+            "label": "Email address",
+            "hint": "We’ll use this to send your registration confirmation",
+            "type": "email",
+            "autocomplete": "email",
+            "width": "full",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "owner-phone",
+          "props": {
+            "id": "owner-phone",
+            "name": "ownerPhone",
+            "label": "Telephone number",
+            "hint": "Enter a UK telephone number, for example 07700 900123",
+            "type": "tel",
+            "autocomplete": "tel",
             "width": "20",
             "disabled": false,
             "readonly": false,
@@ -159,93 +182,54 @@
           }
         }
       ],
-      "nextPage": "based-in-uk",
-      "previousPage": "applicant-details"
-    },
-    "based-in-uk": {
-      "id": "based-in-uk",
-      "title": "Is the helicopter based in the UK?",
-      "components": [
-        {
-          "type": "radios",
-          "id": "based-in-uk-radios",
-          "props": {
-            "id": "based-in-uk-radios",
-            "name": "basedInUk",
-            "legend": "Where is the helicopter normally based?",
-            "hint": "Select yes if it is mainly operated from the UK.",
-            "items": [
-              {
-                "value": "yes",
-                "text": "Yes, it is mainly based in the UK",
-                "checked": false,
-                "disabled": false
-              },
-              {
-                "value": "no",
-                "text": "No, it is mainly based outside the UK",
-                "checked": false,
-                "disabled": false
-              }
-            ]
-          }
-        }
-      ],
-      "nextPage": "check-answers",
+      "nextPage": "check-your-answers",
       "previousPage": "helicopter-details"
     },
-    "check-answers": {
-      "id": "check-answers",
+    "check-your-answers": {
+      "id": "check-your-answers",
       "title": "Check your answers",
       "components": [
         {
           "type": "heading",
-          "id": "check-answers-heading",
+          "id": "cya-heading",
           "props": {
-            "text": "Check your answers before submitting",
-            "size": "l"
+            "text": "Check your answers before you submit",
+            "size": "xl"
           }
         },
         {
           "type": "paragraph",
-          "id": "check-answers-intro",
+          "id": "cya-intro",
           "props": {
             "text": "Make sure the details you have given are correct. You can go back to change anything."
           }
         }
       ],
       "nextPage": "confirmation",
-      "previousPage": "based-in-uk"
+      "previousPage": "owner-details"
     },
     "confirmation": {
       "id": "confirmation",
-      "title": "Application submitted",
+      "title": "Registration submitted",
       "components": [
         {
           "type": "insetText",
           "id": "confirmation-reference",
           "props": {
-            "text": "We’ve received your application to register a helicopter."
+            "text": "We’ve received your helicopter registration. We’ll email you a confirmation and registration reference."
           }
         },
         {
           "type": "paragraph",
-          "id": "confirmation-next-steps",
+          "id": "confirmation-next",
           "props": {
-            "text": "We’ll email you within 5 working days to confirm your registration or ask for more information."
-          }
-        },
-        {
-          "type": "paragraph",
-          "id": "confirmation-contact",
-          "props": {
-            "text": "If you do not receive an email within 5 working days, contact the Civil Aviation Authority with your name and helicopter serial number."
+            "text": "If we need more information, we’ll contact you using the details you provided."
           }
         }
       ],
-      "previousPage": "check-answers"
+      "previousPage": "check-your-answers"
     }
   },
-  "checkYourAnswersPage": "check-answers",
+  "checkYourAnswersPage": "check-your-answers",
   "completionPage": "confirmation"
 }
