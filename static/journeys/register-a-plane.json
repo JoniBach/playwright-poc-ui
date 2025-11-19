@@ -96,6 +96,16 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": true
+          },
+          "validation": {
+            "required": true,
+            "minLength": 2,
+            "maxLength": 100,
+            "errorMessages": {
+              "required": "Enter the aircraft manufacturer",
+              "minLength": "Manufacturer must be at least 2 characters",
+              "maxLength": "Manufacturer must be 100 characters or less"
+            }
           }
         },
         {
@@ -111,6 +121,14 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": true
+          },
+          "validation": {
+            "required": true,
+            "maxLength": 50,
+            "errorMessages": {
+              "required": "Enter the aircraft model",
+              "maxLength": "Model must be 50 characters or less"
+            }
           }
         },
         {
@@ -126,6 +144,14 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": false
+          },
+          "validation": {
+            "required": true,
+            "maxLength": 50,
+            "errorMessages": {
+              "required": "Enter the aircraft serial number",
+              "maxLength": "Serial number must be 50 characters or less"
+            }
           }
         }
       ],
@@ -165,6 +191,16 @@
             "disabled": false,
             "readonly": false,
             "spellcheck": false
+          },
+          "validation": {
+            "required": true,
+            "pattern": "email",
+            "maxLength": 255,
+            "errorMessages": {
+              "required": "Enter your email address",
+              "pattern": "Enter an email address in the correct format, like name@example.com",
+              "maxLength": "Email address must be 255 characters or less"
+            }
           }
         },
         {

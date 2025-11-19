@@ -12,7 +12,10 @@
 	const departmentSlug = $derived($page.params.department);
 	const slug = $derived($page.params.slug);
 	const currentPageId = $derived(journeyStore.currentPageId);
-	const isCheckAnswersPage = $derived(currentPageId === 'check-answers');
+	const isCheckAnswersPage = $derived(
+		currentPageId === 'check-answers' || 
+		currentPageId === 'check-your-answers'
+	);
 	const isCompleted = $derived(journeyStore.currentState.completed);
 
 	let loading = $state(true);
