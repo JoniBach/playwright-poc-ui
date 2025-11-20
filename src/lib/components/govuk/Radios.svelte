@@ -11,7 +11,8 @@
 		legend: string;
 		hint?: string;
 		error?: string;
-		items: RadioOption[];
+		items?: RadioOption[];
+		options?: RadioOption[]; // Backward compatibility
 		value?: string;
 		inline?: boolean;
 		onchange?: (e: Event) => void;
@@ -24,10 +25,14 @@
 		hint,
 		error,
 		items,
+		options,
 		value = '',
 		inline = false,
 		onchange
 	}: Props = $props();
+
+	// Support both 'items' and 'options' props
+	const radioItems = $derived(items || options || []);
 </script>
 
 <div class="govuk-form-group {error ? 'govuk-form-group--error' : ''}">
@@ -49,7 +54,7 @@
 			</p>
 		{/if}
 		<div class="govuk-radios {inline ? 'govuk-radios--inline' : ''}" data-module="govuk-radios">
-			{#each items as option, index}
+			{#each radioItems as option, index}
 				<div class="govuk-radios__item">
 					<input
 						class="govuk-radios__input"

@@ -11,7 +11,8 @@
 		legend: string;
 		hint?: string;
 		error?: string;
-		options: CheckboxOption[];
+		items?: CheckboxOption[];
+		options?: CheckboxOption[]; // Backward compatibility
 		values?: string[];
 	}
 
@@ -21,9 +22,13 @@
 		legend,
 		hint,
 		error,
+		items,
 		options,
 		values = $bindable([])
 	}: Props = $props();
+
+	// Support both 'items' and 'options' props
+	const checkboxItems = $derived(items || options || []);
 </script>
 
 <div class="govuk-form-group {error ? 'govuk-form-group--error' : ''}">
@@ -45,7 +50,7 @@
 			</p>
 		{/if}
 		<div class="govuk-checkboxes" data-module="govuk-checkboxes">
-			{#each options as option, index}
+			{#each checkboxItems as option, index}
 				<div class="govuk-checkboxes__item">
 					<input
 						class="govuk-checkboxes__input"

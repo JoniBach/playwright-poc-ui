@@ -3,6 +3,8 @@ import ButtonComponent from './Button.svelte';
 import HeadingComponent from './Heading.svelte';
 import ParagraphComponent from './Paragraph.svelte';
 import TextInputComponent from './TextInput.svelte';
+import EmailInputComponent from './EmailInput.svelte';
+import TelInputComponent from './TelInput.svelte';
 import TextareaComponent from './Textarea.svelte';
 import RadiosComponent from './Radios.svelte';
 import CheckboxesComponent from './Checkboxes.svelte';
@@ -12,6 +14,7 @@ import PanelComponent from './Panel.svelte';
 import WarningTextComponent from './WarningText.svelte';
 import InsetTextComponent from './InsetText.svelte';
 import DetailsComponent from './Details.svelte';
+import ListComponent from './List.svelte';
 import TableComponent from './Table.svelte';
 import TagComponent from './Tag.svelte';
 import SummaryListComponent from './SummaryList.svelte';
@@ -23,6 +26,8 @@ export { ButtonComponent as Button };
 export { HeadingComponent as Heading };
 export { ParagraphComponent as Paragraph };
 export { TextInputComponent as TextInput };
+export { EmailInputComponent as EmailInput };
+export { TelInputComponent as TelInput };
 export { TextareaComponent as Textarea };
 export { RadiosComponent as Radios };
 export { CheckboxesComponent as Checkboxes };
@@ -32,6 +37,7 @@ export { PanelComponent as Panel };
 export { WarningTextComponent as WarningText };
 export { InsetTextComponent as InsetText };
 export { DetailsComponent as Details };
+export { ListComponent as List };
 export { TableComponent as Table };
 export { TagComponent as Tag };
 export { SummaryListComponent as SummaryList };
@@ -44,6 +50,8 @@ export const componentMap = {
 	heading: HeadingComponent,
 	paragraph: ParagraphComponent,
 	textInput: TextInputComponent,
+	email: EmailInputComponent,
+	tel: TelInputComponent,
 	textarea: TextareaComponent,
 	radios: RadiosComponent,
 	checkboxes: CheckboxesComponent,
@@ -53,6 +61,7 @@ export const componentMap = {
 	warningText: WarningTextComponent,
 	insetText: InsetTextComponent,
 	details: DetailsComponent,
+	list: ListComponent,
 	table: TableComponent,
 	tag: TagComponent,
 	summaryList: SummaryListComponent,

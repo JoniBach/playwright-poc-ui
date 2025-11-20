@@ -131,7 +131,7 @@
 					{@const currentError = fieldId ? journeyStore.getError(fieldId) : undefined}
 
 					<div style="margin-bottom: 1.5rem;">
-						{#if fieldId && (config.type === 'textInput' || config.type === 'textarea')}
+						{#if fieldId && (config.type === 'textInput' || config.type === 'email' || config.type === 'tel' || config.type === 'textarea')}
 							<Component
 								{...config.props}
 								value={currentValue || ''}

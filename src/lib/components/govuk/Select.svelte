@@ -11,12 +11,16 @@
 		label: string;
 		hint?: string;
 		error?: string;
-		items: SelectOption[];
+		items?: SelectOption[];
+		options?: SelectOption[]; // Backward compatibility
 		value?: string;
 		onchange?: (e: Event) => void;
 	}
 
-	let { id, name, label, hint, error, items, value = $bindable(''), onchange }: Props = $props();
+	let { id, name, label, hint, error, items, options, value = $bindable(''), onchange }: Props = $props();
+	
+	// Support both 'items' and 'options' props
+	const selectItems = $derived(items || options || []);
 	
 	function handleChange(e: Event) {
 		if (onchange) {
@@ -50,7 +54,7 @@
 			.filter(Boolean)
 			.join(' ') || undefined}
 	>
-		{#each items as option}
+		{#each selectItems as option}
 			<option value={option.value} selected={option.selected}>
 				{option.text}
 			</option>
