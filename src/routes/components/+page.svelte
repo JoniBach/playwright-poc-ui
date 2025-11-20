@@ -215,6 +215,11 @@
 			]}
 		/>
 
+		<!-- Form Submit Button -->
+		<div style="margin-top: 2rem;">
+			<Button text="Continue" type="submit" />
+		</div>
+
 		<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
 		<!-- DISPLAY COMPONENTS -->
@@ -322,15 +327,11 @@
 		<Heading text="20. Tag Component" level="l" tag="h2" />
 		<Paragraph text="Status tags with different colours:" />
 		<div style="display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;">
-			<Tag text="Completed" colour="green" />
-			<Tag text="In progress" colour="blue" />
-			<Tag text="Delayed" colour="red" />
-			<Tag text="New" colour="turquoise" />
 			<Tag text="Inactive" colour="grey" />
+			<Tag text="New" colour="blue" />
+			<Tag text="Active" colour="green" />
 			<Tag text="Pending" colour="yellow" />
-			<Tag text="Rejected" colour="orange" />
-			<Tag text="Sent" colour="purple" />
-			<Tag text="Draft" colour="pink" />
+			<Tag text="Rejected" colour="red" />
 		</div>
 
 		<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />

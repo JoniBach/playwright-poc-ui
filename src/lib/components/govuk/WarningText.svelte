@@ -10,7 +10,7 @@
 <div class="govuk-warning-text">
 	<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
 	<strong class="govuk-warning-text__text">
-		<span class="govuk-visually-hidden">{iconFallbackText}</span>
+		<span class="govuk-warning-text__assistive">{iconFallbackText}</span>
 		{text}
 	</strong>
 </div>
