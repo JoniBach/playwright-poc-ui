@@ -1,0 +1,472 @@
+{
+  "id": "register-a-company",
+  "name": "Register a company",
+  "landingPage": {
+    "title": "Register a company",
+    "lead": "Use this service to register a private limited company with Companies House.",
+    "sections": [
+      {
+        "type": "heading",
+        "content": "What you’ll need",
+        "level": "m",
+        "summary": "null"
+      },
+      {
+        "type": "list",
+        "content": [
+          "a unique company name",
+          "the company’s registered office address",
+          "details of at least one director",
+          "details of at least one shareholder and their shares",
+          "an email address we can contact you on"
+        ],
+        "summary": "null",
+        "listType": "bullet"
+      },
+      {
+        "type": "heading",
+        "content": "Before you start",
+        "level": "m",
+        "summary": "null"
+      },
+      {
+        "type": "paragraph",
+        "content": "You should check your proposed company name is available and does not contain any sensitive or offensive words.",
+        "summary": "null"
+      },
+      {
+        "type": "insetText",
+        "content": "You can save and come back later at any time.",
+        "summary": "null"
+      }
+    ],
+    "startButtonText": "Start now",
+    "startButtonHref": "/department-for-business-and-trade/register-a-company/apply"
+  },
+  "startPage": "start",
+  "pages": {
+    "start": {
+      "id": "start",
+      "title": "Before you start",
+      "components": [
+        {
+          "type": "paragraph",
+          "id": "start-intro",
+          "props": {
+            "text": "This service will guide you through registering a new private limited company with Companies House."
+          }
+        },
+        {
+          "type": "paragraph",
+          "id": "start-what-you-need",
+          "props": {
+            "text": "You’ll be asked questions about the company, its registered office, directors and shareholders."
+          }
+        }
+      ],
+      "nextPage": "company-name",
+      "previousPage": "null"
+    },
+    "company-name": {
+      "id": "company-name",
+      "title": "Enter the company name",
+      "components": [
+        {
+          "type": "heading",
+          "id": "company-name-heading",
+          "props": {
+            "text": "What is the company’s proposed name?",
+            "size": "l"
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "company-name-input",
+          "props": {
+            "id": "company-name-input",
+            "name": "companyName",
+            "label": "Company name",
+            "hint": "This must end with “Limited” or “Ltd” and must not be the same as an existing company name.",
+            "type": "text",
+            "autocomplete": "organization",
+            "width": "full",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": true
+          }
+        }
+      ],
+      "nextPage": "registered-office",
+      "previousPage": "start"
+    },
+    "registered-office": {
+      "id": "registered-office",
+      "title": "Registered office address",
+      "components": [
+        {
+          "type": "heading",
+          "id": "registered-office-heading",
+          "props": {
+            "text": "What is the company’s registered office address?",
+            "size": "l"
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "registered-office-line1",
+          "props": {
+            "id": "registered-office-line1",
+            "name": "registeredOfficeLine1",
+            "label": "Address line 1",
+            "hint": "Building and street",
+            "type": "text",
+            "autocomplete": "address-line1",
+            "width": "full",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": true
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "registered-office-line2",
+          "props": {
+            "id": "registered-office-line2",
+            "name": "registeredOfficeLine2",
+            "label": "Address line 2 (optional)",
+            "type": "text",
+            "autocomplete": "address-line2",
+            "width": "full",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": true
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "registered-office-town",
+          "props": {
+            "id": "registered-office-town",
+            "name": "registeredOfficeTown",
+            "label": "Town or city",
+            "type": "text",
+            "autocomplete": "address-level2",
+            "width": "full",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": true
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "registered-office-county",
+          "props": {
+            "id": "registered-office-county",
+            "name": "registeredOfficeCounty",
+            "label": "County (optional)",
+            "type": "text",
+            "width": "full",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": true
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "registered-office-postcode",
+          "props": {
+            "id": "registered-office-postcode",
+            "name": "registeredOfficePostcode",
+            "label": "Postcode",
+            "type": "text",
+            "autocomplete": "postal-code",
+            "width": "10",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "insetText",
+          "id": "registered-office-inset",
+          "props": {
+            "text": "The registered office address will appear on the public register."
+          }
+        }
+      ],
+      "nextPage": "director-details",
+      "previousPage": "company-name"
+    },
+    "director-details": {
+      "id": "director-details",
+      "title": "Director details",
+      "components": [
+        {
+          "type": "heading",
+          "id": "director-details-heading",
+          "props": {
+            "text": "Director’s details",
+            "size": "l"
+          }
+        },
+        {
+          "type": "paragraph",
+          "id": "director-details-intro",
+          "props": {
+            "text": "You must provide details for at least one director."
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "director-first-name",
+          "props": {
+            "id": "director-first-name",
+            "name": "directorFirstName",
+            "label": "First name",
+            "hint": "Enter the director’s given name.",
+            "type": "text",
+            "autocomplete": "given-name",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "director-last-name",
+          "props": {
+            "id": "director-last-name",
+            "name": "directorLastName",
+            "label": "Last name",
+            "hint": "Enter the director’s family name.",
+            "type": "text",
+            "autocomplete": "family-name",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "director-email",
+          "props": {
+            "id": "director-email",
+            "name": "directorEmail",
+            "label": "Email address",
+            "hint": "We’ll use this to contact the director if we need more information.",
+            "type": "email",
+            "autocomplete": "email",
+            "width": "full",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "director-telephone",
+          "props": {
+            "id": "director-telephone",
+            "name": "directorTelephone",
+            "label": "Telephone number (optional)",
+            "type": "tel",
+            "autocomplete": "tel",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        }
+      ],
+      "nextPage": "shareholder-details",
+      "previousPage": "registered-office"
+    },
+    "shareholder-details": {
+      "id": "shareholder-details",
+      "title": "Shareholder details",
+      "components": [
+        {
+          "type": "heading",
+          "id": "shareholder-heading",
+          "props": {
+            "text": "Shareholder’s details",
+            "size": "l"
+          }
+        },
+        {
+          "type": "paragraph",
+          "id": "shareholder-intro",
+          "props": {
+            "text": "You must have at least one shareholder. This can be the same person as the director."
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "shareholder-first-name",
+          "props": {
+            "id": "shareholder-first-name",
+            "name": "shareholderFirstName",
+            "label": "First name",
+            "type": "text",
+            "autocomplete": "given-name",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "shareholder-last-name",
+          "props": {
+            "id": "shareholder-last-name",
+            "name": "shareholderLastName",
+            "label": "Last name",
+            "type": "text",
+            "autocomplete": "family-name",
+            "width": "20",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "shareholder-shares",
+          "props": {
+            "id": "shareholder-shares",
+            "name": "shareholderShares",
+            "label": "Number of shares",
+            "hint": "Enter how many shares this shareholder will hold.",
+            "type": "number",
+            "width": "10",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "shareholder-share-value",
+          "props": {
+            "id": "shareholder-share-value",
+            "name": "shareholderShareValue",
+            "label": "Value of each share (£)",
+            "hint": "For example, 1",
+            "type": "number",
+            "width": "10",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        }
+      ],
+      "nextPage": "contact-details",
+      "previousPage": "director-details"
+    },
+    "contact-details": {
+      "id": "contact-details",
+      "title": "Your contact details",
+      "components": [
+        {
+          "type": "paragraph",
+          "id": "contact-details-intro",
+          "props": {
+            "text": "We’ll use these details to send confirmation and contact you about this application."
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "contact-email",
+          "props": {
+            "id": "contact-email",
+            "name": "contactEmail",
+            "label": "Email address",
+            "hint": "We’ll send confirmation to this email address.",
+            "type": "email",
+            "autocomplete": "email",
+            "width": "full",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "contact-name",
+          "props": {
+            "id": "contact-name",
+            "name": "contactName",
+            "label": "Full name",
+            "hint": "The person we should contact about this application.",
+            "type": "text",
+            "autocomplete": "name",
+            "width": "full",
+            "disabled": false,
+            "readonly": false,
+            "spellcheck": false
+          }
+        }
+      ],
+      "nextPage": "check-answers",
+      "previousPage": "shareholder-details"
+    },
+    "check-answers": {
+      "id": "check-answers",
+      "title": "Check your answers",
+      "components": [
+        {
+          "type": "heading",
+          "id": "check-answers-heading",
+          "props": {
+            "text": "Check your answers before you submit",
+            "size": "l"
+          }
+        },
+        {
+          "type": "paragraph",
+          "id": "check-answers-text",
+          "props": {
+            "text": "Make sure the information you have given is correct. You can go back and change any answers."
+          }
+        }
+      ],
+      "nextPage": "confirmation",
+      "previousPage": "contact-details"
+    },
+    "confirmation": {
+      "id": "confirmation",
+      "title": "Application submitted",
+      "components": [
+        {
+          "type": "heading",
+          "id": "confirmation-heading",
+          "props": {
+            "text": "Your application has been submitted",
+            "size": "l"
+          }
+        },
+        {
+          "type": "insetText",
+          "id": "confirmation-reference",
+          "props": {
+            "text": "We’ve sent a confirmation email with your application reference number."
+          }
+        },
+        {
+          "type": "paragraph",
+          "id": "confirmation-next-steps",
+          "props": {
+            "text": "Companies House will review your application. You’ll get an email when your company has been registered, usually within 24 hours."
+          }
+        }
+      ],
+      "nextPage": "null",
+      "previousPage": "check-answers"
+    }
+  },
+  "checkYourAnswersPage": "check-answers",
+  "completionPage": "confirmation"
+}

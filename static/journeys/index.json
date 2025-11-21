@@ -197,6 +197,15 @@
       "department": "Civil Aviation Authority",
       "departmentSlug": "civil-aviation-authority",
       "enabled": true
+    },
+    {
+      "id": "register-a-company",
+      "name": "Register a company",
+      "description": "Register a new company with Companies House so it can legally operate in the UK.",
+      "slug": "register-a-company",
+      "department": "Department for Business and Trade",
+      "departmentSlug": "department-for-business-and-trade",
+      "enabled": true
     }
   ]
 }
